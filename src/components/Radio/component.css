@@ -1,0 +1,270 @@
+/* Figma: Radio 395:10973 — 16px control, 8px label gap, SM/Normal label
+ * Interaction: https://ant.design/components/radio (Radio.Group value / defaultValue)
+ * Checked: Figma 395:11364 — solid primary fill + white dot (8px)
+ */
+
+.ds-radio.ant-radio-wrapper {
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+  margin-inline-end: 0;
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+}
+
+.ds-radio.ant-radio-wrapper::after {
+  display: none;
+}
+
+.ds-radio .ant-radio {
+  align-self: center;
+  top: 0;
+}
+
+/* Ant hover/focus ring pseudo on .ant-radio — not the inner dot */
+.ds-radio .ant-radio::after {
+  display: none !important;
+  content: none !important;
+}
+
+.ds-radio .ant-radio + span,
+.ds-radio .ant-radio-label {
+  padding-inline: 0;
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+}
+
+/* —— Unchecked —— */
+.ds-radio .ant-radio-inner {
+  border-color: var(--color-border-default, #d9d9d9);
+  background-color: var(--color-system-control-bg-unselected, #fff);
+}
+
+/* —— Checked (Figma 395:11364) — colors only; size/transform from Ant radioSize/dotSize tokens —— */
+.ds-radio.ant-radio-wrapper-checked .ant-radio-inner,
+.ds-radio .ant-radio-checked .ant-radio-inner {
+  border-color: var(--color-primary-default, #00636a) !important;
+  background-color: var(--color-primary-default, #00636a) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.ds-radio.ant-radio-wrapper-checked .ant-radio-inner::after,
+.ds-radio .ant-radio-checked .ant-radio-inner::after {
+  background-color: var(--color-text-white, #fff) !important;
+}
+
+/* —— Hover —— */
+.ds-radio.ant-radio-wrapper:not(.ant-radio-wrapper-disabled):hover
+  .ant-radio:not(.ant-radio-disabled):not(.ant-radio-checked)
+  .ant-radio-inner {
+  border-color: var(--color-primary-hover, #008585);
+}
+
+.ds-radio.ant-radio-wrapper:not(.ant-radio-wrapper-disabled):hover
+  .ant-radio-checked:not(.ant-radio-disabled)
+  .ant-radio-inner {
+  border-color: var(--color-primary-hover, #008585) !important;
+  background-color: var(--color-primary-hover, #008585) !important;
+}
+
+.ds-radio.ant-radio-wrapper:not(.ant-radio-wrapper-disabled):hover
+  .ant-radio-checked:not(.ant-radio-disabled)
+  .ant-radio-inner::after {
+  background-color: var(--color-text-white, #fff) !important;
+}
+
+/* No focus ring — click selects (Figma active) */
+.ds-radio .ant-radio-input:focus-visible + .ant-radio-inner {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.ds-radio.ant-radio-wrapper-checked .ant-radio-input:focus-visible + .ant-radio-inner,
+.ds-radio .ant-radio-checked .ant-radio-input:focus-visible + .ant-radio-inner {
+  border-color: var(--color-primary-default, #00636a) !important;
+  background-color: var(--color-primary-default, #00636a) !important;
+}
+
+/* —— Figma hover preview —— */
+.ds-radio--state-hover.ant-radio-wrapper:not(.ant-radio-wrapper-disabled)
+  .ant-radio:not(.ant-radio-disabled):not(.ant-radio-checked)
+  .ant-radio-inner {
+  border-color: var(--color-primary-hover, #008585) !important;
+}
+
+/* —— Disabled (Figma 22686:23894) —— */
+.ds-radio.ant-radio-wrapper-disabled,
+.ds-radio--state-disabled.ant-radio-wrapper {
+  cursor: not-allowed;
+}
+
+.ds-radio .ant-radio-disabled .ant-radio-inner {
+  background-color: var(--color-fill-tertiary, rgba(0, 0, 0, 0.04)) !important;
+  border-color: var(--color-border-default, #d9d9d9) !important;
+}
+
+.ds-radio .ant-radio-disabled.ant-radio-checked .ant-radio-inner,
+.ds-radio.ant-radio-wrapper-disabled.ant-radio-wrapper-checked .ant-radio-inner {
+  background-color: var(--color-fill-tertiary, rgba(0, 0, 0, 0.04)) !important;
+  border-color: var(--color-border-default, #d9d9d9) !important;
+}
+
+.ds-radio .ant-radio-disabled.ant-radio-checked .ant-radio-inner::after,
+.ds-radio.ant-radio-wrapper-disabled.ant-radio-wrapper-checked .ant-radio-inner::after {
+  background-color: var(--color-text-quarternary, rgba(0, 0, 0, 0.25)) !important;
+}
+
+.ds-radio.ant-radio-wrapper-disabled .ant-radio + span,
+.ds-radio.ant-radio-wrapper-disabled .ant-radio-label,
+.ds-radio--state-disabled .ant-radio + span {
+  color: var(--color-text-quarternary, rgba(0, 0, 0, 0.25)) !important;
+  cursor: not-allowed;
+}
+
+/* —— Radio button group (Figma 432:21644 / 22686:23893) —— */
+.ds-radio-group.ant-radio-group {
+  display: inline-flex;
+}
+
+.ds-radio-group .ant-radio-button-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0;
+  line-height: 1;
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  background: var(--component-button-secondary-bg-default, #fff);
+  border-color: var(--component-button-secondary-border-default, #d9d9d9);
+  color: var(--component-button-secondary-text-default, rgba(0, 0, 0, 0.88));
+  box-shadow: none;
+}
+
+.ds-radio-group .ant-radio-button-wrapper:not(:first-child)::before {
+  display: none;
+}
+
+.ds-radio-group .ant-radio-button-wrapper:hover {
+  color: var(--component-button-secondary-text-hover, #008585);
+  border-color: var(--component-button-secondary-border-hover, #008585);
+}
+
+.ds-radio-group--size-small .ant-radio-button-wrapper {
+  height: 32px;
+  min-height: 32px;
+  padding-inline: 15px;
+  font-size: var(--text-sm-normal-font-size, 14px);
+  border-radius: 0;
+}
+
+.ds-radio-group--size-small .ant-radio-button-wrapper:first-child {
+  border-start-start-radius: var(--primitive-radius-sm, 6px);
+  border-end-start-radius: var(--primitive-radius-sm, 6px);
+}
+
+.ds-radio-group--size-small .ant-radio-button-wrapper:last-child {
+  border-start-end-radius: var(--primitive-radius-sm, 6px);
+  border-end-end-radius: var(--primitive-radius-sm, 6px);
+}
+
+.ds-radio-group--size-base .ant-radio-button-wrapper {
+  height: 40px;
+  min-height: 40px;
+  padding-inline: 15px;
+  font-size: var(--type-size-base, 16px) !important;
+  border-radius: 0;
+}
+
+.ds-radio-group--size-base.ant-radio-group-large .ant-radio-button-wrapper {
+  height: 40px;
+  min-height: 40px;
+  font-size: var(--type-size-base, 16px) !important;
+  line-height: 1 !important;
+}
+
+.ds-radio-group--size-base .ant-radio-button-wrapper:first-child {
+  border-start-start-radius: var(--primitive-radius-base, 8px);
+  border-end-start-radius: var(--primitive-radius-base, 8px);
+}
+
+.ds-radio-group--size-base .ant-radio-button-wrapper:last-child {
+  border-start-end-radius: var(--primitive-radius-base, 8px);
+  border-end-end-radius: var(--primitive-radius-base, 8px);
+}
+
+.ds-radio-group--size-x-small .ant-radio-button-wrapper {
+  height: 24px;
+  min-height: 24px;
+  padding-inline: var(--primitive-space-xs, 8px);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  border-radius: 0;
+}
+
+.ds-radio-group--size-x-small.ant-radio-group-small .ant-radio-button-wrapper {
+  height: 24px;
+  min-height: 24px;
+  font-size: var(--text-sm-normal-font-size, 14px) !important;
+  line-height: 1 !important;
+}
+
+.ds-radio-group--size-x-small .ant-radio-button-wrapper:first-child {
+  border-start-start-radius: var(--primitive-radius-xs, 4px);
+  border-end-start-radius: var(--primitive-radius-xs, 4px);
+}
+
+.ds-radio-group--size-x-small .ant-radio-button-wrapper:last-child {
+  border-start-end-radius: var(--primitive-radius-xs, 4px);
+  border-end-end-radius: var(--primitive-radius-xs, 4px);
+}
+
+.ds-radio-group--outline .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  z-index: 1;
+  background: var(--component-button-secondary-bg-default, #fff);
+  border-color: var(--component-button-secondary-border-active, #005055);
+  color: var(--component-button-secondary-text-active, #005055);
+}
+
+.ds-radio-group--outline
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+  color: var(--component-button-secondary-text-active, #005055);
+  border-color: var(--component-button-secondary-border-active, #005055);
+}
+
+.ds-radio-group--solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  z-index: 1;
+  background: var(--color-primary-default, #00636a);
+  border-color: var(--color-primary-default, #00636a);
+  color: var(--component-button-primary-text-default, #fff);
+}
+
+.ds-radio-group--solid
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+  background: var(--color-primary-hover, #008585);
+  border-color: var(--color-primary-hover, #008585);
+  color: var(--component-button-primary-text-default, #fff);
+}
+
+/* —— Vertical radio group (Figma 22688:24078) —— */
+.ds-radio-vertical-group.ant-radio-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--primitive-space-lg, 24px);
+  font-size: inherit;
+}
+
+.ds-radio-vertical-group .ds-radio.ant-radio-wrapper {
+  margin-inline-end: 0;
+}
+
+/* —— Story layout —— */
+.ds-radio-story-disabled {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--primitive-space-lg, 24px);
+  align-items: center;
+  justify-content: center;
+  padding: var(--primitive-space-lg, 24px);
+}

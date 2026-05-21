@@ -1,0 +1,24 @@
+/* Story layout for Select / AllSizes */
+
+.ds-select-story-sizes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--primitive-space-base, 16px);
+}
+
+.ds-select-story-sizes__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--primitive-space-sm, 12px);
+}
+
+.ds-select-story-sizes__label {
+  flex-shrink: 0;
+  width: 72px;
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+  font-size: var(--type-size-sm, 14px);
+  line-height: var(--type-line-h-s, 22px);
+  color: var(--component-input-text-default);
+}

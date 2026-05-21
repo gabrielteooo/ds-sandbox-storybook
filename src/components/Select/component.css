@@ -1,0 +1,374 @@
+/**
+ * DsSelect — basic / multiple / search (Figma 415:57).
+ * Menu: 4171:8655 · item: 1226:85295 · chip: 1226:85294.
+ */
+
+/* —— Width: 320px standard, min 120px, responsive —— */
+.ds-select.ant-select {
+  width: 100%;
+  max-width: 320px;
+  min-width: 120px;
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+}
+
+.ds-select .ant-select-selector {
+  display: flex;
+  align-items: center;
+  background: var(--component-input-bg-default) !important;
+  border-color: var(--component-input-border-default) !important;
+  color: var(--component-input-text-default);
+}
+
+.ds-select .ant-select-selection-wrap,
+.ds-select .ant-select-selection-overflow {
+  align-self: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.ds-select .ant-select-selection-search {
+  display: flex;
+  align-items: center;
+  margin-inline-start: 0 !important;
+}
+
+.ds-select .ant-select-selection-search-input {
+  height: auto !important;
+  margin: 0 !important;
+}
+
+.ds-select .ant-select-selection-placeholder,
+.ds-select .ant-select-selection-search-input::placeholder {
+  color: var(--component-input-text-placeholder);
+}
+
+.ds-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: var(--component-input-border-hover) !important;
+}
+
+.ds-select.ant-select-focused:not(.ant-select-disabled) .ant-select-selector,
+.ds-select.ant-select-open .ant-select-selector {
+  border-color: var(--component-input-border-active) !important;
+  /* TOKEN GAP: focus ring — matches Input */
+  box-shadow: 0 0 0 2px rgba(0, 99, 106, 0.1);
+}
+
+/* Warning / error — all variants (Ant status + DS tokens) */
+.ds-select--status-warning .ant-select-selector {
+  border-color: var(--color-system-warning-default) !important;
+}
+
+.ds-select--status-warning.ant-select-focused .ant-select-selector,
+.ds-select--status-warning.ant-select-open .ant-select-selector {
+  border-color: var(--color-system-warning-default) !important;
+  box-shadow: 0 0 0 2px rgba(212, 107, 8, 0.1);
+}
+
+.ds-select--status-error .ant-select-selector {
+  border-color: var(--color-system-error-default) !important;
+}
+
+.ds-select--status-error.ant-select-focused .ant-select-selector,
+.ds-select--status-error.ant-select-open .ant-select-selector {
+  border-color: var(--color-system-error-default) !important;
+  box-shadow: 0 0 0 2px rgba(168, 7, 26, 0.1);
+}
+
+.ds-select .ant-select-selection-item,
+.ds-select .ant-select-selection-search-input {
+  color: var(--component-input-text-default);
+}
+
+.ds-select .ant-select-arrow,
+.ds-select .ant-select-suffix {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+.ds-select .ant-select-arrow .anticon,
+.ds-select .ant-select-suffix .anticon {
+  font-size: var(--text-xs-normal-font-size, 12px);
+}
+
+.ds-select--open.ds-select--search .ant-select-arrow .anticon,
+.ds-select--open.ds-select--multiple .ant-select-arrow .anticon {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+/* —— Sizes —— */
+.ds-select--x-small.ant-select .ant-select-selector {
+  min-height: 24px;
+  height: 24px;
+  border-radius: var(--primitive-radius-xs, 4px);
+  padding-inline: var(--primitive-space-xs, 8px);
+}
+
+/* X-Small / Small — SM/Normal (Figma Select input 415:57) */
+.ds-select--x-small .ant-select-selection-item,
+.ds-select--x-small .ant-select-selection-placeholder,
+.ds-select--x-small .ant-select-selection-search-input {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+.ds-select--x-small .ant-select-selection-item,
+.ds-select--x-small .ant-select-selection-placeholder {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.ds-select--small.ant-select .ant-select-selector {
+  min-height: 32px;
+  height: 32px;
+  border-radius: var(--primitive-radius-sm, 6px);
+  padding-inline: var(--primitive-space-sm, 12px);
+}
+
+.ds-select--small .ant-select-selection-item,
+.ds-select--small .ant-select-selection-placeholder,
+.ds-select--small .ant-select-selection-search-input {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+.ds-select--small .ant-select-selection-item,
+.ds-select--small .ant-select-selection-placeholder {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.ds-select--base.ant-select .ant-select-selector {
+  min-height: 40px;
+  height: 40px;
+  border-radius: var(--primitive-radius-base, 8px);
+  padding-inline: var(--primitive-space-sm, 12px);
+}
+
+/* Base — Base/Normal */
+.ds-select--base .ant-select-selection-item,
+.ds-select--base .ant-select-selection-placeholder,
+.ds-select--base .ant-select-selection-search-input {
+  font-family: var(--text-base-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: var(--text-base-normal-line-height, 24px);
+  font-weight: var(--text-base-normal-font-weight, 400);
+}
+
+.ds-select--base .ant-select-selection-item,
+.ds-select--base .ant-select-selection-placeholder {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* —— Multiple trigger chips —— */
+.ds-select.ant-select-multiple .ant-select-selector {
+  height: auto;
+  padding-inline: var(--primitive-space-xxs, 4px);
+}
+
+.ds-select--x-small.ant-select-multiple .ant-select-selector {
+  min-height: 24px;
+  padding-block: 1px;
+}
+
+.ds-select--small.ant-select-multiple .ant-select-selector {
+  min-height: 32px;
+  padding-block: 2px;
+}
+
+.ds-select--base.ant-select-multiple .ant-select-selector {
+  min-height: 40px;
+  padding-block: 4px;
+}
+
+.ds-select.ant-select-multiple .ant-select-selection-item {
+  display: inline-flex;
+  align-items: center;
+  background: var(--component-tag-bg-secondary);
+  border: none;
+  color: var(--component-tag-text-default);
+  border-radius: var(--primitive-radius-2xs, 2px);
+  margin-inline-end: var(--primitive-space-xxs, 4px);
+  height: auto;
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+.ds-select--base.ant-select-multiple .ant-select-selection-item {
+  font-family: var(--text-base-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: var(--text-base-normal-line-height, 24px);
+  font-weight: var(--text-base-normal-font-weight, 400);
+}
+
+.ds-select--x-small.ant-select-multiple .ant-select-selection-item {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+}
+
+.ds-select.ant-select-multiple .ant-select-selection-item-remove {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+  font-size: var(--text-xs-normal-font-size, 12px);
+}
+
+.ds-select.ant-select-multiple .ant-select-selection-overflow {
+  gap: var(--primitive-space-xxs, 4px);
+}
+
+/* —— Disabled —— */
+.ds-select.ant-select-disabled .ant-select-selector {
+  background: var(--component-input-bg-disabled) !important;
+  border-color: var(--component-input-border-default) !important;
+}
+
+.ds-select.ant-select-disabled .ant-select-selection-item,
+.ds-select.ant-select-disabled .ant-select-selection-placeholder,
+.ds-select.ant-select-disabled .ant-select-selection-search-input {
+  color: var(--component-input-text-disable);
+}
+
+/* —— Dropdown —— */
+.ds-select__popup.ant-select-dropdown {
+  background: var(--color-bg-layout, #f5f5f5);
+  border-radius: var(--primitive-radius-sm, 6px);
+  border: 1px solid var(--color-border-default, #d9d9d9);
+  box-shadow:
+    0 0 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+  padding: var(--primitive-space-xxs, 4px);
+}
+
+/* Menu item — 40px row (Figma 396:11808), same for basic/search and multiple */
+.ds-select__popup .ant-select-item {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  height: 40px;
+  padding-block: 0;
+  padding-inline: var(--primitive-space-sm, 12px);
+  border-radius: var(--primitive-radius-xs, 4px);
+  color: var(--component-dropdown-text-default);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+.ds-select__popup .ant-select-item-option-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 22px;
+}
+
+/* Hover — Figma menu item State=Hover */
+.ds-select__popup
+  .ant-select-item-option-active:not(.ant-select-item-option-disabled):not(
+    .ant-select-item-option-selected
+  ) {
+  background: var(--color-system-control-bg-option-hover);
+}
+
+/* Basic / search selected — teal + SM/Strong (semibold) */
+.ds-select__popup:not(.ds-select__popup--multiple)
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background: var(--color-system-control-bg-option-select);
+  color: var(--color-text-default);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+}
+
+.ds-select__popup:not(.ds-select__popup--multiple)
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled)
+  .ant-select-item-option-content {
+  font-weight: var(--type-weight-semibold, 600);
+}
+
+.ds-select__popup:not(.ds-select__popup--multiple)
+  .ant-select-item-option-selected.ant-select-item-option-active:not(
+    .ant-select-item-option-disabled
+  ) {
+  background: var(--color-system-control-bg-option-select);
+}
+
+/* Multiple menu: checkbox rows — selected = teal bg, regular weight */
+.ds-select__popup--multiple .ant-select-item-option-selected .ant-select-item-option-state {
+  display: none;
+}
+
+.ds-select__popup--multiple
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background: var(--color-system-control-bg-option-select);
+  color: var(--color-text-default);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+.ds-select__popup--multiple
+  .ant-select-item-option-selected.ant-select-item-option-active:not(
+    .ant-select-item-option-disabled
+  ) {
+  background: var(--color-system-control-bg-option-select);
+}
+
+.ds-select-option-multiple {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-sm, 12px);
+  width: 100%;
+  min-height: 22px;
+}
+
+.ds-select-option-multiple .ant-checkbox {
+  pointer-events: none;
+  align-self: center;
+  top: 0;
+}
+
+.ds-select-option-multiple .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--color-primary-default, #00636a);
+  border-color: var(--color-primary-default, #00636a);
+}
+
+.ds-select-option-multiple__label {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Multiselect header — Select all / Clear all */
+.ds-select-menu-header {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-base, 16px);
+  min-height: 40px;
+  padding: 5px var(--primitive-space-sm, 12px);
+  border-bottom: 1px solid var(--color-border-secondary, #f0f0f0);
+}
+
+.ds-select-menu-header__action {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+  font-size: var(--type-size-base, 16px);
+  line-height: var(--type-line-h-base, 24px);
+  font-weight: var(--type-weight-regular, 400);
+  color: var(--component-button-tertiary-text-default);
+}
+
+.ds-select-menu-header__action:hover {
+  color: var(--component-button-tertiary-text-hover);
+}
+
+.ds-select-menu-header__action:active {
+  color: var(--component-button-tertiary-text-active);
+}

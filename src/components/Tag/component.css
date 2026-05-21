@@ -1,0 +1,267 @@
+/* Tag tokens — Figma `tag/*`, `color/system/*`, Ant colourful primitives */
+
+/* —— Basic (412:13525) —— */
+.ds-tag.ant-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xxs, 4px);
+  height: var(--primitive-space-lg, 24px);
+  margin-inline-end: 0;
+  padding: 1px var(--primitive-space-xs, 8px);
+  border-radius: var(--primitive-radius-xs, 4px);
+  border-color: var(--component-tag-border-default);
+  background: var(--component-tag-bg-default);
+  color: var(--component-tag-text-default);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+.ds-tag--closable.ant-tag {
+  gap: var(--primitive-space-xs, 8px);
+}
+
+.ds-tag.ant-tag .anticon {
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: 1;
+}
+
+.ds-tag.ant-tag .ant-tag-close-icon {
+  margin-inline-start: 0;
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+  font-size: var(--text-xs-normal-font-size, 12px);
+  line-height: 1;
+}
+
+.ds-tag.ant-tag .ant-tag-close-icon .anticon {
+  color: inherit;
+  font-size: inherit;
+}
+
+.ds-tag.ant-tag .ant-tag-close-icon:hover,
+.ds-tag.ant-tag .ant-tag-close-icon:hover .anticon {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+/* Borderless basic — same fill as default, no border (Figma type=borderless) */
+.ds-tag--borderless.ant-tag {
+  border: none;
+  background: var(--component-tag-bg-default);
+}
+
+/* —— Colourful (412:13524) — label uses tag/text/default —— */
+.ds-tag[class*='ant-tag-']:not([class*='ds-tag--status']) {
+  color: var(--component-tag-text-default);
+}
+
+.ds-tag.ant-tag-magenta {
+  border-color: var(--primitive-color-magenta-ant-3);
+  background: var(--primitive-color-magenta-ant-1);
+}
+
+.ds-tag.ant-tag-red {
+  border-color: var(--primitive-color-red-ant-3);
+  background: var(--primitive-color-red-ant-1);
+}
+
+.ds-tag.ant-tag-volcano {
+  border-color: var(--primitive-color-volcano-ant-3);
+  background: var(--primitive-color-volcano-ant-1);
+}
+
+.ds-tag.ant-tag-orange {
+  border-color: var(--primitive-color-orange-ant-3);
+  background: var(--primitive-color-orange-ant-1);
+}
+
+.ds-tag.ant-tag-gold {
+  border-color: var(--primitive-color-gold-ant-3);
+  background: var(--primitive-color-gold-ant-1);
+}
+
+.ds-tag.ant-tag-lime {
+  border-color: var(--primitive-color-lime-ant-3);
+  background: var(--primitive-color-lime-ant-1);
+}
+
+.ds-tag.ant-tag-green {
+  border-color: var(--primitive-color-green-ant-3);
+  background: var(--primitive-color-green-ant-1);
+}
+
+.ds-tag.ant-tag-cyan {
+  border-color: var(--primitive-color-cyan-ant-3);
+  background: var(--primitive-color-cyan-ant-1);
+}
+
+.ds-tag.ant-tag-blue {
+  border-color: var(--primitive-color-blue-ant-3);
+  background: var(--primitive-color-blue-ant-1);
+}
+
+.ds-tag.ant-tag-geekblue {
+  border-color: var(--primitive-color-greekblue-ant-3);
+  background: var(--primitive-color-greekblue-ant-2);
+}
+
+.ds-tag.ant-tag-purple {
+  border-color: var(--primitive-color-purple-ant-3);
+  background: var(--primitive-color-purple-ant-2);
+}
+
+.ds-tag--grey.ant-tag {
+  border-color: var(--primitive-data-color-grey-2);
+  background: var(--primitive-data-color-grey-1);
+  color: var(--component-tag-text-default);
+}
+
+/* —— Status (412:13527) — Small —— */
+.ds-tag--status-default.ant-tag {
+  border-color: var(--component-tag-border-default);
+  background: var(--component-tag-bg-default);
+  color: var(--component-tag-text-default);
+}
+
+.ds-tag--status-default.ant-tag .anticon {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+.ds-tag--status-success.ant-tag {
+  border-color: var(--color-system-success-border);
+  background: var(--color-system-success-bg);
+  color: var(--component-tag-text-default);
+}
+
+.ds-tag--status-success.ant-tag .anticon {
+  color: var(--color-system-success-default);
+}
+
+.ds-tag--status-processing.ant-tag {
+  border-color: var(--color-system-info-border);
+  background: var(--color-system-info-bg);
+  color: var(--component-tag-text-default);
+}
+
+.ds-tag--status-processing.ant-tag .anticon {
+  color: var(--color-system-info-default);
+}
+
+.ds-tag--status-warning.ant-tag {
+  border-color: var(--color-system-warning-border);
+  background: var(--color-system-warning-bg);
+  color: var(--component-tag-text-default);
+}
+
+.ds-tag--status-warning.ant-tag .anticon {
+  color: var(--color-system-warning-default);
+}
+
+.ds-tag--status-error.ant-tag {
+  border-color: var(--color-system-error-border);
+  background: var(--color-system-error-bg);
+  color: var(--component-tag-text-default);
+}
+
+.ds-tag--status-error.ant-tag .anticon {
+  color: var(--color-system-error-default);
+}
+
+/* —— Checkable (412:13526) — flex items-center, centered label —— */
+.ds-tag-checkable.ant-tag-checkable {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--primitive-space-lg, 24px);
+  margin-inline-end: 0;
+  padding: 1px var(--primitive-space-xs, 8px);
+  border-radius: var(--primitive-radius-xs, 4px);
+  border: none;
+  background: transparent;
+  color: var(--component-tag-text-default);
+  text-align: center;
+  font-family: var(--text-xs-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-xs-normal-font-size, 12px);
+  line-height: var(--text-xs-normal-line-height, 18px);
+  font-weight: var(--text-xs-normal-font-weight, 400);
+  cursor: pointer;
+}
+
+.ds-tag-checkable--checked.ant-tag-checkable-checked,
+.ds-tag-checkable.ant-tag-checkable-checked {
+  background: var(--component-tag-bg-active);
+  color: var(--component-tag-text-active);
+}
+
+/* Dashed “+ New Tag” (Basic / Add New, type=default) */
+.ds-tag-add.ant-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xxs, 4px);
+  height: var(--primitive-space-lg, 24px);
+  margin-inline-end: 0;
+  padding: 1px var(--primitive-space-xs, 8px);
+  border-style: dashed;
+  border-color: var(--component-tag-border-default);
+  background: var(--color-bg-container, #fff);
+  color: var(--component-tag-text-default);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  cursor: pointer;
+}
+
+.ds-tag-add.ant-tag .anticon {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+  font-size: var(--text-xs-normal-font-size, 12px);
+  line-height: 1;
+}
+
+.ds-tag-add.ant-tag:hover {
+  border-color: var(--color-primary-default, #00636a);
+  color: var(--color-primary-default, #00636a);
+}
+
+.ds-tag-add.ant-tag:hover .anticon {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+/* Story / showcase layouts */
+.ds-tag-story-basic,
+.ds-tags-add-remove,
+.ds-tags-colourful,
+.ds-tags-status,
+.ds-tags-checkable {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+}
+
+.ds-tags-add-remove__input {
+  width: 78px;
+  height: var(--primitive-space-lg, 24px);
+  vertical-align: top;
+}
+
+.ds-tags-checkable {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.ds-tags-checkable__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 13px;
+}
+
+.ds-tags-checkable__label {
+  flex-shrink: 0;
+  width: 58px;
+  color: var(--color-text-base, #000);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+}

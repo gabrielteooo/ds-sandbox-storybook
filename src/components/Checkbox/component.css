@@ -1,0 +1,198 @@
+/* Figma: Checkbox 388:11396 — 16px control, 8px label gap, SM/Normal label */
+
+.ds-checkbox.ant-checkbox-wrapper {
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+  margin-inline-end: 0;
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+}
+
+.ds-checkbox.ant-checkbox-wrapper::after {
+  display: none;
+}
+
+.ds-checkbox .ant-checkbox {
+  align-self: flex-start;
+  margin-top: 3px;
+  top: 0;
+}
+
+.ds-checkbox .ant-checkbox + span {
+  padding-inline: 0;
+}
+
+.ds-checkbox .ant-checkbox + span:not(:empty) {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+}
+
+/* —— 16×16 control (Figma) —— */
+.ds-checkbox .ant-checkbox-inner {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--primitive-radius-xs, 4px);
+  border-color: var(--color-border-default, #d9d9d9);
+  background-color: var(--color-bg-container, #fff);
+}
+
+.ds-checkbox .ant-checkbox-inner::after {
+  width: 5px;
+  height: 8px;
+}
+
+/* —— Checked (Status=Active) —— */
+.ds-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--color-primary-default, #00636a);
+  border-color: var(--color-primary-default, #00636a);
+}
+
+.ds-checkbox .ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: var(--color-text-white, #fff);
+}
+
+/* —— Indeterminate (Status=Indeterminate) —— */
+.ds-checkbox .ant-checkbox-indeterminate .ant-checkbox-inner {
+  background-color: var(--color-bg-container, #fff);
+  border-color: var(--color-border-default, #d9d9d9);
+}
+
+.ds-checkbox .ant-checkbox-indeterminate .ant-checkbox-inner::after {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-primary-default, #00636a);
+  border-radius: 1px;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* —— Hover —— */
+.ds-checkbox.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover
+  .ant-checkbox:not(.ant-checkbox-disabled)
+  .ant-checkbox-inner {
+  border-color: var(--color-primary-hover, #008585);
+}
+
+.ds-checkbox.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover
+  .ant-checkbox-checked:not(.ant-checkbox-disabled)
+  .ant-checkbox-inner {
+  background-color: var(--color-primary-hover, #008585);
+  border-color: var(--color-primary-hover, #008585);
+}
+
+.ds-checkbox.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover
+  .ant-checkbox-indeterminate:not(.ant-checkbox-disabled)
+  .ant-checkbox-inner {
+  border-color: var(--color-primary-hover, #008585);
+}
+
+/* —— Focus —— */
+.ds-checkbox .ant-checkbox-input:focus-visible + .ant-checkbox-inner {
+  border-color: var(--color-primary-default, #00636a);
+  box-shadow: 0 0 0 2px rgba(0, 99, 106, 0.1);
+}
+
+/* —— Figma interaction state previews —— */
+.ds-checkbox--state-hover.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled)
+  .ant-checkbox:not(.ant-checkbox-disabled)
+  .ant-checkbox-inner {
+  border-color: var(--color-primary-hover, #008585) !important;
+}
+
+.ds-checkbox--state-hover.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled)
+  .ant-checkbox-checked:not(.ant-checkbox-disabled)
+  .ant-checkbox-inner {
+  background-color: var(--color-primary-hover, #008585) !important;
+  border-color: var(--color-primary-hover, #008585) !important;
+}
+
+.ds-checkbox--state-focused .ant-checkbox .ant-checkbox-inner {
+  border-color: var(--color-primary-default, #00636a) !important;
+  box-shadow: 0 0 0 2px rgba(0, 99, 106, 0.1) !important;
+}
+
+/* —— Disabled (Figma 22686:23861) ——
+ * Box: color/bg/container-disabled (#0000000a)
+ * Border: color/system/control/border (#d9d9d9)
+ * Mark + label: color/text/disabled (rgba 0,0,0,0.25)
+ */
+.ds-checkbox.ant-checkbox-wrapper-disabled,
+.ds-checkbox--state-disabled.ant-checkbox-wrapper {
+  cursor: not-allowed;
+}
+
+.ds-checkbox .ant-checkbox-disabled .ant-checkbox-inner {
+  background-color: var(--color-fill-tertiary, rgba(0, 0, 0, 0.04)) !important;
+  border-color: var(--color-border-default, #d9d9d9) !important;
+}
+
+.ds-checkbox .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner,
+.ds-checkbox .ant-checkbox-disabled.ant-checkbox-indeterminate .ant-checkbox-inner {
+  background-color: var(--color-fill-tertiary, rgba(0, 0, 0, 0.04)) !important;
+  border-color: var(--color-border-default, #d9d9d9) !important;
+}
+
+.ds-checkbox .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: var(--color-text-quarternary, rgba(0, 0, 0, 0.25)) !important;
+  opacity: 1;
+}
+
+.ds-checkbox .ant-checkbox-disabled.ant-checkbox-indeterminate .ant-checkbox-inner::after {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-text-quarternary, rgba(0, 0, 0, 0.25)) !important;
+  border: none;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.ds-checkbox.ant-checkbox-wrapper-disabled:hover .ant-checkbox-disabled .ant-checkbox-inner,
+.ds-checkbox .ant-checkbox-disabled:hover .ant-checkbox-inner {
+  background-color: var(--color-fill-tertiary, rgba(0, 0, 0, 0.04)) !important;
+  border-color: var(--color-border-default, #d9d9d9) !important;
+}
+
+.ds-checkbox.ant-checkbox-wrapper-disabled .ant-checkbox-input:focus-visible + .ant-checkbox-inner {
+  box-shadow: none;
+}
+
+.ds-checkbox.ant-checkbox-wrapper-disabled .ant-checkbox + span,
+.ds-checkbox--state-disabled .ant-checkbox + span {
+  color: var(--color-text-quarternary, rgba(0, 0, 0, 0.25)) !important;
+  cursor: not-allowed;
+}
+
+/* —— Check all example (22686:23778) —— */
+.ds-checkbox-check-all {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-lg, 24px);
+  align-items: center;
+  padding: var(--primitive-space-lg, 24px);
+  background: var(--color-bg-container, #fff);
+}
+
+.ds-checkbox-check-all__divider {
+  width: 100%;
+  height: 0;
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--color-border-split, #e2e2e2);
+}
+
+.ds-checkbox-check-all__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--primitive-space-base, 16px);
+  align-items: center;
+}
+
+/* —— Story layout —— */
+.ds-checkbox-story-disabled {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-lg, 24px);
+  align-items: center;
+}
+

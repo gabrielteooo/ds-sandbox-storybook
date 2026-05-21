@@ -1,0 +1,15 @@
+/* Center component stories in the Storybook canvas */
+.sb-show-main.sb-main-centered,
+.sb-show-main.sb-main-padded {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sb-show-main.sb-main-centered #storybook-root,
+.sb-show-main.sb-main-padded #storybook-root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

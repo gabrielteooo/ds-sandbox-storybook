@@ -1,0 +1,498 @@
+/* Figma: Input 388:11439 — X-Small 24 / Small 32 / Base 40, width 360 */
+
+.ds-input {
+  width: 360px;
+  max-width: 100%;
+}
+
+.ds-input__control,
+.ds-input .ant-input,
+.ds-input .ant-input-affix-wrapper,
+.ds-input .ant-input-number,
+.ds-input .ant-input-search {
+  width: 100%;
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+}
+
+/* —— Figma control heights: X-Small 24 / Small 32 / Base 40 —— */
+.ds-input--x-small {
+  --ds-input-height: 24px;
+}
+
+.ds-input--small {
+  --ds-input-height: 32px;
+}
+
+.ds-input--base {
+  --ds-input-height: 40px;
+}
+
+.ds-input--x-small .ant-input,
+.ds-input--x-small .ant-input-affix-wrapper,
+.ds-input--x-small .ant-input-number {
+  min-height: var(--ds-input-height);
+  height: var(--ds-input-height);
+}
+
+.ds-input--x-small .ant-input-affix-wrapper {
+  padding-block: 0;
+}
+
+.ds-input--small .ant-input,
+.ds-input--small .ant-input-affix-wrapper,
+.ds-input--small .ant-input-number {
+  min-height: var(--ds-input-height);
+  height: var(--ds-input-height);
+}
+
+.ds-input--base .ant-input,
+.ds-input--base .ant-input-affix-wrapper,
+.ds-input--base .ant-input-number {
+  min-height: var(--ds-input-height);
+  height: var(--ds-input-height);
+}
+
+/* —— Border radius (Figma base = 8px) —— */
+.ds-input--x-small .ant-input,
+.ds-input--x-small .ant-input-affix-wrapper,
+.ds-input--x-small .ant-input-number,
+.ds-input--x-small textarea.ant-input {
+  border-radius: var(--primitive-radius-xs, 4px);
+  font-size: var(--type-size-sm, 14px);
+  line-height: var(--type-line-h-s, 22px);
+}
+
+.ds-input--small .ant-input,
+.ds-input--small .ant-input-affix-wrapper,
+.ds-input--small .ant-input-number,
+.ds-input--small textarea.ant-input {
+  border-radius: var(--primitive-radius-sm, 6px);
+  font-size: var(--type-size-sm, 14px);
+  line-height: var(--type-line-h-s, 22px);
+}
+
+.ds-input--base .ant-input,
+.ds-input--base .ant-input-affix-wrapper,
+.ds-input--base .ant-input-number,
+.ds-input--base textarea.ant-input {
+  border-radius: var(--primitive-radius-base, 8px);
+  font-size: var(--type-size-base, 16px);
+  line-height: var(--type-line-h-base, 24px);
+}
+
+.ds-input .ant-input::placeholder,
+.ds-input .ant-input-affix-wrapper input::placeholder {
+  color: var(--color-text-quaternary, rgba(0, 0, 0, 0.25));
+}
+
+.ds-input .ant-input,
+.ds-input .ant-input-affix-wrapper {
+  background: var(--color-bg-container, #fff);
+  border-color: var(--color-border-default, #d9d9d9);
+}
+
+.ds-input .ant-input:hover,
+.ds-input .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  border-color: var(--color-primary-hover, #008585);
+}
+
+.ds-input .ant-input:focus,
+.ds-input .ant-input-affix-wrapper-focused {
+  border-color: var(--color-primary-default, #00636a);
+  box-shadow: 0 0 0 2px rgba(0, 99, 106, 0.1);
+}
+
+/* —— Figma interaction states (static preview) —— */
+.ds-input--state-hover .ant-input,
+.ds-input--state-hover .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled),
+.ds-input--state-hover .ant-input-number {
+  border-color: var(--color-primary-hover, #008585) !important;
+}
+
+.ds-input--state-focused .ant-input,
+.ds-input--state-focused .ant-input-affix-wrapper,
+.ds-input--state-focused .ant-input-number {
+  border-color: var(--color-primary-default, #00636a) !important;
+  box-shadow: 0 0 0 2px rgba(0, 99, 106, 0.1) !important;
+}
+
+.ds-input--state-typing .ant-input,
+.ds-input--state-typing .ant-input-affix-wrapper,
+.ds-input--state-typing textarea.ant-input {
+  border-color: var(--color-primary-default, #00636a) !important;
+  box-shadow: 0 0 0 2px rgba(0, 99, 106, 0.1) !important;
+}
+
+.ds-input--state-filled .ant-input,
+.ds-input--state-filled .ant-input-affix-wrapper,
+.ds-input--state-filled .ant-input-number {
+  border-color: var(--color-border-default, #d9d9d9);
+  color: var(--color-text-default);
+}
+
+/* —— Status —— */
+.ds-input--status-success .ant-input,
+.ds-input--status-success .ant-input-affix-wrapper,
+.ds-input--status-success .ant-input-number {
+  border-color: var(--color-system-success-default, #509c22);
+}
+
+.ds-input--status-success .ant-input:focus,
+.ds-input--status-success .ant-input-affix-wrapper-focused {
+  box-shadow: 0 0 0 2px rgba(80, 156, 34, 0.1);
+}
+
+/* —— Textarea min heights (Figma) —— */
+.ds-input--textarea.ds-input--base textarea.ant-input {
+  min-height: 64px;
+}
+
+.ds-input--textarea.ds-input--small textarea.ant-input {
+  min-height: 52px;
+}
+
+.ds-input--textarea.ds-input--x-small textarea.ant-input {
+  min-height: 44px;
+}
+
+/* —— Pre Post Tab (479×24/32/40) —— */
+.ds-input--pre-post-tab {
+  width: 479px;
+}
+
+.ds-input--pre-post-tab .ant-input-group {
+  display: flex;
+  align-items: stretch;
+  height: var(--ds-input-height);
+}
+
+.ds-input--pre-post-tab .ant-input-group-addon,
+.ds-input--search .ant-input-group-addon:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: auto;
+  height: var(--ds-input-height);
+  min-height: var(--ds-input-height);
+  padding: 0;
+  background: var(--component-input-bg-tab, #f5f5f5);
+  border-color: var(--component-input-border-default, #d9d9d9);
+  line-height: 1;
+  overflow: hidden;
+}
+
+.ds-input--search .ant-input-group-addon:last-child {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: auto;
+  height: var(--ds-input-height);
+  padding: 0;
+  background: transparent;
+  border: none;
+  overflow: visible;
+}
+
+.ds-input--pre-post-tab .ant-input-group-addon:first-child {
+  border-inline-end: 1px solid var(--color-border-default, #d9d9d9);
+}
+
+.ds-input--pre-post-tab .ant-input-group-addon:last-child {
+  border-inline-start: 1px solid var(--color-border-default, #d9d9d9);
+}
+
+.ds-input--pre-post-tab .ant-input-group .ant-input {
+  height: var(--ds-input-height);
+  min-height: var(--ds-input-height);
+}
+
+/* Figma 442:24 — tab height 24/32/40, width hugs text */
+.ds-input-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--primitive-space-xs, 8px);
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: max-content;
+  height: var(--ds-input-height);
+  min-height: var(--ds-input-height);
+  padding: 4px 11px;
+  font-size: var(--type-size-sm, 14px);
+  line-height: var(--type-line-h-s, 22px);
+  color: var(--component-input-text-default, rgba(0, 0, 0, 0.88));
+  white-space: nowrap;
+}
+
+.ds-input-tab--base {
+  padding-block: 7px;
+  padding-inline: 11px;
+  font-size: var(--type-size-base, 16px);
+  line-height: var(--type-line-h-base, 24px);
+}
+
+.ds-input-tab--x-small {
+  padding-block: 0;
+  padding-inline: 7px;
+  font-size: var(--type-size-xs, 12px);
+  line-height: var(--type-line-h-xs, 18px);
+}
+
+.ds-input-tab--icon {
+  width: var(--ds-input-height);
+  min-width: var(--ds-input-height);
+  max-width: var(--ds-input-height);
+  padding: 0;
+}
+
+.ds-input--pre-post-tab.ds-input--x-small .ant-input-group-addon:first-child,
+.ds-input--search.ds-input--x-small .ant-input-group-addon:first-child {
+  border-start-start-radius: var(--primitive-radius-xs, 4px);
+  border-end-start-radius: var(--primitive-radius-xs, 4px);
+}
+
+.ds-input--pre-post-tab.ds-input--x-small .ant-input-group-addon:last-child,
+.ds-input--search.ds-input--x-small .ds-input-search-enter .ant-btn {
+  border-start-end-radius: var(--primitive-radius-xs, 4px);
+  border-end-end-radius: var(--primitive-radius-xs, 4px);
+}
+
+.ds-input--pre-post-tab.ds-input--small .ant-input-group-addon:first-child,
+.ds-input--search.ds-input--small .ant-input-group-addon:first-child {
+  border-start-start-radius: var(--primitive-radius-sm, 6px);
+  border-end-start-radius: var(--primitive-radius-sm, 6px);
+}
+
+.ds-input--pre-post-tab.ds-input--small .ant-input-group-addon:last-child,
+.ds-input--search.ds-input--small .ds-input-search-enter .ant-btn {
+  border-start-end-radius: var(--primitive-radius-sm, 6px);
+  border-end-end-radius: var(--primitive-radius-sm, 6px);
+}
+
+.ds-input--pre-post-tab.ds-input--base .ant-input-group-addon:first-child,
+.ds-input--search.ds-input--base .ant-input-group-addon:first-child {
+  border-start-start-radius: var(--primitive-radius-base, 8px);
+  border-end-start-radius: var(--primitive-radius-base, 8px);
+}
+
+.ds-input--pre-post-tab.ds-input--base .ant-input-group-addon:last-child,
+.ds-input--search.ds-input--base .ds-input-search-enter .ant-btn {
+  border-start-end-radius: var(--primitive-radius-base, 8px);
+  border-end-end-radius: var(--primitive-radius-base, 8px);
+}
+
+.ds-input-tab--icon {
+  color: var(--color-icon-default);
+}
+
+.ds-input-tab-select.ant-select {
+  width: auto !important;
+  min-width: 0 !important;
+  height: var(--ds-input-height) !important;
+  flex: 0 0 auto;
+}
+
+.ds-input-tab-select .ant-select-selector {
+  width: auto !important;
+  height: var(--ds-input-height) !important;
+  min-height: var(--ds-input-height) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  align-items: center;
+}
+
+.ds-input--small .ds-input-tab-select .ant-select-selector {
+  padding-block: 4px !important;
+  padding-inline: 11px !important;
+}
+
+.ds-input--base .ds-input-tab-select .ant-select-selector {
+  padding-block: 7px !important;
+  padding-inline: 11px !important;
+}
+
+.ds-input--x-small .ds-input-tab-select .ant-select-selector {
+  padding-block: 0 !important;
+  padding-inline: 7px !important;
+  font-size: var(--type-size-xs, 12px);
+  line-height: var(--type-line-h-xs, 18px);
+}
+
+.ds-input--small .ds-input-tab-select .ant-select-selection-item,
+.ds-input--small .ds-input-tab-select .ant-select-selection-placeholder {
+  font-size: var(--type-size-sm, 14px);
+  line-height: var(--type-line-h-s, 22px);
+}
+
+.ds-input--base .ds-input-tab-select .ant-select-selection-item,
+.ds-input--base .ds-input-tab-select .ant-select-selection-placeholder {
+  font-size: var(--type-size-base, 16px);
+  line-height: var(--type-line-h-base, 24px);
+}
+
+/* —— Search (463×24/32/40) —— */
+.ds-input--search {
+  width: 463px;
+}
+
+.ds-input--search .ant-input-group {
+  display: flex;
+  align-items: stretch;
+  height: var(--ds-input-height);
+}
+
+.ds-input--search .ant-input-group-addon:first-child {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: auto;
+  height: var(--ds-input-height);
+  padding: 0;
+  background: var(--component-input-bg-tab, #f5f5f5);
+  border-color: var(--component-input-border-default, #d9d9d9);
+}
+
+.ds-input--search .ant-input-group .ant-input-affix-wrapper {
+  height: var(--ds-input-height);
+  min-height: var(--ds-input-height);
+}
+
+/* Search enter — DsButton (default / primary-icon / primary-text) */
+.ds-input--search .ds-input-search-enter {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.ds-input--search .ds-input-search-enter .ant-btn {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+/* —— Input number (90×24/32/40) —— */
+.ds-input--number {
+  width: 90px;
+}
+
+.ds-input--number .ant-input-number {
+  width: 90px;
+  height: var(--ds-input-height);
+  min-height: var(--ds-input-height);
+}
+
+.ds-input--number .ant-input-number-input-wrap,
+.ds-input--number .ant-input-number-input {
+  height: 100%;
+}
+
+/* —— Disabled (input/bg/disabled, input/text/disabled) —— */
+.ds-input--disabled .ant-input,
+.ds-input--disabled .ant-input-affix-wrapper,
+.ds-input--disabled .ant-input-number,
+.ds-input--disabled textarea.ant-input,
+.ds-input--state-disabled .ant-input,
+.ds-input--state-disabled .ant-input-affix-wrapper,
+.ds-input--state-disabled .ant-input-number,
+.ds-input--state-disabled textarea.ant-input {
+  cursor: not-allowed;
+}
+
+.ds-input--disabled .ant-input[disabled],
+.ds-input--disabled .ant-input-disabled,
+.ds-input--disabled .ant-input-affix-wrapper-disabled,
+.ds-input--disabled .ant-input-number-disabled,
+.ds-input--disabled .ant-input-number.ant-input-number-disabled,
+.ds-input--state-disabled .ant-input,
+.ds-input--state-disabled .ant-input-affix-wrapper,
+.ds-input--state-disabled .ant-input-number,
+.ds-input--state-disabled textarea.ant-input {
+  background: var(--component-input-bg-disabled, rgba(0, 0, 0, 0.04)) !important;
+  color: var(--component-input-text-disable, rgba(0, 0, 0, 0.25)) !important;
+  border-color: var(--component-input-border-default, #d9d9d9) !important;
+  box-shadow: none !important;
+}
+
+/* Password / affix — fill on wrapper only (avoids stacked disabled backgrounds) */
+.ds-input--disabled .ant-input-affix-wrapper-disabled input,
+.ds-input--disabled .ant-input-affix-wrapper-disabled textarea,
+.ds-input--disabled .ant-input-affix-wrapper-disabled .ant-input,
+.ds-input--state-disabled .ant-input-affix-wrapper input,
+.ds-input--state-disabled .ant-input-affix-wrapper textarea,
+.ds-input--state-disabled .ant-input-affix-wrapper .ant-input {
+  background: transparent !important;
+  color: var(--component-input-text-disable, rgba(0, 0, 0, 0.25)) !important;
+  -webkit-text-fill-color: var(--component-input-text-disable, rgba(0, 0, 0, 0.25));
+}
+
+.ds-input--disabled .ant-input-number-input,
+.ds-input--state-disabled .ant-input-number-input {
+  color: var(--component-input-text-disable, rgba(0, 0, 0, 0.25)) !important;
+  -webkit-text-fill-color: var(--component-input-text-disable, rgba(0, 0, 0, 0.25));
+}
+
+.ds-input--disabled.ds-input--pre-post-tab .ant-input-group .ant-input,
+.ds-input--disabled.ds-input--search .ant-input-group .ant-input-affix-wrapper {
+  background: var(--component-input-bg-disabled, rgba(0, 0, 0, 0.04)) !important;
+  color: var(--component-input-text-disable, rgba(0, 0, 0, 0.25)) !important;
+}
+
+.ds-input--disabled .ant-input::placeholder,
+.ds-input--disabled .ant-input-affix-wrapper input::placeholder,
+.ds-input--state-disabled .ant-input::placeholder,
+.ds-input--state-disabled .ant-input-affix-wrapper input::placeholder {
+  color: var(--component-input-text-disable, rgba(0, 0, 0, 0.25)) !important;
+}
+
+.ds-input--disabled .ant-input-password-icon,
+.ds-input--disabled .ant-input-clear-icon,
+.ds-input--disabled .ant-input-number-handler-wrap,
+.ds-input--state-disabled .ant-input-password-icon {
+  color: var(--component-input-text-disable, rgba(0, 0, 0, 0.25)) !important;
+  pointer-events: none;
+}
+
+.ds-input--disabled .ds-input-tab,
+.ds-input--disabled .ds-input-tab--icon,
+.ds-input--disabled .ds-input-tab-select .ant-select-selection-item,
+.ds-input--disabled .ds-input-tab-select.ant-select-disabled .ant-select-selector,
+.ds-input--state-disabled .ds-input-tab,
+.ds-input--state-disabled .ds-input-tab--icon {
+  color: var(--component-input-text-disable, rgba(0, 0, 0, 0.25)) !important;
+  cursor: not-allowed;
+}
+
+.ds-input--disabled .ds-input-search-enter .ant-btn {
+  cursor: not-allowed;
+}
+
+.ds-input--disabled .ds-input-search-enter .ant-btn:disabled {
+  opacity: 1;
+  background: var(--component-input-bg-disabled, rgba(0, 0, 0, 0.04)) !important;
+  border-color: var(--component-input-border-default, #d9d9d9) !important;
+  color: var(--component-input-text-disable, rgba(0, 0, 0, 0.25)) !important;
+}
+
+/* —— Story layout —— */
+.ds-input-story-sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.ds-input-story-size-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.ds-input-story-size-label {
+  margin: 0;
+  font-size: var(--type-size-sm, 14px);
+  line-height: var(--type-line-h-s, 22px);
+  color: var(--color-text-secondary);
+  text-transform: capitalize;
+}
