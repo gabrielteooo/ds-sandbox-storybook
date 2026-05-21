@@ -54,7 +54,7 @@ export function mapSelectStatusToAnt(
 
 export interface DsSelectProps extends Omit<
   SelectProps,
-  'size' | 'suffixIcon' | 'mode' | 'status' | 'showSearch' | 'optionRender' | 'dropdownRender'
+  'size' | 'suffixIcon' | 'mode' | 'status' | 'showSearch' | 'optionRender' | 'dropdownRender' | 'variant'
 > {
   size?: DsSelectSize;
   /** basic = single · multiple = tags + checkbox menu · search = filterable single */
@@ -91,7 +91,7 @@ export const DsSelect = forwardRef<BaseSelectRef, DsSelectProps>(function DsSele
     status = 'default',
     className,
     popupClassName,
-    options = DS_SELECT_DEFAULT_OPTIONS,
+    options = [...DS_SELECT_DEFAULT_OPTIONS],
     suffixIcon: suffixIconProp,
     defaultValue,
     value: valueProp,

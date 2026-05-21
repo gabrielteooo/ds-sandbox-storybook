@@ -1,0 +1,223 @@
+/**
+ * DsTimePicker — input Figma 507:32759 · panel Figma 396:13603.
+ */
+
+.ds-timepicker.ant-picker {
+  width: 100%;
+  max-width: var(--ds-tp-input-width-single, 160px);
+  min-width: 120px;
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+  background: var(--component-input-bg-default);
+  border-color: var(--component-input-border-default);
+  color: var(--component-input-text-default);
+}
+
+.ds-timepicker--range.ant-picker {
+  max-width: var(--ds-tp-input-width-range, 320px);
+  min-width: var(--ds-tp-input-width-range, 320px);
+}
+
+.ds-timepicker .ant-picker-input > input {
+  color: var(--component-input-text-default);
+  font-family: inherit;
+}
+
+.ds-timepicker .ant-picker-input > input::placeholder {
+  color: var(--component-input-text-placeholder);
+}
+
+.ds-timepicker:not(.ant-picker-disabled):hover {
+  border-color: var(--component-input-border-hover);
+}
+
+.ds-timepicker.ant-picker-focused,
+.ds-timepicker.ant-picker-focused:hover {
+  border-color: var(--component-input-border-active);
+  /* TOKEN GAP: focus ring — matches Input / Select / DatePicker */
+  box-shadow: 0 0 0 2px rgba(0, 99, 106, 0.1);
+}
+
+.ds-timepicker--status-warning.ant-picker {
+  border-color: var(--color-system-warning-default);
+}
+
+.ds-timepicker--status-warning.ant-picker-focused {
+  border-color: var(--color-system-warning-default);
+  box-shadow: 0 0 0 2px rgba(212, 107, 8, 0.1);
+}
+
+.ds-timepicker--status-error.ant-picker {
+  border-color: var(--color-system-error-default);
+}
+
+.ds-timepicker--status-error.ant-picker-focused {
+  border-color: var(--color-system-error-default);
+  box-shadow: 0 0 0 2px rgba(168, 7, 26, 0.1);
+}
+
+.ds-timepicker .ant-picker-suffix,
+.ds-timepicker .ant-picker-separator {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+.ds-timepicker .ant-picker-suffix .anticon {
+  font-size: var(--text-xs-normal-font-size, 12px);
+}
+
+/* —— Sizes (Input / Select / DatePicker scale) —— */
+.ds-timepicker--x-small.ant-picker {
+  min-height: 24px;
+  height: 24px;
+  border-radius: var(--primitive-radius-xs, 4px);
+  padding-inline: var(--primitive-space-xs, 8px);
+}
+
+.ds-timepicker--x-small .ant-picker-input > input {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+.ds-timepicker--small.ant-picker {
+  min-height: 32px;
+  height: 32px;
+  border-radius: var(--primitive-radius-sm, 6px);
+  padding-inline: var(--primitive-space-sm, 12px);
+}
+
+.ds-timepicker--small .ant-picker-input > input {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+.ds-timepicker--base.ant-picker {
+  min-height: 40px;
+  height: 40px;
+  border-radius: var(--primitive-radius-base, 8px);
+  padding-inline: var(--primitive-space-sm, 12px);
+}
+
+.ds-timepicker--base .ant-picker-input > input {
+  font-family: var(--text-base-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: var(--text-base-normal-line-height, 24px);
+  font-weight: var(--text-base-normal-font-weight, 400);
+}
+
+.ds-timepicker.ant-picker-disabled {
+  background: var(--component-input-bg-disabled);
+  border-color: var(--component-input-border-default);
+}
+
+.ds-timepicker.ant-picker-disabled .ant-picker-input > input {
+  color: var(--component-input-text-disable);
+}
+
+/* —— Time panel (portal) — Figma 396:13603 —— */
+/* @see https://ant.design/components/time-picker */
+.ds-timepicker__popup.ant-picker-dropdown {
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+  --ds-tp-panel-width: 170px;
+  --ds-tp-panel-height: 228px;
+  --ds-tp-column-height: 224px;
+  --ds-tp-cell-height: var(--primitive-space-xl, 32px);
+  --ds-tp-input-width-single: 160px;
+  --ds-tp-input-width-range: 320px;
+  --ds-tp-menu-bg: var(--color-bg-layout, #f5f5f5);
+  padding: 0 !important;
+  margin: 0;
+}
+
+.ds-timepicker__popup .ant-picker-panel-container {
+  display: inline-flex;
+  flex-direction: column;
+  width: var(--ds-tp-panel-width);
+  min-width: var(--ds-tp-panel-width);
+  max-width: var(--ds-tp-panel-width);
+  height: var(--ds-tp-panel-height);
+  background: var(--ds-tp-menu-bg);
+  border-radius: var(--primitive-radius-sm, 6px);
+  border: 1px solid var(--component-input-border-default);
+  box-shadow:
+    0 0 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.ds-timepicker__popup .ant-picker-panel-layout,
+.ds-timepicker__popup .ant-picker-panel-layout > div {
+  width: 100%;
+  height: 100%;
+}
+
+.ds-timepicker__popup .ant-picker-panel {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+}
+
+.ds-timepicker__popup .ant-picker-time-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Figma menu has no header row — only HH / mm columns */
+.ds-timepicker__popup .ant-picker-time-panel .ant-picker-header {
+  display: none;
+}
+
+.ds-timepicker__popup .ant-picker-time-panel .ant-picker-content {
+  display: flex;
+  flex: 1 1 auto;
+  height: var(--ds-tp-column-height);
+  min-height: var(--ds-tp-column-height);
+  max-height: var(--ds-tp-column-height);
+  padding: var(--primitive-space-xxs, 4px) 0 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.ds-timepicker__popup .ant-picker-time-panel-column {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0 var(--primitive-space-xxs, 4px);
+  overflow-y: auto;
+}
+
+.ds-timepicker__popup .ant-picker-time-panel-column:not(:last-child) {
+  border-inline-end: 1px solid var(--color-border-split, #e2e2e2);
+}
+
+.ds-timepicker__popup
+  .ant-picker-time-panel-column
+  > li.ant-picker-time-panel-cell-selected
+  .ant-picker-time-panel-cell-inner {
+  background: var(--color-primary-bg);
+  color: var(--component-input-text-default);
+}
+
+.ds-timepicker__popup .ant-picker-time-panel-column > li:hover .ant-picker-time-panel-cell-inner {
+  background: var(--color-fill-secondary);
+}
+
+.ds-timepicker__popup .ant-picker-time-panel-column > li .ant-picker-time-panel-cell-inner {
+  height: var(--ds-tp-cell-height);
+  line-height: var(--ds-tp-cell-height);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  border-radius: var(--primitive-radius-xs, 4px);
+  color: var(--component-input-text-default);
+}
+
+.ds-timepicker__popup .ant-picker-footer {
+  display: none;
+}

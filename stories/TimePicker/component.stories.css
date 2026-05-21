@@ -1,0 +1,24 @@
+.ds-timepicker-stories-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-lg, 24px);
+  align-items: flex-start;
+}
+
+.ds-timepicker-stories-grid--sizes {
+  gap: var(--primitive-space-md, 16px);
+}
+
+.ds-timepicker-stories-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-xxs, 4px);
+  width: 100%;
+}
+
+.ds-timepicker-stories-label {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  color: var(--color-text-secondary, rgba(0, 0, 0, 0.65));
+}

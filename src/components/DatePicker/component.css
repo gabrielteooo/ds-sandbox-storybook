@@ -1,0 +1,696 @@
+/**
+ * DsDatePicker — input Figma 415:795 · panel Figma 432:17357.
+ */
+
+.ds-datepicker.ant-picker {
+  width: 100%;
+  max-width: 320px;
+  min-width: 120px;
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+  background: var(--component-input-bg-default);
+  border-color: var(--component-input-border-default);
+  color: var(--component-input-text-default);
+}
+
+.ds-datepicker--range.ant-picker {
+  min-width: 322px;
+}
+
+.ds-datepicker .ant-picker-input > input {
+  color: var(--component-input-text-default);
+  font-family: inherit;
+}
+
+.ds-datepicker .ant-picker-input > input::placeholder {
+  color: var(--component-input-text-placeholder);
+}
+
+.ds-datepicker:not(.ant-picker-disabled):hover {
+  border-color: var(--component-input-border-hover);
+}
+
+.ds-datepicker.ant-picker-focused,
+.ds-datepicker.ant-picker-focused:hover {
+  border-color: var(--component-input-border-active);
+  /* TOKEN GAP: focus ring — matches Input / Select */
+  box-shadow: 0 0 0 2px rgba(0, 99, 106, 0.1);
+}
+
+.ds-datepicker--status-warning.ant-picker {
+  border-color: var(--color-system-warning-default);
+}
+
+.ds-datepicker--status-warning.ant-picker-focused {
+  border-color: var(--color-system-warning-default);
+  box-shadow: 0 0 0 2px rgba(212, 107, 8, 0.1);
+}
+
+.ds-datepicker--status-error.ant-picker {
+  border-color: var(--color-system-error-default);
+}
+
+.ds-datepicker--status-error.ant-picker-focused {
+  border-color: var(--color-system-error-default);
+  box-shadow: 0 0 0 2px rgba(168, 7, 26, 0.1);
+}
+
+.ds-datepicker .ant-picker-suffix,
+.ds-datepicker .ant-picker-separator {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+.ds-datepicker .ant-picker-suffix .anticon {
+  font-size: var(--text-xs-normal-font-size, 12px);
+}
+
+/* —— Sizes (Input / Select scale) —— */
+.ds-datepicker--x-small.ant-picker {
+  min-height: 24px;
+  height: 24px;
+  border-radius: var(--primitive-radius-xs, 4px);
+  padding-inline: var(--primitive-space-xs, 8px);
+}
+
+.ds-datepicker--x-small .ant-picker-input > input {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+.ds-datepicker--small.ant-picker {
+  min-height: 32px;
+  height: 32px;
+  border-radius: var(--primitive-radius-sm, 6px);
+  padding-inline: var(--primitive-space-sm, 12px);
+}
+
+.ds-datepicker--small .ant-picker-input > input {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+.ds-datepicker--base.ant-picker {
+  min-height: 40px;
+  height: 40px;
+  border-radius: var(--primitive-radius-base, 8px);
+  padding-inline: var(--primitive-space-sm, 12px);
+}
+
+.ds-datepicker--base .ant-picker-input > input {
+  font-family: var(--text-base-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: var(--text-base-normal-line-height, 24px);
+  font-weight: var(--text-base-normal-font-weight, 400);
+}
+
+.ds-datepicker.ant-picker-disabled {
+  background: var(--component-input-bg-disabled);
+  border-color: var(--component-input-border-default);
+}
+
+.ds-datepicker.ant-picker-disabled .ant-picker-input > input {
+  color: var(--component-input-text-disable);
+}
+
+/* —— Calendar panel (portal) — Figma 432:17357 + DS tokens —— */
+/* @see https://ant.design/components/date-picker */
+.ds-datepicker__popup.ant-picker-dropdown {
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+  /* Figma 432:17353 + token mapping (see datePickerPanelMetrics.ts) */
+  --ds-dp-panel-width: 280px;
+  --ds-dp-cell-size: 24px; /* matches controlHeightSM / Figma menu item */
+  --ds-dp-body-pad-y: var(--primitive-space-xs, 8px);
+  --ds-dp-body-pad-x: calc(var(--primitive-space-base, 16px) + var(--primitive-space-xxs, 4px) / 2);
+  --ds-dp-header-pad-x: var(--primitive-space-sm, 12px);
+  /* TOKEN GAP: Figma header py 9px — nearest primitive blend */
+  --ds-dp-header-pad-y: calc((var(--primitive-space-xs, 8px) + var(--primitive-space-sm, 12px)) / 2);
+  --ds-dp-cell-pad-y: var(--primitive-space-xxs, 4px);
+  --ds-dp-month-cell-width: calc(
+    var(--primitive-space-2xl, 40px) + var(--primitive-space-lg, 24px) - var(--primitive-space-xxs, 4px)
+  );
+  /* Figma 432:17357 outer symbol heights */
+  --ds-dp-height-day: 266px;
+  --ds-dp-height-day-range: 274px;
+  --ds-dp-height-month: 326px;
+  --ds-dp-height-year: 326px;
+  --ds-dp-height-datetime: 267px;
+  --ds-dp-datetime-width: 450px;
+  --ds-dp-header-block: var(--primitive-space-2xl, 40px);
+  --ds-dp-footer-block: var(--primitive-space-2xl, 40px);
+  --ds-dp-day-grid-height: calc(
+    var(--ds-dp-height-day) - var(--ds-dp-header-block) - var(--ds-dp-footer-block) -
+      var(--ds-dp-body-pad-y) * 2
+  );
+  --ds-dp-day-range-grid-height: calc(
+    var(--ds-dp-height-day-range) - var(--ds-dp-header-block) - var(--ds-dp-footer-block) -
+      var(--ds-dp-body-pad-y) * 2
+  );
+  --ds-dp-month-grid-height: calc(
+    var(--ds-dp-height-month) - var(--ds-dp-header-block) - var(--ds-dp-footer-block)
+  );
+  --ds-dp-menu-bg: var(--color-bg-layout, #f5f5f5);
+  padding: 0 !important;
+  margin: 0;
+}
+
+/* Month/year grid fills panel when Today footer is absent (e.g. month range) */
+.ds-datepicker__popup .ant-picker-panel-container:not(:has(.ant-picker-footer)) {
+  --ds-dp-month-grid-height: calc(var(--ds-dp-height-month) - var(--ds-dp-header-block));
+}
+
+.ds-datepicker__popup.ant-picker-dropdown-range {
+  padding: 0 !important;
+}
+
+/* Outer chrome — Figma menu container bg */
+.ds-datepicker__popup .ant-picker-panel-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: fit-content;
+  vertical-align: top;
+  background: var(--ds-dp-menu-bg);
+  border-radius: var(--primitive-radius-base, 8px);
+  border: 1px solid var(--component-datepicker-border-default, #d9d9d9);
+  box-shadow:
+    0 0 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Figma symbol heights — 432:17353 / 17350 / 17349 / 17348 */
+.ds-datepicker__popup
+  .ant-picker-panel-container:has(.ant-picker-date-panel):not(:has(.ant-picker-datetime-panel)):not(
+    :has(.ant-picker-panels)
+  ) {
+  width: var(--ds-dp-panel-width);
+  height: auto;
+  min-height: var(--ds-dp-height-day);
+}
+
+.ds-datepicker__popup
+  .ant-picker-panel-container:has(.ant-picker-panels):has(.ant-picker-date-panel):not(
+    :has(.ant-picker-datetime-panel)
+  ) {
+  width: calc(var(--ds-dp-panel-width) * 2);
+  height: var(--ds-dp-height-day-range);
+}
+
+/* Figma 432:17352 / 17347 — month & year range 560×326 */
+.ds-datepicker__popup .ant-picker-panel-container:has(.ant-picker-month-panel):not(:has(.ant-picker-datetime-panel)),
+.ds-datepicker__popup .ant-picker-panel-container:has(.ant-picker-year-panel):not(:has(.ant-picker-datetime-panel)) {
+  width: var(--ds-dp-panel-width);
+  height: var(--ds-dp-height-month);
+}
+
+.ds-datepicker__popup
+  .ant-picker-panel-container:has(.ant-picker-panels):has(.ant-picker-month-panel),
+.ds-datepicker__popup
+  .ant-picker-panel-container:has(.ant-picker-panels):has(.ant-picker-year-panel) {
+  width: calc(var(--ds-dp-panel-width) * 2);
+  height: var(--ds-dp-height-month);
+}
+
+/* Figma 432:17348 — date + time 450×267 */
+.ds-datepicker__popup .ant-picker-panel-container:has(.ant-picker-datetime-panel) {
+  width: var(--ds-dp-datetime-width);
+  min-width: var(--ds-dp-datetime-width);
+  max-width: var(--ds-dp-datetime-width);
+  height: var(--ds-dp-height-datetime);
+}
+
+.ds-datepicker__popup .ant-picker-panel-container:has(.ant-picker-datetime-panel) .ant-picker-panel {
+  flex: 0 0 var(--ds-dp-datetime-width);
+  width: var(--ds-dp-datetime-width);
+  max-width: var(--ds-dp-datetime-width);
+}
+
+/* rc-picker: row = [presets | panels+footer column] */
+.ds-datepicker__popup .ant-picker-panel-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.ds-datepicker__popup .ant-picker-panel-layout > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* Footer stacks below panels (Figma); panels must not consume footer height */
+.ds-datepicker__popup .ant-picker-panel-container:has(.ant-picker-footer) .ant-picker-panels {
+  flex: 0 0 auto;
+  order: 1;
+}
+
+.ds-datepicker__popup .ant-picker-panel-container:not(:has(.ant-picker-footer)) .ant-picker-panels {
+  flex: 0 0 auto;
+}
+
+/* Date range 274px total = calendars + Today row */
+.ds-datepicker__popup
+  .ant-picker-panel-container:has(.ant-picker-panels):has(.ant-picker-date-panel):has(
+    .ant-picker-footer
+  ):not(:has(.ant-picker-datetime-panel))
+  .ant-picker-panels {
+  max-height: calc(var(--ds-dp-height-day-range) - var(--ds-dp-footer-block));
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ds-datepicker__popup
+  .ant-picker-panel-container:has(.ant-picker-panels):has(.ant-picker-date-panel):has(
+    .ant-picker-footer
+  ):not(:has(.ant-picker-datetime-panel))
+  .ant-picker-panel-layout
+  > div {
+  height: 100%;
+}
+
+.ds-datepicker__popup
+  .ant-picker-panel-container:has(.ant-picker-panels):has(.ant-picker-date-panel):has(
+    .ant-picker-footer
+  ):not(:has(.ant-picker-datetime-panel))
+  .ant-picker-date-panel
+  .ant-picker-content {
+  height: var(--ds-dp-day-range-grid-height);
+  max-height: var(--ds-dp-day-range-grid-height);
+}
+
+.ds-datepicker__popup .ant-picker-panels {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 0;
+}
+
+.ds-datepicker__popup .ant-picker-panels .ant-picker-panel + .ant-picker-panel {
+  border-inline-start: 1px solid var(--color-border-split, #e2e2e2);
+}
+
+/* Inner panel surfaces */
+.ds-datepicker__popup .ant-picker-panel {
+  flex: 0 0 var(--ds-dp-panel-width);
+  width: var(--ds-dp-panel-width);
+  background: var(--component-datepicker-bg-default);
+  border: none;
+  min-height: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.ds-datepicker__popup .ant-picker-date-panel,
+.ds-datepicker__popup .ant-picker-month-panel,
+.ds-datepicker__popup .ant-picker-year-panel,
+.ds-datepicker__popup .ant-picker-decade-panel {
+  display: flex;
+  flex-direction: column;
+  width: var(--ds-dp-panel-width) !important;
+  max-width: var(--ds-dp-panel-width);
+  flex: 0 0 auto;
+  min-height: 0;
+  height: auto;
+}
+
+.ds-datepicker__popup .ant-picker-body {
+  flex: 0 0 auto;
+  min-height: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.ds-datepicker__popup .ant-picker-date-panel .ant-picker-body {
+  flex: 1 1 auto;
+}
+
+.ds-datepicker__popup .ant-picker-date-panel .ant-picker-body {
+  overflow: visible;
+}
+
+/* —— Header — Figma 40px row —— */
+.ds-datepicker__popup .ant-picker-header {
+  display: flex;
+  flex: 0 0 var(--ds-dp-header-block);
+  align-items: center;
+  margin: 0;
+  padding: var(--ds-dp-header-pad-y) var(--ds-dp-header-pad-x);
+  border-bottom: 1px solid var(--color-border-split, #e2e2e2);
+  color: var(--component-datepicker-text-default);
+  box-sizing: border-box;
+}
+
+.ds-datepicker__popup .ant-picker-header > button,
+.ds-datepicker__popup .ant-picker-header-view,
+.ds-datepicker__popup .ant-picker-header-view > button {
+  line-height: var(--text-sm-normal-line-height, 22px) !important;
+  height: auto;
+  min-height: 0;
+}
+
+.ds-datepicker__popup .ant-picker-header-view {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  font-weight: var(--text-sm-medium-font-weight, 500);
+  line-height: var(--text-sm-normal-line-height, 22px);
+}
+
+.ds-datepicker__popup .ant-picker-header > button {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+  font-size: var(--type-size-sm, 14px);
+}
+
+/* —— Date panel body — Figma paddingxs 8 / horizontal 18 —— */
+.ds-datepicker__popup .ant-picker-date-panel .ant-picker-body {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ds-dp-body-pad-y) var(--ds-dp-body-pad-x);
+  box-sizing: border-box;
+}
+
+.ds-datepicker__popup .ant-picker-date-panel .ant-picker-content {
+  width: 100%;
+  flex: 0 0 auto;
+  height: auto;
+  min-height: 0;
+  table-layout: fixed;
+}
+
+/* Only show day cells for the active month (1–31) */
+.ds-datepicker__popup .ant-picker-date-panel .ant-picker-cell:not(.ant-picker-cell-in-view) {
+  pointer-events: none;
+}
+
+.ds-datepicker__popup .ant-picker-date-panel .ant-picker-cell:not(.ant-picker-cell-in-view) .ant-picker-cell-inner {
+  visibility: hidden;
+}
+
+.ds-datepicker__popup .ant-picker-date-panel .ant-picker-cell:not(.ant-picker-cell-in-view)::before {
+  display: none;
+}
+
+.ds-datepicker__popup .ant-picker-content th,
+.ds-datepicker__popup .ant-picker-cell {
+  padding: var(--ds-dp-cell-pad-y) 0;
+  color: var(--component-datepicker-text-default);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+}
+
+.ds-datepicker__popup .ant-picker-content th {
+  height: calc(var(--ds-dp-cell-size) + var(--ds-dp-cell-pad-y) * 2);
+  font-weight: var(--text-sm-medium-font-weight, 500);
+  vertical-align: middle;
+}
+
+.ds-datepicker__popup .ant-picker-date-panel .ant-picker-content th {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ds-datepicker__popup .ant-picker-cell-inner {
+  width: var(--ds-dp-cell-size);
+  min-width: var(--ds-dp-cell-size);
+  height: var(--ds-dp-cell-size);
+  line-height: var(--ds-dp-cell-size);
+  border-radius: var(--primitive-radius-sm, 4px);
+}
+
+.ds-datepicker__popup .ant-picker-cell-in-view {
+  color: var(--component-datepicker-text-default);
+}
+
+/* —— Month / year / decade — Ant body 0 + paddingXS; compact content height —— */
+.ds-datepicker__popup .ant-picker-month-panel .ant-picker-body,
+.ds-datepicker__popup .ant-picker-year-panel .ant-picker-body,
+.ds-datepicker__popup .ant-picker-decade-panel .ant-picker-body {
+  padding: 0 var(--primitive-space-xs, 8px);
+}
+
+.ds-datepicker__popup .ant-picker-month-panel .ant-picker-body,
+.ds-datepicker__popup .ant-picker-year-panel .ant-picker-body,
+.ds-datepicker__popup .ant-picker-decade-panel .ant-picker-body {
+  display: block;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.ds-datepicker__popup .ant-picker-month-panel .ant-picker-content,
+.ds-datepicker__popup .ant-picker-year-panel .ant-picker-content,
+.ds-datepicker__popup .ant-picker-decade-panel .ant-picker-content {
+  width: 100%;
+  flex: 0 0 auto;
+  height: var(--ds-dp-month-grid-height) !important;
+  min-height: var(--ds-dp-month-grid-height) !important;
+  max-height: var(--ds-dp-month-grid-height) !important;
+  margin: 0;
+  table-layout: fixed;
+}
+
+.ds-datepicker__popup .ant-picker-month-panel .ant-picker-content tbody tr,
+.ds-datepicker__popup .ant-picker-year-panel .ant-picker-content tbody tr {
+  height: 25%;
+}
+
+.ds-datepicker__popup .ant-picker-month-panel .ant-picker-cell,
+.ds-datepicker__popup .ant-picker-year-panel .ant-picker-cell,
+.ds-datepicker__popup .ant-picker-decade-panel .ant-picker-cell {
+  padding: var(--ds-dp-cell-pad-y) 0;
+  vertical-align: middle;
+}
+
+.ds-datepicker__popup .ant-picker-month-panel .ant-picker-cell-inner,
+.ds-datepicker__popup .ant-picker-year-panel .ant-picker-cell-inner,
+.ds-datepicker__popup .ant-picker-decade-panel .ant-picker-cell-inner {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  height: var(--ds-dp-cell-size);
+  line-height: var(--ds-dp-cell-size);
+  margin-inline: auto;
+  padding-inline: var(--primitive-space-xs, 8px);
+  border-radius: var(--primitive-radius-sm, 4px);
+  color: var(--component-datepicker-text-default);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  box-sizing: border-box;
+}
+
+/* Single month panel keeps fixed cell width; range uses full column width above */
+.ds-datepicker__popup
+  .ant-picker-panel-container:not(:has(.ant-picker-panels))
+  .ant-picker-month-panel
+  .ant-picker-cell-inner,
+.ds-datepicker__popup
+  .ant-picker-panel-container:not(:has(.ant-picker-panels))
+  .ant-picker-year-panel
+  .ant-picker-cell-inner {
+  width: var(--ds-dp-month-cell-width);
+  min-width: var(--ds-dp-month-cell-width);
+}
+
+.ds-datepicker__popup .ant-picker-month-panel .ant-picker-cell-selected .ant-picker-cell-inner,
+.ds-datepicker__popup .ant-picker-year-panel .ant-picker-cell-selected .ant-picker-cell-inner,
+.ds-datepicker__popup .ant-picker-decade-panel .ant-picker-cell-selected .ant-picker-cell-inner {
+  background: var(--component-datepicker-bg-selected) !important;
+  color: var(--component-datepicker-text-selected) !important;
+}
+
+.ds-datepicker__popup .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-disabled) .ant-picker-cell-inner {
+  background: var(--component-datepicker-bg-hover);
+}
+
+.ds-datepicker__popup .ant-picker-cell-selected:not(.ant-picker-cell-disabled) .ant-picker-cell-inner,
+.ds-datepicker__popup .ant-picker-cell-range-start:not(.ant-picker-cell-disabled) .ant-picker-cell-inner,
+.ds-datepicker__popup .ant-picker-cell-range-end:not(.ant-picker-cell-disabled) .ant-picker-cell-inner {
+  background: var(--component-datepicker-bg-selected) !important;
+  color: var(--component-datepicker-text-selected) !important;
+}
+
+.ds-datepicker__popup .ant-picker-cell-in-view.ant-picker-cell-in-range:not(.ant-picker-cell-disabled)::before,
+.ds-datepicker__popup .ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-disabled)::before,
+.ds-datepicker__popup .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-disabled)::before {
+  background: var(--component-datepicker-bg-range);
+  z-index: 0;
+}
+
+.ds-datepicker__popup .ant-picker-panels .ant-picker-cell .ant-picker-cell-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.ds-datepicker__popup .ant-picker-cell-in-view.ant-picker-cell-today:not(.ant-picker-cell-selected) .ant-picker-cell-inner::before {
+  border-color: var(--component-datepicker-border-active);
+  border-radius: var(--primitive-radius-xs, 4px);
+}
+
+.ds-datepicker__popup .ant-picker-cell-disabled {
+  color: var(--component-datepicker-text-disabled);
+}
+
+.ds-datepicker__popup .ant-picker-footer {
+  display: flex;
+  flex: 0 0 var(--ds-dp-footer-block);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: 100%;
+  height: var(--ds-dp-footer-block);
+  min-height: var(--ds-dp-footer-block);
+  padding: var(--primitive-space-xxs, 4px) var(--ds-dp-header-pad-x);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  border-top: 1px solid var(--color-border-split, #e2e2e2);
+  background: var(--ds-dp-menu-bg);
+  box-sizing: border-box;
+}
+
+.ds-datepicker__popup .ant-picker-footer .ant-picker-footer-extra:empty {
+  display: none;
+}
+
+/* rc-picker renders Today as .ant-picker-now-btn inside .ant-picker-ranges */
+.ds-datepicker__popup .ant-picker-footer .ant-picker-ranges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-datepicker__popup .ant-picker-footer .ant-picker-now {
+  margin: 0;
+  line-height: var(--text-sm-normal-line-height, 22px);
+}
+
+.ds-datepicker__popup .ant-picker-footer .ant-picker-now-btn,
+.ds-datepicker__popup .ant-picker-footer .ant-picker-today-btn {
+  display: inline-block;
+  height: auto;
+  min-height: 0;
+  padding: var(--primitive-space-xxs, 4px) 0;
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  color: var(--component-datepicker-border-active, #005055);
+}
+
+.ds-datepicker__popup .ant-picker-footer .ant-picker-now-btn:hover,
+.ds-datepicker__popup .ant-picker-footer .ant-picker-today-btn:hover {
+  color: var(--color-link-hover, #008585);
+}
+
+.ds-datepicker__popup .ant-picker-footer .ant-picker-now-btn-disabled,
+.ds-datepicker__popup .ant-picker-footer .ant-picker-now-btn.ant-picker-now-btn-disabled {
+  color: var(--component-datepicker-text-disabled);
+  cursor: not-allowed;
+}
+
+/* DateTime — Figma 450×267 */
+.ds-datepicker__popup .ant-picker-datetime-panel {
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 0 0 var(--ds-dp-datetime-width);
+  width: var(--ds-dp-datetime-width);
+  min-width: var(--ds-dp-datetime-width);
+  max-width: var(--ds-dp-datetime-width);
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.ds-datepicker__popup .ant-picker-datetime-panel .ant-picker-date-panel .ant-picker-panel {
+  border: none;
+}
+
+/* Datetime: no Today footer in Figma 432:17348 — hide to match height */
+.ds-datepicker__popup .ant-picker-datetime-panel .ant-picker-footer {
+  display: none;
+}
+
+.ds-datepicker__popup .ant-picker-datetime-panel .ant-picker-date-panel {
+  flex: 0 0 var(--ds-dp-panel-width);
+  width: var(--ds-dp-panel-width) !important;
+  height: 100%;
+  border-inline-end: 1px solid var(--color-border-split, #e2e2e2);
+}
+
+.ds-datepicker__popup .ant-picker-datetime-panel .ant-picker-date-panel .ant-picker-content {
+  height: calc(
+    var(--ds-dp-height-datetime) - var(--ds-dp-header-block) - var(--ds-dp-body-pad-y) * 2
+  );
+}
+
+.ds-datepicker__popup .ant-picker-datetime-panel .ant-picker-time-panel {
+  flex: 1 1 auto;
+  width: calc(var(--ds-dp-datetime-width) - var(--ds-dp-panel-width));
+  min-width: calc(var(--ds-dp-datetime-width) - var(--ds-dp-panel-width));
+  max-width: calc(var(--ds-dp-datetime-width) - var(--ds-dp-panel-width));
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.ds-datepicker__popup .ant-picker-time-panel .ant-picker-header {
+  flex: 0 0 var(--ds-dp-header-block);
+  padding: var(--ds-dp-header-pad-y) var(--primitive-space-xs, 8px);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  color: var(--component-datepicker-text-placeholder);
+  text-align: center;
+}
+
+.ds-datepicker__popup .ant-picker-time-panel .ant-picker-content {
+  flex: 1 1 auto;
+  height: calc(var(--ds-dp-height-datetime) - var(--ds-dp-header-block));
+  min-height: 0;
+  max-height: none;
+}
+
+.ds-datepicker__popup .ant-picker-time-panel-column > li.ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner {
+  background: var(--component-datepicker-bg-selected);
+  color: var(--component-datepicker-text-selected);
+}
+
+.ds-datepicker__popup .ant-picker-time-panel-column > li:hover .ant-picker-time-panel-cell-inner {
+  background: var(--component-datepicker-bg-hover);
+}
+
+.ds-datepicker__popup .ant-picker-time-panel-column > li .ant-picker-time-panel-cell-inner {
+  height: calc(var(--primitive-space-xl, 32px) - var(--primitive-space-xxs, 4px));
+  line-height: calc(var(--primitive-space-xl, 32px) - var(--primitive-space-xxs, 4px));
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  border-radius: var(--primitive-radius-xs, 4px);
+  color: var(--component-datepicker-text-default);
+}
+
