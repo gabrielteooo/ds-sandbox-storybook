@@ -1,0 +1,13 @@
+.ds-switch-stories-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--primitive-space-lg, 24px);
+  align-items: center;
+}
+
+.ds-switch-stories-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-md, 16px);
+  align-items: flex-start;
+}

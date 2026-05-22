@@ -1,0 +1,253 @@
+/**
+ * DsUpload — Figma 396:13801 (Upload / Button · List Item / Basic · drag and drop).
+ */
+
+.ds-upload.ant-upload-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+}
+
+.ds-upload--dragger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 480px;
+  max-width: 100%;
+}
+
+.ds-upload--dragger .ds-upload__dragger.ant-upload-wrapper {
+  width: 100%;
+}
+
+/* —— Upload / Button (397:12031) — Figma secondary + UploadOutlined —— */
+.ds-upload.ant-upload-wrapper .ant-upload.ant-upload-select {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+  min-height: 0;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.ds-upload.ant-upload-wrapper .ant-upload.ant-upload-select > span.ant-upload {
+  display: inline-flex;
+  align-items: center;
+  height: auto;
+  min-height: 0;
+  line-height: 1;
+}
+
+.ds-upload__trigger.ds-button {
+  display: inline-flex;
+  line-height: 1;
+  vertical-align: top;
+}
+
+.ds-upload__trigger .ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+}
+
+.ds-upload--button.ds-upload--small .ds-upload__trigger.ds-button--x-small .ant-btn {
+  padding-inline: var(--primitive-space-sm, 12px);
+}
+
+.ds-upload--button.ds-upload--base .ds-upload__trigger.ds-button--small .ant-btn {
+  padding-inline: var(--primitive-space-base, 16px);
+}
+
+.ds-upload--button.ds-upload--large .ds-upload__trigger.ds-button--base .ant-btn {
+  padding-inline: var(--primitive-space-base, 16px);
+}
+
+.ds-upload--button .ds-upload__trigger .ant-btn .ant-btn-icon {
+  color: var(--component-button-secondary-text-icon);
+}
+
+/* —— Upload List Item / Basic (397:12034) — hug content, 8px between rows —— */
+.ds-upload .ant-upload-list.ant-upload-list-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-xs, 8px);
+  width: 100%;
+  align-self: stretch;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.ds-upload .ant-upload-list.ant-upload-list-text:has(.ant-upload-list-item-container) {
+  margin-top: var(--primitive-space-base, 16px);
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item-container,
+.ds-upload .ant-upload-list-text .ant-upload-list-item-container.ant-upload-animate-appear,
+.ds-upload .ant-upload-list-text .ant-upload-list-item-container.ant-upload-animate-enter,
+.ds-upload .ant-upload-list-text .ant-upload-list-item-container.ant-upload-animate-leave,
+.ds-upload .ant-upload-list-text .ant-upload-list-item-container.ant-upload-animate-appear-active,
+.ds-upload .ant-upload-list-text .ant-upload-list-item-container.ant-upload-animate-enter-active {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0;
+  overflow: visible;
+}
+
+.ds-upload.ant-upload-wrapper .ant-upload-list-text .ant-upload-list-item,
+.ds-upload .ant-upload-list-text .ant-upload-list-item {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  line-height: 1;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item:hover {
+  background: var(--color-system-control-bg-option-hover);
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item .ant-upload-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-height: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item-name {
+  color: var(--component-upload-bg-file);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  flex: 1 1 auto;
+  display: inline-block;
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item-name > span {
+  line-height: var(--text-sm-normal-line-height, 22px);
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item:hover .ant-upload-list-item-name {
+  color: var(--component-upload-bg-hover);
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item .ant-upload-icon .anticon,
+.ds-upload .ant-upload-list-text .ant-upload-list-item .anticon-paper-clip {
+  color: var(--color-icon-default);
+  font-size: var(--type-size-base, 16px);
+  line-height: 1;
+  display: block;
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item-actions {
+  display: inline-flex;
+  align-items: center;
+  height: auto;
+  min-height: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item-action {
+  height: auto;
+  min-height: 0;
+  line-height: 1;
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item-action .ant-btn {
+  height: auto;
+  min-height: 0;
+  line-height: 1;
+  padding: 0;
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item-progress {
+  display: none;
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item-action .anticon {
+  color: var(--color-icon-default);
+}
+
+.ds-upload .ant-upload-list-text .ant-upload-list-item-error .ant-upload-list-item-name,
+.ds-upload .ant-upload-list-text .ant-upload-list-item-error .anticon {
+  color: var(--color-system-error-text);
+}
+
+/* —— Upload / drag and drop (397:12043) —— */
+.ds-upload__dragger.ant-upload-wrapper .ant-upload-drag {
+  background: var(--component-upload-bg-container);
+  border-color: var(--component-upload-bg-border);
+  border-radius: var(--primitive-radius-base, 8px);
+  padding: var(--primitive-space-lg, 24px) var(--primitive-space-base, 16px);
+}
+
+.ds-upload__dragger.ant-upload-wrapper .ant-upload-drag:hover {
+  border-color: var(--color-primary-hover);
+}
+
+.ds-upload--dragger.ds-upload--error .ant-upload-drag {
+  border-color: var(--color-system-error-text);
+}
+
+.ds-upload__dragger .ant-upload-btn {
+  padding: 0;
+}
+
+.ds-upload__dragger-icon {
+  margin: 0;
+  line-height: 1;
+}
+
+.ds-upload__dragger-icon .anticon {
+  font-size: 48px;
+  color: var(--color-icon-default);
+}
+
+.ds-upload__dragger-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.ds-upload__dragger-title {
+  margin: 0;
+  color: var(--color-text-default);
+  text-align: center;
+}
+
+.ds-upload__dragger-hint {
+  margin: 0;
+  color: var(--color-text-description);
+  text-align: center;
+}
+
+.ds-upload__error {
+  margin: 2px 0 0;
+  color: var(--color-system-error-text);
+}

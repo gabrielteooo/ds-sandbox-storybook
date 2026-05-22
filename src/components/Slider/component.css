@@ -1,0 +1,155 @@
+/**
+ * DsSlider — Figma 507:32553 (Basic) · 396:12303 (Icon) · 396:12304 (InputNumber).
+ */
+
+/* —— Variant widths (Figma) —— */
+.ds-slider--basic.ant-slider {
+  width: 340px;
+  max-width: 100%;
+}
+
+.ds-slider-field--icon {
+  width: 368px;
+  max-width: 100%;
+}
+
+.ds-slider-field--input {
+  width: 434px;
+  max-width: 100%;
+}
+
+.ds-slider-field--icon .ds-slider-field__track,
+.ds-slider-field--input .ds-slider-field__track {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ds-slider-field--icon .ds-slider.ant-slider,
+.ds-slider-field--input .ds-slider.ant-slider {
+  width: 100%;
+}
+
+/* —— Rail & track (Figma Slider Rail / Track) —— */
+.ds-slider.ant-slider .ant-slider-rail {
+  background-color: var(--component-slider-bg-track) !important;
+  /* TOKEN GAP: Figma rail radius 44px — no slider-specific radius token */
+  border-radius: 44px;
+}
+
+.ds-slider.ant-slider .ant-slider-track {
+  background-color: var(--component-slider-bg-default) !important;
+  /* TOKEN GAP: Figma track radius 30px */
+  border-radius: 30px;
+}
+
+.ds-slider.ant-slider:hover:not(.ant-slider-disabled) .ant-slider-track {
+  background-color: var(--component-slider-bg-selected) !important;
+}
+
+/* —— Handle (Figma Slider Handle — 14px default, 12px hover/pressed) —— */
+.ds-slider.ant-slider .ant-slider-handle::after {
+  background-color: var(--component-slider-bg-handle);
+  box-shadow: 0 0 0 var(--primitive-radius-2xs, 2px) var(--component-slider-bg-default);
+}
+
+.ds-slider.ant-slider:hover:not(.ant-slider-disabled) .ant-slider-handle::after,
+.ds-slider.ant-slider .ant-slider-handle:hover::after,
+.ds-slider.ant-slider .ant-slider-handle:focus::after {
+  box-shadow: 0 0 0 var(--primitive-radius-2xs, 2px) var(--component-slider-bg-selected);
+}
+
+/* —— Disabled —— */
+.ds-slider.ant-slider-disabled .ant-slider-track {
+  background-color: var(--component-slider-bg-disabled) !important;
+}
+
+.ds-slider.ant-slider-disabled .ant-slider-handle::after {
+  box-shadow: 0 0 0 var(--primitive-radius-2xs, 2px) var(--component-slider-bg-disabled);
+}
+
+/* —— Icon variant (Figma 396:12303 — 8px gap, 16px icons) —— */
+.ds-slider-field {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.ds-slider-field--icon {
+  gap: var(--primitive-space-xs, 8px);
+}
+
+.ds-slider-field__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  color: var(--component-input-text-description);
+  transition: color 0.2s ease;
+}
+
+.ds-slider-field__icon--active {
+  color: var(--component-slider-bg-selected);
+}
+
+/* —— Input variant (Figma 396:12304 — 24px gap, 79×32 InputNumber) —— */
+.ds-slider-field--input {
+  gap: var(--primitive-space-lg, 24px);
+}
+
+.ds-slider-field--input .ds-slider__input.ant-input-number {
+  flex-shrink: 0;
+  width: 79px;
+  height: 32px;
+  min-height: 32px;
+  padding: 0;
+  box-sizing: border-box;
+  border-color: var(--component-input-border-default);
+  border-radius: var(--primitive-radius-sm, 6px);
+  background: var(--component-input-bg-default);
+  overflow: hidden;
+}
+
+.ds-slider-field--input .ds-slider__input.ant-input-number .ant-input-number-input-wrap {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+}
+
+.ds-slider-field--input .ds-slider__input.ant-input-number .ant-input-number-input {
+  height: 100%;
+  padding-block: 4px;
+  padding-inline: 11px;
+  box-sizing: border-box;
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  color: var(--component-input-text-default);
+  text-align: left;
+}
+
+/* Figma Input/Number — no stepper controls in slider row */
+.ds-slider-field--input .ds-slider__input.ant-input-number .ant-input-number-handler-wrap {
+  display: none;
+}
+
+.ds-slider-field--input .ds-slider__input.ant-input-number:hover:not(.ant-input-number-disabled) {
+  border-color: var(--component-input-border-hover);
+}
+
+.ds-slider-field--input .ds-slider__input.ant-input-number-focused:not(.ant-input-number-disabled) {
+  border-color: var(--component-input-border-active);
+}
+
+.ds-slider-field--input .ds-slider__input.ant-input-number-disabled {
+  background: var(--component-input-bg-disabled);
+  border-color: var(--component-input-border-default);
+}
+
+.ds-slider-field--input .ds-slider__input.ant-input-number-disabled .ant-input-number-input {
+  color: var(--component-input-text-disable);
+}

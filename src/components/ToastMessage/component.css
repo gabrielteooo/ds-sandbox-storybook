@@ -1,0 +1,157 @@
+/**
+ * DsToastMessage — Figma 421:14564 (Normal · Success · Error · Warning · Loading).
+ * `className` is applied on `.ant-message-notice` via App / message API.
+ */
+
+@keyframes ds-toast-message-move-in {
+  0% {
+    padding: 0;
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+
+  100% {
+    padding: 0;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes ds-toast-message-move-out {
+  0% {
+    max-height: 48px;
+    padding: 0;
+    opacity: 1;
+  }
+
+  100% {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+  }
+}
+
+/* 24px from viewport top — matches DS_TOAST_MESSAGE_PANEL.topOffsetPx */
+.ant-message:has(.ant-message-notice.ds-toast-message) {
+  top: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: fit-content !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-width: calc(100vw - 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+}
+
+.ant-message-notice-wrapper:has(.ant-message-notice.ds-toast-message),
+.ant-message:has(.ds-toast-message) .ant-message-move-up-appear,
+.ant-message:has(.ds-toast-message) .ant-message-move-up-enter,
+.ant-message:has(.ds-toast-message) .ant-message-move-up-appear-active,
+.ant-message:has(.ds-toast-message) .ant-message-move-up-enter-active,
+.ant-message:has(.ds-toast-message) .ant-message-move-up-leave,
+.ant-message:has(.ds-toast-message) .ant-message-move-up-leave-active {
+  /* Ant enter/leave animations keep padding/max-height and inflate the holder */
+  padding: 0 !important;
+  width: fit-content;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transform-origin: top center;
+}
+
+.ant-message:has(.ds-toast-message) .ant-message-move-up-appear,
+.ant-message:has(.ds-toast-message) .ant-message-move-up-enter,
+.ant-message:has(.ds-toast-message) .ant-message-move-up-appear-active,
+.ant-message:has(.ds-toast-message) .ant-message-move-up-enter-active {
+  animation-name: ds-toast-message-move-in !important;
+}
+
+.ant-message:has(.ds-toast-message) .ant-message-move-up-leave,
+.ant-message:has(.ds-toast-message) .ant-message-move-up-leave-active {
+  animation-name: ds-toast-message-move-out !important;
+}
+
+.ant-message-notice.ds-toast-message {
+  padding: 0 !important;
+  width: fit-content;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: fit-content;
+  flex: 0 0 auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.ant-message-notice.ds-toast-message .ant-message-notice-content {
+  background: var(--color-bg-container-dark);
+  border-radius: var(--primitive-radius-base, 8px);
+  width: fit-content;
+  max-width: 100%;
+  min-height: 48px;
+  height: auto;
+  padding: 9px var(--primitive-space-base, 16px);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  flex: 0 0 auto;
+  vertical-align: top;
+  /* TOKEN GAP: Figma Component/shadow-secondary — no semantic shadow token */
+  box-shadow:
+    0 0 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ant-message-notice.ds-toast-message .ant-message-custom-content {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  gap: var(--primitive-space-sm, 12px);
+  font-family: var(--text-base-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: var(--text-base-normal-line-height, 24px);
+  font-weight: var(--text-base-normal-font-weight, 400);
+  color: var(--color-text-white);
+}
+
+.ant-message-notice.ds-toast-message .ant-message-custom-content > span {
+  line-height: var(--text-base-normal-line-height, 24px);
+}
+
+.ant-message-notice.ds-toast-message .ant-message-custom-content > .anticon {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+  /* Ant default marginInlineEnd (marginXS / 8px) — spacing via gap only */
+  margin: 0 !important;
+}
+
+.ant-message-notice.ds-toast-message .ant-message-info > .anticon,
+.ant-message-notice.ds-toast-message .ant-message-loading > .anticon {
+  color: var(--color-system-info-hover);
+}
+
+.ant-message-notice.ds-toast-message .ant-message-success > .anticon {
+  color: var(--color-system-success-hover);
+}
+
+.ant-message-notice.ds-toast-message .ant-message-error > .anticon {
+  color: var(--color-system-error-hover);
+}
+
+.ant-message-notice.ds-toast-message .ant-message-warning > .anticon {
+  color: var(--color-system-warning-hover);
+}

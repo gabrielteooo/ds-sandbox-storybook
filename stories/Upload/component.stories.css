@@ -1,0 +1,9 @@
+.ds-upload-stories-note {
+  margin-top: var(--primitive-space-sm, 12px);
+  color: var(--color-text-description);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  text-align: center;
+  max-width: 480px;
+}

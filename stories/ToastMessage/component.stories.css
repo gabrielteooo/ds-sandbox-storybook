@@ -1,0 +1,6 @@
+.ds-toast-message-stories-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--primitive-space-sm, 12px);
+  justify-content: center;
+}

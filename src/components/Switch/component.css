@@ -1,0 +1,97 @@
+/**
+ * DsSwitch — Figma 396:13324 (Basic) · 396:13325 (Text and Icon) · 12128:6648 (Toggle).
+ */
+
+.ds-switch.ant-switch {
+  box-sizing: border-box;
+  background: var(--component-switch-bg-unselected);
+}
+
+.ds-switch.ant-switch:hover:not(.ant-switch-disabled) {
+  background: var(--component-switch-bg-unselected-hover);
+}
+
+.ds-switch.ant-switch-checked {
+  background: var(--component-switch-bg-selected) !important;
+}
+
+.ds-switch.ant-switch-checked:hover:not(.ant-switch-disabled) {
+  background: var(--component-switch-bg-selected-hover) !important;
+}
+
+.ds-switch.ant-switch-disabled,
+.ds-switch.ant-switch-loading {
+  opacity: 0.4;
+}
+
+.ds-switch .ant-switch-handle::before {
+  background: var(--component-switch-bg-handle);
+  /* TOKEN GAP: Figma Component/Switch/handleShadow — Ant default matches 0 2px 4px #00230B33 */
+}
+
+/* —— Sizes (Figma 396:13324 — see switchPanelMetrics.ts) —— */
+.ds-switch--base.ant-switch {
+  width: 44px;
+  min-width: 44px;
+  max-width: 44px;
+  height: 22px;
+  min-height: 22px;
+}
+
+.ds-switch--small.ant-switch {
+  width: 28px;
+  min-width: 28px;
+  max-width: 28px;
+  height: 16px;
+  min-height: 16px;
+}
+
+/* —— Number / icon inner label (Figma 396:13325) —— */
+/* Keep Ant `display: block` + margin slide; only override typography/color. */
+.ds-switch--number .ant-switch-inner-checked,
+.ds-switch--number .ant-switch-inner-unchecked,
+.ds-switch--icon .ant-switch-inner-checked,
+.ds-switch--icon .ant-switch-inner-unchecked {
+  font-family: var(--text-xs-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-xs-normal-font-size, 12px);
+  font-weight: var(--text-xs-normal-font-weight, 400);
+  color: var(--color-text-white, #fff);
+  text-align: center;
+}
+
+.ds-switch--base.ds-switch--number .ant-switch-inner-checked,
+.ds-switch--base.ds-switch--number .ant-switch-inner-unchecked,
+.ds-switch--base.ds-switch--icon .ant-switch-inner-checked,
+.ds-switch--base.ds-switch--icon .ant-switch-inner-unchecked {
+  line-height: 22px;
+}
+
+.ds-switch--small.ds-switch--number .ant-switch-inner-checked,
+.ds-switch--small.ds-switch--number .ant-switch-inner-unchecked,
+.ds-switch--small.ds-switch--icon .ant-switch-inner-checked,
+.ds-switch--small.ds-switch--icon .ant-switch-inner-unchecked {
+  line-height: 16px;
+}
+
+.ds-switch--icon .ant-switch-inner-checked .anticon,
+.ds-switch--icon .ant-switch-inner-unchecked .anticon {
+  font-size: var(--text-xs-normal-font-size, 12px);
+  color: var(--color-text-white, #fff);
+  vertical-align: -0.15em;
+}
+
+/* —— Toggle field (Figma 12128:6648) —— */
+.ds-switch-field {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+}
+
+.ds-switch-field__label {
+  font-family: var(--text-base-medium-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-base-medium-font-size, 16px);
+  line-height: var(--text-base-medium-line-height, 24px);
+  font-weight: var(--text-base-medium-font-weight, 500);
+  color: var(--component-input-text-default);
+  white-space: nowrap;
+}

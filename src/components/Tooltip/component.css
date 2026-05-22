@@ -1,0 +1,187 @@
+/**
+ * DsTooltip — Figma 413:13162 (Description · Chart).
+ */
+
+.ds-tooltip.ant-tooltip {
+  --antd-arrow-background-color: var(--component-tooltip-bg-container);
+  max-width: 288px;
+}
+
+.ds-tooltip.ant-tooltip .ant-tooltip-inner {
+  background-color: var(--component-tooltip-bg-container);
+  color: var(--component-tooltip-bg-text);
+  border-radius: var(--primitive-radius-sm, 6px);
+  padding: var(--primitive-space-xs, 8px) var(--primitive-space-sm, 12px);
+  min-width: 0;
+  /* TOKEN GAP: Figma Component/shadow-secondary — no semantic shadow token */
+  box-shadow:
+    0 0 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ds-tooltip--description.ant-tooltip {
+  width: max-content;
+  max-width: 288px;
+}
+
+/* Hug short description copy; Ant defaults min-width/min-height for arrow alignment. */
+.ds-tooltip--description.ant-tooltip.ant-tooltip-placement-topLeft,
+.ds-tooltip--description.ant-tooltip.ant-tooltip-placement-topRight,
+.ds-tooltip--description.ant-tooltip.ant-tooltip-placement-bottomLeft,
+.ds-tooltip--description.ant-tooltip.ant-tooltip-placement-bottomRight {
+  min-width: 0;
+}
+
+.ds-tooltip--description.ant-tooltip .ant-tooltip-inner {
+  width: max-content;
+  max-width: 288px;
+  min-width: 0;
+  min-height: 0;
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+/* Slider handle value tooltip — same compact height as description variant */
+.ant-slider-tooltip.ds-tooltip--description.ant-tooltip .ant-tooltip-inner {
+  min-height: 0;
+  height: auto;
+}
+
+
+/* —— Chart variant body (Figma 413:13152) —— */
+.ds-tooltip--chart.ant-tooltip .ant-tooltip-inner {
+  padding: var(--primitive-space-xs, 8px) var(--primitive-space-sm, 12px);
+}
+
+.ds-tooltip-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-xs, 8px);
+  min-width: 0;
+}
+
+.ds-tooltip-chart__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ds-tooltip-chart__title {
+  margin: 0;
+  font-family: var(--text-sm-strong-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-strong-font-size, 14px);
+  line-height: var(--text-sm-strong-line-height, 22px);
+  font-weight: var(--text-sm-strong-font-weight, 600);
+  color: var(--component-tooltip-bg-text);
+}
+
+.ds-tooltip-chart__description {
+  margin: 0;
+  font-family: var(--text-xs-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-xs-normal-font-size, 12px);
+  line-height: var(--text-xs-normal-line-height, 18px);
+  font-weight: var(--text-xs-normal-font-weight, 400);
+  color: var(--primitive-data-color-grey-2, #C0C0C0);
+}
+
+.ds-tooltip-chart__rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-tooltip-chart__row {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+  min-height: 26px;
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  color: var(--component-tooltip-bg-text);
+}
+
+.ds-tooltip-chart__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.ds-tooltip-chart__value {
+  flex-shrink: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ds-tooltip-chart__row--legend .ds-tooltip-chart__legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.ds-tooltip-chart__swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--primitive-radius-xs, 4px);
+  flex-shrink: 0;
+}
+
+.ds-tooltip-chart__legend-name {
+  white-space: nowrap;
+}
+
+/* —— Story / demo triggers —— */
+.ds-tooltip-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+  font-family: var(--text-base-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: var(--text-base-normal-line-height, 24px);
+  font-weight: var(--text-base-normal-font-weight, 400);
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+  cursor: default;
+}
+
+.ds-tooltip-trigger__icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  cursor: default;
+  line-height: 0;
+}
+
+.ds-tooltip-trigger__icon {
+  color: var(--color-primary-default, #00636A);
+  font-size: 16px;
+}
+
+/* —— Stacked bar chart demo (story) —— */
+.ds-tooltip-bar-chart {
+  display: flex;
+  width: 360px;
+  max-width: 100%;
+  height: 32px;
+  border-radius: var(--primitive-radius-xs, 4px);
+  overflow: hidden;
+}
+
+.ds-tooltip-bar-chart__segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.ds-tooltip-bar-chart__segment:hover {
+  opacity: 0.85;
+}
+
+.ds-tooltip-bar-chart__segment:focus-visible {
+  outline: 2px solid var(--color-primary-default, #00636A);
+  outline-offset: -2px;
+}
