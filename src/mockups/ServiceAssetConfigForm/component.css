@@ -1,0 +1,297 @@
+/**
+ * Service / Asset configuration mockup form — extends ds-form labeled patterns.
+ */
+
+.ds-service-config-form {
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+  padding: var(--primitive-space-2xl, 40px);
+  background: var(--color-bg-container, #fff);
+  border-radius: var(--primitive-radius-md, 8px);
+  box-sizing: border-box;
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+}
+
+.ds-service-config-form__intro {
+  margin-bottom: var(--primitive-space-xl, 32px);
+}
+
+.ds-service-config-form__title {
+  margin: 0 0 var(--primitive-space-xs, 8px);
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+}
+
+.ds-service-config-form__subtitle {
+  margin: 0;
+  color: var(--component-input-text-description, rgba(0, 0, 0, 0.55));
+}
+
+.ds-service-config-form__body {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--primitive-space-lg, 24px);
+}
+
+.ds-service-config-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-xs, 8px);
+}
+
+.ds-service-config-form__label {
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+}
+
+.ds-service-config-form__hint {
+  margin: 0;
+  color: var(--component-input-text-description, rgba(0, 0, 0, 0.55));
+}
+
+.ds-service-config-form__field-error {
+  margin: 0;
+  color: var(--color-system-error-default, #a8071a);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+}
+
+.ds-service-config-form__alert {
+  padding: var(--primitive-space-sm, 12px) var(--primitive-space-md, 16px);
+  border-radius: var(--primitive-radius-sm, 6px);
+  background: var(--color-system-error-bg, #fff1f0);
+  border: 1px solid var(--color-system-error-border, #ffa39e);
+  color: var(--color-system-error-default, #a8071a);
+}
+
+.ds-service-config-form__alert-list {
+  margin: var(--primitive-space-xxs, 4px) 0 0;
+  padding-left: var(--primitive-space-lg, 24px);
+}
+
+.ds-service-config-form .ds-input,
+.ds-service-config-form .ds-datepicker {
+  width: 100%;
+}
+
+.ds-service-config-form .ds-input--base {
+  --ds-input-height: 40px;
+}
+
+.ds-service-config-form .ds-input--base .ant-input,
+.ds-service-config-form .ds-input--base .ant-input-affix-wrapper,
+.ds-service-config-form .ds-input--base .ds-input__control {
+  height: var(--ds-input-height) !important;
+  min-height: var(--ds-input-height) !important;
+  max-height: var(--ds-input-height) !important;
+  line-height: var(--type-line-h-base, 24px) !important;
+  box-sizing: border-box;
+}
+
+.ds-service-config-form .ds-datepicker--base.ant-picker {
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  width: 100%;
+}
+
+.ds-service-config-form .ds-datepicker--range.ant-picker {
+  min-width: 0;
+}
+
+/* —— Status radio cards —— */
+.ds-service-config-form__status-group {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--primitive-space-sm, 12px);
+}
+
+@media (max-width: 640px) {
+  .ds-service-config-form__status-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ds-service-config-form__status-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--primitive-space-xxs, 4px);
+  width: 100%;
+  padding: var(--primitive-space-md, 16px);
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid var(--component-card-border-default, #f0f0f0);
+  border-radius: var(--primitive-radius-md, 8px);
+  background: var(--component-card-bg-default, #fff);
+  color: var(--component-card-text-default, rgba(0, 0, 0, 0.88));
+  box-shadow: none;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.ds-service-config-form__status-card:hover:not(:disabled) {
+  background: var(--component-card-bg-hover, #fafafa);
+  border-color: var(--color-primary-border, #91d5d5);
+}
+
+.ds-service-config-form__status-card:focus-visible {
+  outline: 2px solid var(--color-primary-default, #00636a);
+  outline-offset: 2px;
+}
+
+.ds-service-config-form__status-card:active:not(:disabled) {
+  background: var(--component-card-bg-inner, #f5f5f5);
+}
+
+.ds-service-config-form__status-card--selected {
+  border-color: var(--color-primary-default, #00636a);
+  border-width: 2px;
+  padding: calc(var(--primitive-space-md, 16px) - 1px);
+  background: var(--component-card-bg-hover, #fafafa);
+  box-shadow: 0 2px 0 rgba(0, 99, 106, 0.08);
+}
+
+.ds-service-config-form__status-card--selected .ds-service-config-form__status-card-title {
+  color: var(--component-card-text-active, #00636a);
+}
+
+.ds-service-config-form__status-card:disabled {
+  cursor: not-allowed;
+  background: var(--component-card-bg-disabled, rgba(0, 0, 0, 0.04));
+  border-color: var(--component-card-border-disabled, #d9d9d9);
+  color: var(--component-input-text-description, rgba(0, 0, 0, 0.55));
+}
+
+.ds-service-config-form__status-card-title {
+  font-family: var(--text-base-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: var(--text-base-normal-line-height, 24px);
+  font-weight: 600;
+}
+
+.ds-service-config-form__status-card-desc {
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  color: var(--component-card-text-description, rgba(0, 0, 0, 0.55));
+}
+
+/* —— Toggleable option cards —— */
+.ds-service-config-form__option-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-sm, 12px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-service-config-form__option-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--primitive-space-md, 16px);
+  padding: var(--primitive-space-md, 16px);
+  border: 1px solid var(--component-card-border-default, #f0f0f0);
+  border-radius: var(--primitive-radius-md, 8px);
+  background: var(--component-card-bg-default, #fff);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.ds-service-config-form__option-card:hover {
+  background: var(--component-card-bg-hover, #fafafa);
+  border-color: var(--color-primary-border, #91d5d5);
+}
+
+.ds-service-config-form__option-card:focus-within {
+  outline: 2px solid var(--color-primary-default, #00636a);
+  outline-offset: 2px;
+}
+
+.ds-service-config-form__option-card--selected {
+  border-color: var(--color-primary-default, #00636a);
+  border-width: 2px;
+  padding: calc(var(--primitive-space-md, 16px) - 1px);
+  background: var(--component-card-bg-hover, #fafafa);
+  box-shadow: 0 2px 0 rgba(0, 99, 106, 0.08);
+}
+
+.ds-service-config-form__option-card .ds-checkbox {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ds-service-config-form__option-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-xxs, 4px);
+  min-width: 0;
+}
+
+.ds-service-config-form__option-card-title {
+  color: var(--component-card-text-default, rgba(0, 0, 0, 0.88));
+}
+
+.ds-service-config-form__option-card--selected .ds-service-config-form__option-card-title {
+  color: var(--component-card-text-active, #00636a);
+}
+
+.ds-service-config-form__option-card-desc {
+  margin: 0;
+  color: var(--component-card-text-description, rgba(0, 0, 0, 0.55));
+}
+
+/* —— Actions —— */
+.ds-service-config-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--primitive-space-sm, 12px);
+  padding-top: var(--primitive-space-xs, 8px);
+}
+
+.ds-service-config-form__actions .ds-button {
+  flex: 0 0 auto;
+}
+
+/* —— Success state —— */
+.ds-service-config-form--success {
+  text-align: center;
+}
+
+.ds-service-config-form__success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--primitive-space-md, 16px);
+  border-radius: 50%;
+  background: var(--color-primary-bg, #e6f4f4);
+  color: var(--color-primary-default, #00636a);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.ds-service-config-form__success-title {
+  margin: 0 0 var(--primitive-space-xs, 8px);
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+}
+
+.ds-service-config-form__success-text {
+  margin: 0 0 var(--primitive-space-lg, 24px);
+  color: var(--component-input-text-description, rgba(0, 0, 0, 0.55));
+}
+
+.ds-service-config-form__success-actions {
+  display: flex;
+  justify-content: center;
+}

@@ -1,6 +1,8 @@
 import type { Preview } from '@storybook/react';
 import { ConfigProvider } from 'antd';
+import '../src/icons/load-fontawesome-pro';
 import { antTheme } from '../src/ant-theme';
+import '../src/icons/icons.css';
 import '../src/tokens.css';
 import './preview.css';
 

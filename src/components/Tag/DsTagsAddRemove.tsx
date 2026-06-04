@@ -1,4 +1,4 @@
-import { PlusOutlined } from '@ant-design/icons';
+import { DsIconPlus } from '../../icons';
 import { Input, Tag, type InputRef } from 'antd';
 import { useEffect, useRef, useState } from 'react';
 import { DsTag } from './component';
@@ -57,7 +57,7 @@ export function DsTagsAddRemove({
         />
       ) : (
         <Tag className="ds-tag-add" onClick={() => setInputVisible(true)}>
-          <PlusOutlined /> New Tag
+          <DsIconPlus /> New Tag
         </Tag>
       )}
     </div>

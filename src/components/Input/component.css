@@ -25,31 +25,122 @@
 
 .ds-input--base {
   --ds-input-height: 40px;
+  display: inline-flex;
+  flex-direction: column;
+  height: var(--ds-input-height);
+  min-height: var(--ds-input-height);
+  max-height: var(--ds-input-height);
+  overflow: hidden;
 }
 
 .ds-input--x-small .ant-input,
 .ds-input--x-small .ant-input-affix-wrapper,
-.ds-input--x-small .ant-input-number {
-  min-height: var(--ds-input-height);
-  height: var(--ds-input-height);
+.ds-input--x-small .ant-input-number,
+.ds-input--x-small .ds-input__control {
+  min-height: var(--ds-input-height) !important;
+  height: var(--ds-input-height) !important;
+  max-height: var(--ds-input-height) !important;
 }
 
 .ds-input--x-small .ant-input-affix-wrapper {
-  padding-block: 0;
+  display: inline-flex;
+  align-items: center;
+  padding-block: 0 !important;
+}
+
+.ds-input--x-small .ant-input-affix-wrapper > input.ant-input {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 0 !important;
+  line-height: var(--type-line-h-s, 22px) !important;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ds-input--x-small .ant-input-affix-wrapper .ant-input-suffix {
+  display: inline-flex;
+  align-items: center;
 }
 
 .ds-input--small .ant-input,
 .ds-input--small .ant-input-affix-wrapper,
-.ds-input--small .ant-input-number {
-  min-height: var(--ds-input-height);
-  height: var(--ds-input-height);
+.ds-input--small .ant-input-number,
+.ds-input--small .ds-input__control {
+  min-height: var(--ds-input-height) !important;
+  height: var(--ds-input-height) !important;
+  max-height: var(--ds-input-height) !important;
+}
+
+.ds-input--small .ant-input-affix-wrapper {
+  display: inline-flex;
+  align-items: center;
+  padding-block: 0 !important;
+}
+
+.ds-input--small .ant-input-affix-wrapper > input.ant-input {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 0 !important;
+  line-height: var(--type-line-h-s, 22px) !important;
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.ds-input--small .ant-input-affix-wrapper .ant-input-suffix {
+  display: inline-flex;
+  align-items: center;
 }
 
 .ds-input--base .ant-input,
 .ds-input--base .ant-input-affix-wrapper,
-.ds-input--base .ant-input-number {
-  min-height: var(--ds-input-height);
-  height: var(--ds-input-height);
+.ds-input--base .ant-input-number,
+.ds-input--base .ds-input__control {
+  min-height: var(--ds-input-height) !important;
+  height: var(--ds-input-height) !important;
+  max-height: var(--ds-input-height) !important;
+  line-height: var(--type-line-h-base, 24px) !important;
+  box-sizing: border-box;
+}
+
+/* Password / affix — vertically center placeholder and suffix icon */
+.ds-input--base .ant-input-affix-wrapper {
+  display: inline-flex;
+  align-items: center;
+  padding-block: 0 !important;
+  padding-inline: 11px;
+  box-sizing: border-box;
+}
+
+.ds-input--base .ant-input-affix-wrapper > input.ant-input {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  line-height: var(--type-line-h-base, 24px) !important;
+  padding: 0 !important;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ds-input--base .ant-input-affix-wrapper .ant-input-suffix {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-inline-start: var(--primitive-space-xxs, 4px);
+}
+
+.ds-input--base .ant-input-password-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 /* —— Border radius (Figma base = 8px) —— */

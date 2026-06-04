@@ -1,5 +1,5 @@
-import { CalendarOutlined } from '@ant-design/icons';
 import { DatePicker } from 'antd';
+import { DsIconCalendar } from '../../icons';
 import type { DatePickerProps } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker';
 import { forwardRef, useMemo, type ComponentRef, type ReactElement } from 'react';
@@ -161,7 +161,7 @@ export const DsDatePicker = forwardRef<DsDatePickerRef, DsDatePickerAllProps>(fu
   const antStatus = mapDatePickerStatusToAnt(status);
   const mergedClass = rootClass(size, status, range, config.showTimeFlag, className);
   const mergedPopup = ['ds-datepicker__popup', popupClassName].filter(Boolean).join(' ');
-  const suffixIcon = <CalendarOutlined aria-hidden />;
+  const suffixIcon = <DsIconCalendar />;
 
   const defaultShowToday = config.antPicker === 'date' && !config.showTimeFlag;
   const showToday =

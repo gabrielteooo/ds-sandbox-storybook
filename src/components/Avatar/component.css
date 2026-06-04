@@ -1,0 +1,100 @@
+/**
+ * DsAvatar — Figma 398:11741. Scoped under `.ds-avatar` per AGENTS.md.
+ */
+
+.ds-avatar {
+  display: inline-flex;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.ds-avatar .ant-avatar {
+  flex-shrink: 0;
+  font-family: var(--text-xs-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-xs-normal-font-size, 12px);
+  line-height: var(--text-xs-normal-line-height, 18px);
+  font-weight: var(--text-xs-normal-font-weight, 400);
+  border: none;
+}
+
+/* —— Sizes (Figma Small / Default / Large / Custom) —— */
+.ds-avatar--small .ant-avatar {
+  width: var(--ds-avatar-size, 24px);
+  height: var(--ds-avatar-size, 24px);
+  line-height: var(--ds-avatar-size, 24px);
+}
+
+.ds-avatar--default .ant-avatar {
+  width: var(--ds-avatar-size, 32px);
+  height: var(--ds-avatar-size, 32px);
+  line-height: var(--ds-avatar-size, 32px);
+}
+
+.ds-avatar--large .ant-avatar {
+  width: var(--ds-avatar-size, 40px);
+  height: var(--ds-avatar-size, 40px);
+  line-height: var(--ds-avatar-size, 40px);
+}
+
+.ds-avatar--custom .ant-avatar {
+  width: var(--ds-avatar-size, 64px);
+  height: var(--ds-avatar-size, 64px);
+  line-height: var(--ds-avatar-size, 64px);
+}
+
+/* —— Types —— */
+.ds-avatar--icon .ant-avatar {
+  background: var(--component-avatar-bg-grey, rgba(0, 0, 0, 0.4));
+  color: var(--component-avatar-text-default, #fff);
+}
+
+.ds-avatar--icon.ds-avatar--small .ant-avatar .ant-avatar-icon {
+  font-size: var(--text-xs-normal-font-size, 12px);
+}
+
+.ds-avatar--icon.ds-avatar--default .ant-avatar .ant-avatar-icon,
+.ds-avatar--icon.ds-avatar--large .ant-avatar .ant-avatar-icon,
+.ds-avatar--icon.ds-avatar--custom .ant-avatar .ant-avatar-icon {
+  font-size: var(--text-base-normal-font-size, 16px);
+}
+
+.ds-avatar--text .ant-avatar {
+  background: var(--component-avatar-bg-primary, #00636a);
+  color: var(--component-avatar-text-default, #fff);
+}
+
+.ds-avatar--image .ant-avatar {
+  background: var(--color-bg-container, #fff);
+}
+
+.ds-avatar--image .ant-avatar img {
+  object-fit: cover;
+}
+
+/* —— Status badge dot (Figma Badge / Basic) —— */
+.ds-avatar--with-badge .ant-badge {
+  line-height: 1;
+}
+
+.ds-avatar--with-badge .ant-badge-status-dot {
+  width: var(--ds-avatar-badge-dot-size, 8px);
+  height: var(--ds-avatar-badge-dot-size, 8px);
+  background: var(--color-system-success-default, #509c22);
+  box-shadow: 0 0 0 1px var(--color-bg-container, #fff);
+}
+
+.ds-avatar--with-badge.ds-avatar--small .ant-badge .ant-badge-status-dot {
+  inset-inline-end: 0;
+  top: 0;
+}
+
+.ds-avatar--with-badge.ds-avatar--default .ant-badge .ant-badge-status-dot {
+  inset-inline-end: 0;
+  top: 0;
+}
+
+.ds-avatar--with-badge.ds-avatar--large .ant-badge .ant-badge-status-dot,
+.ds-avatar--with-badge.ds-avatar--custom .ant-badge .ant-badge-status-dot {
+  inset-inline-end: -4px;
+  top: -4px;
+}

@@ -18,6 +18,7 @@ export interface DsCheckboxProps {
   defaultChecked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;
+  value?: string;
   label?: ReactNode;
   showLabel?: boolean;
   /** Figma interaction state; `disabled` also sets the disabled attribute */
@@ -41,6 +42,7 @@ export function DsCheckbox({
   defaultChecked,
   indeterminate = false,
   disabled = false,
+  value,
   label = 'Checkbox',
   showLabel = true,
   state = 'default',
@@ -55,6 +57,7 @@ export function DsCheckbox({
       defaultChecked={defaultChecked}
       indeterminate={indeterminate}
       disabled={isDisabled}
+      value={value}
       onChange={onChange}
       className={wrapperClass(state, className)}
     >

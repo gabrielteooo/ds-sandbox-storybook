@@ -1,0 +1,78 @@
+/**
+ * Page templates — content area patterns inside DsAppShell.
+ */
+
+.ds-page-template__header {
+  margin-bottom: var(--primitive-space-lg, 24px);
+}
+
+.ds-page-template__title {
+  margin: 0;
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+}
+
+.ds-page-template__description {
+  margin: var(--primitive-space-xs, 8px) 0 0;
+  color: var(--component-input-text-description, rgba(0, 0, 0, 0.55));
+}
+
+.ds-page-template__body {
+  width: 100%;
+}
+
+.ds-page-template__body--centered {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.ds-page-template__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  padding: var(--primitive-space-lg, 24px);
+  border: 1px dashed var(--color-border-default, #d9d9d9);
+  border-radius: var(--primitive-radius-base, 8px);
+  background: var(--color-bg-container, #fff);
+  color: var(--component-input-text-description, rgba(0, 0, 0, 0.55));
+  text-align: center;
+}
+
+/* Dashboard — Figma Homepage Widget / filter header patterns */
+.ds-page-template__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--primitive-space-base, 16px);
+  margin-bottom: var(--primitive-space-lg, 24px);
+  padding: var(--primitive-space-base, 16px);
+  background: var(--color-bg-container, #fff);
+  border: 1px solid var(--color-border-secondary, #f0f0f0);
+  border-radius: var(--primitive-radius-base, 8px);
+}
+
+.ds-page-template__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--primitive-space-base, 16px);
+}
+
+.ds-page-template__widget {
+  min-height: 160px;
+  padding: var(--primitive-space-base, 16px);
+  background: var(--color-bg-container, #fff);
+  border: 1px solid var(--color-border-secondary, #f0f0f0);
+  border-radius: var(--primitive-radius-base, 8px);
+}
+
+.ds-page-template__widget-title {
+  margin: 0 0 var(--primitive-space-xs, 8px);
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+}
+
+.ds-page-template__widget-body {
+  margin: 0;
+  color: var(--component-input-text-description, rgba(0, 0, 0, 0.55));
+}

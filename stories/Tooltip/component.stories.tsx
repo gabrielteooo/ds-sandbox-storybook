@@ -1,4 +1,4 @@
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { DsIconInfoCircle } from '../../src/icons';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { DsTooltipChartData, DsTooltipProps } from '../../src/components/Tooltip';
 import { DsTooltip, DS_TOOLTIP_VARIANTS } from '../../src/components/Tooltip';
@@ -112,7 +112,7 @@ export const Basic: Story = {
       An example of a fruit
       <DsTooltip {...args}>
         <span className="ds-tooltip-trigger__icon-wrap" aria-label="More information">
-          <InfoCircleOutlined className="ds-tooltip-trigger__icon" aria-hidden />
+          <DsIconInfoCircle className="ds-tooltip-trigger__icon" />
         </span>
       </DsTooltip>
     </span>

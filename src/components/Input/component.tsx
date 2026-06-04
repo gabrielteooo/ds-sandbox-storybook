@@ -1,5 +1,5 @@
-import { DownOutlined, SearchOutlined, SettingOutlined } from '@ant-design/icons';
 import { Input, InputNumber, Select } from 'antd';
+import { DsIconChevronDown, DsIconGear, DsIconSearch } from '../../icons';
 import { DsButton } from '../Button/component';
 import type { InputNumberProps, InputProps } from 'antd';
 import type { TextAreaProps } from 'antd/es/input';
@@ -90,7 +90,7 @@ function PrePostTabAddon({
   if (variant === 'icon') {
     return (
       <span className={`ds-input-tab ds-input-tab--icon ds-input-tab--${size}`}>
-        <SettingOutlined />
+        <DsIconGear />
       </span>
     );
   }
@@ -101,7 +101,7 @@ function PrePostTabAddon({
         defaultValue={text}
         size={mapInputSizeToAnt(size)}
         className={`ds-input-tab-select ds-input-tab-select--${size}`}
-        suffixIcon={<DownOutlined />}
+        suffixIcon={<DsIconChevronDown />}
         popupMatchSelectWidth={false}
         options={[{ value: text, label: text }]}
         bordered={false}
@@ -129,7 +129,7 @@ function getSearchEnterButton(
           variant="primary"
           size={size}
           iconOnly
-          icon={<SearchOutlined />}
+          icon={<DsIconSearch />}
           disabled={disabled}
           className={enterClass}
           onClick={onSearchClick}
@@ -152,7 +152,7 @@ function getSearchEnterButton(
           variant="secondary"
           size={size}
           iconOnly
-          icon={<SearchOutlined />}
+          icon={<DsIconSearch />}
           disabled={disabled}
           className={enterClass}
           onClick={onSearchClick}

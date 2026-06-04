@@ -1,5 +1,5 @@
-import { FrownOutlined, SmileOutlined } from '@ant-design/icons';
 import { InputNumber, Slider } from 'antd';
+import { DsIconFrown, DsIconSmile } from '../../icons';
 import type { SliderSingleProps } from 'antd';
 import {
   forwardRef,
@@ -127,7 +127,7 @@ export const DsSlider = forwardRef<DsSliderRef, DsSliderProps>(function DsSlider
             .join(' ')}
           aria-hidden
         >
-          {startIcon ?? <FrownOutlined />}
+          {startIcon ?? <DsIconFrown />}
         </span>
         <div className="ds-slider-field__track">{themedSlider}</div>
         <span
@@ -139,7 +139,7 @@ export const DsSlider = forwardRef<DsSliderRef, DsSliderProps>(function DsSlider
             .join(' ')}
           aria-hidden
         >
-          {endIcon ?? <SmileOutlined />}
+          {endIcon ?? <DsIconSmile />}
         </span>
       </div>
     );

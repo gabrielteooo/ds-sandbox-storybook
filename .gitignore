@@ -1,3 +1,6 @@
+# Font Awesome Pro npm token (see .npmrc)
+.npmrc
+
 node_modules/
 storybook-static/
 dist/

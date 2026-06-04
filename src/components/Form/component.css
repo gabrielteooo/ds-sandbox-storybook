@@ -1,0 +1,386 @@
+/**
+ * DsForm — Figma 22726:4626 (Basic: Login), Form / Login (516:42635).
+ */
+
+.ds-form.ant-form {
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+}
+
+/* Figma Form / Login uses flex gap (24px), not stacked item margins */
+.ds-form--vertical.ant-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--primitive-space-lg, 24px);
+}
+
+.ds-form--vertical.ant-form > .ant-form-item {
+  margin-bottom: 0 !important;
+}
+
+.ds-form--vertical.ant-form:not(.ds-form--labeled) .ant-form-item .ant-form-item-label {
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ds-form--vertical.ant-form .ant-form-item .ant-form-item-label > label {
+  height: auto;
+}
+
+.ds-form--vertical.ant-form .ant-form-item .ant-form-item-control {
+  flex: 1 1 auto;
+  max-width: 100%;
+}
+
+.ds-form--vertical.ant-form .ant-form-item .ant-form-item-control-input {
+  min-height: 0;
+}
+
+/* —— Login preset (Basic: Login) —— */
+.ds-form--login.ant-form {
+  width: 100%;
+  max-width: 408px;
+  padding: var(--primitive-space-lg, 24px);
+  background: var(--color-bg-container, #fff);
+  box-sizing: border-box;
+}
+
+.ds-form--login .ds-input {
+  width: 100%;
+}
+
+/* Figma Input Base 40px — override Ant lineHeight×fontSize (24×16 = 384px) */
+.ds-form--login .ds-input--base {
+  --ds-input-height: 40px;
+}
+
+.ds-form--login > .ant-form-item {
+  align-items: flex-start;
+}
+
+.ds-form--login > .ant-form-item .ant-form-item-row {
+  width: 100%;
+}
+
+.ds-form--login > .ant-form-item .ant-form-item-control-input,
+.ds-form--login > .ant-form-item .ant-form-item-control-input-content {
+  min-height: 0;
+}
+
+.ds-form--login .ds-input--base .ant-input,
+.ds-form--login .ds-input--base .ant-input-affix-wrapper,
+.ds-form--login .ds-input--base .ant-input-affix-wrapper > input.ant-input,
+.ds-form--login .ds-input--base .ant-input-lg,
+.ds-form--login .ds-input--base .ant-input-affix-wrapper-lg {
+  height: var(--ds-input-height) !important;
+  min-height: var(--ds-input-height) !important;
+  max-height: var(--ds-input-height) !important;
+  box-sizing: border-box;
+  font-size: var(--type-size-base, 16px);
+  line-height: var(--type-line-h-base, 24px) !important;
+}
+
+/* Plain text input only — password affix padding handled in Input/component.css */
+.ds-form--login .ds-input--basic.ds-input--base > .ds-input__control.ant-input {
+  padding-block: 7px;
+  padding-inline: 11px;
+}
+
+.ds-form__utility-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--primitive-space-xs, 8px);
+  width: 100%;
+}
+
+.ds-form__utility-row .ant-form-item {
+  margin-bottom: 0;
+  flex: 0 1 auto;
+}
+
+.ds-form__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--primitive-space-xxs, 4px);
+  width: 100%;
+}
+
+.ds-form__submit {
+  display: block;
+  width: 100%;
+}
+
+.ds-form__submit.ds-button {
+  display: block;
+  width: 100%;
+}
+
+.ds-form__submit .ant-btn {
+  width: 100%;
+}
+
+.ds-form__register {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--primitive-space-xxs, 4px);
+}
+
+.ds-form__register-prefix {
+  color: var(--component-input-text-default, rgba(0, 0, 0, 0.88));
+}
+
+/* —— Text links (Figma Button / Link — Small & X-Small) —— */
+.ds-form__link {
+  color: var(--component-button-link-text-default, #00636a);
+  text-decoration: none;
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  white-space: nowrap;
+}
+
+.ds-form__link:hover {
+  color: var(--component-button-link-text-hover, #008585);
+}
+
+.ds-form__link:active {
+  color: var(--component-button-link-text-active, #005055);
+}
+
+.ds-form__link--forgot {
+  flex-shrink: 0;
+}
+
+.ds-form__link--register {
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+}
+
+/* —— Basic text field (22737:7148 / 22737:7451) —— */
+.ds-form--basic-text.ant-form {
+  width: 100%;
+  padding: var(--primitive-space-2xl, 40px);
+  background: var(--color-bg-container, #fff);
+  box-sizing: border-box;
+}
+
+.ds-form__label-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xxs, 4px);
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+}
+
+.ds-form__label-required {
+  color: var(--color-system-error-default, #a8071a);
+  line-height: var(--text-sm-normal-line-height, 22px);
+}
+
+.ds-form__label-optional {
+  color: var(--component-input-text-description, rgba(0, 0, 0, 0.55));
+  font-weight: var(--text-sm-normal-font-weight, 400);
+}
+
+/* —— Vertical input variants (22737:6239) —— */
+.ds-form--variants.ant-form {
+  width: 100%;
+  max-width: 408px;
+  padding: var(--primitive-space-lg, 24px);
+  background: var(--color-bg-container, #fff);
+  box-sizing: border-box;
+}
+
+.ds-form--labeled.ant-form .ant-form-item .ant-form-item-row {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.ds-form--labeled.ant-form .ant-form-item .ant-form-item-label {
+  display: block;
+  padding: 0;
+  margin: 0 0 var(--primitive-space-xs, 8px);
+  min-height: 0;
+  height: auto;
+  line-height: 1;
+}
+
+.ds-form--labeled.ant-form .ant-form-item .ant-form-item-label > label {
+  height: auto;
+  min-height: 0;
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+}
+
+.ds-form--labeled.ant-form > .ant-form-item {
+  align-items: flex-start;
+}
+
+.ds-form--labeled.ant-form > .ant-form-item .ant-form-item-control-input,
+.ds-form--labeled.ant-form > .ant-form-item .ant-form-item-control-input-content {
+  min-height: 0;
+  height: auto;
+}
+
+/* Hug content — component wrappers at natural height (40px controls) */
+.ds-form--login .ds-select.ant-select,
+.ds-form--login .ds-datepicker.ant-picker,
+.ds-form--variants .ds-input,
+.ds-form--variants .ds-select.ant-select,
+.ds-form--variants .ds-datepicker.ant-picker,
+.ds-form--variants .ds-timepicker.ant-picker,
+.ds-form--variants .ds-button,
+.ds-form--variants .ds-switch,
+.ds-form--variants .ds-checkbox,
+.ds-form--variants .ds-radio-group,
+.ds-form--variants .ds-slider,
+.ds-form--variants .ds-upload {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+}
+
+.ds-form--login .ds-select.ant-select,
+.ds-form--login .ds-datepicker.ant-picker,
+.ds-form--variants .ds-select.ant-select,
+.ds-form--variants .ds-datepicker.ant-picker,
+.ds-form--variants .ds-timepicker.ant-picker {
+  max-width: 100%;
+}
+
+.ds-form--variants .ds-input--number {
+  width: auto;
+  max-width: 100%;
+}
+
+.ds-form--variants .ds-input--base,
+.ds-form--basic-text .ds-input--base {
+  --ds-input-height: 40px;
+}
+
+.ds-form--basic-text .ds-input {
+  width: 100%;
+}
+
+.ds-form--basic-text .ds-input--base .ant-input,
+.ds-form--basic-text .ds-input--base .ant-input-affix-wrapper,
+.ds-form--basic-text .ds-input--base .ds-input__control {
+  height: var(--ds-input-height) !important;
+  min-height: var(--ds-input-height) !important;
+  max-height: var(--ds-input-height) !important;
+  line-height: var(--type-line-h-base, 24px) !important;
+  box-sizing: border-box;
+}
+
+.ds-form--variants .ds-input--base .ant-input,
+.ds-form--variants .ds-input--base .ant-input-affix-wrapper,
+.ds-form--variants .ds-input--base .ant-input-affix-wrapper > input.ant-input,
+.ds-form--variants .ds-input--base .ant-input-lg,
+.ds-form--variants .ds-input--base .ant-input-affix-wrapper-lg,
+.ds-form--variants .ds-input--base .ant-input-number {
+  height: var(--ds-input-height) !important;
+  min-height: var(--ds-input-height) !important;
+  max-height: var(--ds-input-height) !important;
+  line-height: var(--type-line-h-base, 24px) !important;
+  box-sizing: border-box;
+}
+
+.ds-form--variants .ds-input--textarea.ds-input--base {
+  height: auto;
+  min-height: 64px;
+  max-height: none;
+  overflow: visible;
+}
+
+.ds-form--variants .ds-input--textarea.ds-input--base textarea.ant-input {
+  height: 64px !important;
+  min-height: 64px !important;
+  max-height: 64px !important;
+}
+
+.ds-form--variants .ds-select--base.ant-select .ant-select-selector {
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+}
+
+.ds-form--variants .ds-datepicker--base.ant-picker,
+.ds-form--variants .ds-timepicker--base.ant-picker {
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+}
+
+.ds-form--variants .ds-datepicker--range.ant-picker {
+  min-width: 0;
+  width: 100%;
+}
+
+.ds-form--variants .ds-upload--dragger {
+  width: 100%;
+  max-width: 100%;
+}
+
+.ds-form--variants .ds-upload--dragger .ds-upload__dragger.ant-upload-wrapper {
+  width: 100%;
+}
+
+/* Horizontal choice rows — Radio Buttons & Checkbox (Figma 22737:6807) */
+.ds-form__choice-row,
+.ds-form__choice-row.ant-radio-group {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  gap: var(--primitive-space-lg, 24px);
+  align-items: center;
+  min-height: 40px;
+  padding-block: var(--primitive-space-xs, 8px);
+  width: 100%;
+}
+
+/* Checkbox.Group uses display:contents so items flow in the row above */
+.ds-form__checkbox-group {
+  display: contents;
+}
+
+.ds-form__choice-row .ant-checkbox-wrapper,
+.ds-form__choice-row .ds-checkbox.ant-checkbox-wrapper,
+.ds-form__checkbox-group .ant-checkbox-wrapper {
+  display: inline-flex !important;
+  flex: 0 0 auto;
+  width: auto !important;
+  margin-inline-end: 0 !important;
+  height: auto;
+  min-height: 0;
+}
+
+.ds-form__choice-row .ds-checkbox .ant-checkbox {
+  align-self: center;
+  margin-top: 0;
+}
+
+.ds-form--variants .ds-checkbox {
+  height: auto;
+  min-height: 0;
+  margin-inline-end: 0;
+}
+
+.ds-form__field--slider.ant-form-item {
+  padding-bottom: var(--primitive-space-2xl, 40px);
+}
+
+.ds-form__readonly {
+  display: inline-block;
+  color: var(--component-input-text-default, rgba(0, 0, 0, 0.88));
+}

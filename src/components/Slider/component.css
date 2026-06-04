@@ -86,12 +86,12 @@
   width: 16px;
   height: 16px;
   font-size: 16px;
-  color: var(--component-input-text-description);
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
   transition: color 0.2s ease;
 }
 
 .ds-slider-field__icon--active {
-  color: var(--component-slider-bg-selected);
+  color: var(--color-primary-default, #00636a);
 }
 
 /* —— Input variant (Figma 396:12304 — 24px gap, 79×32 InputNumber) —— */

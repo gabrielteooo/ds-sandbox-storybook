@@ -1,10 +1,10 @@
 import {
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-  ExclamationCircleOutlined,
-  MinusCircleOutlined,
-  SyncOutlined,
-} from '@ant-design/icons';
+  DsIconCheckCircle,
+  DsIconCloseCircle,
+  DsIconExclamationCircle,
+  DsIconMinusCircle,
+  DsIconSync,
+} from '../../icons';
 import { DsTag } from './component';
 
 export interface DsTagsStatusProps {
@@ -15,19 +15,19 @@ export interface DsTagsStatusProps {
 export function DsTagsStatus({ className }: DsTagsStatusProps) {
   return (
     <div className={['ds-tags-status', className].filter(Boolean).join(' ')}>
-      <DsTag status="default" icon={<MinusCircleOutlined />}>
+      <DsTag status="default" icon={<DsIconMinusCircle />}>
         Default
       </DsTag>
-      <DsTag status="processing" icon={<SyncOutlined spin />}>
+      <DsTag status="processing" icon={<DsIconSync />}>
         Processing
       </DsTag>
-      <DsTag status="success" icon={<CheckCircleOutlined />}>
+      <DsTag status="success" icon={<DsIconCheckCircle />}>
         Success
       </DsTag>
-      <DsTag status="warning" icon={<ExclamationCircleOutlined />}>
+      <DsTag status="warning" icon={<DsIconExclamationCircle />}>
         Warning
       </DsTag>
-      <DsTag status="error" icon={<CloseCircleOutlined />}>
+      <DsTag status="error" icon={<DsIconCloseCircle />}>
         Error
       </DsTag>
     </div>

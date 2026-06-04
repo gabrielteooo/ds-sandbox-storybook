@@ -1,0 +1,131 @@
+/**
+ * Font Awesome 6 Pro — Figma color/Icon/default (#0000008c), node 472:11122.
+ * Webfonts: import `src/icons/load-fontawesome-pro` in each app entry.
+ */
+
+.ds-icon {
+  display: inline-block;
+  font-style: normal;
+  line-height: 1;
+  vertical-align: -0.125em;
+  text-align: center;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+.ds-icon::before {
+  display: inline-block;
+}
+
+/* Semantic / branded wrappers set color on the parent */
+.ant-alert-icon .ds-icon,
+.ant-avatar-icon .ds-icon,
+.ds-alert-with-button__icon .ds-icon,
+.ds-alert-broadcast__icon .ds-icon {
+  color: currentColor;
+}
+
+/* Ant passes icons into controls — inherit control font-size */
+.ant-btn .ds-icon,
+.ant-input-affix-wrapper .ds-icon,
+.ant-select .ds-icon,
+.ant-picker .ds-icon,
+.ant-alert .ds-icon,
+.ant-switch .ds-icon,
+.ant-tag .ds-icon,
+.ant-menu .ds-icon,
+.ant-avatar-icon .ds-icon {
+  font-size: 1em;
+}
+
+/* Interactive chrome icons — Figma color/Icon/hover */
+.ant-select:hover .ant-select-arrow .ds-icon,
+.ant-select-open .ant-select-arrow .ds-icon,
+.ds-select:hover .ant-select-arrow .ds-icon,
+.ds-datepicker:hover .ant-picker-suffix .ds-icon,
+.ds-timepicker:hover .ant-picker-suffix .ds-icon,
+.ant-input-affix-wrapper:hover .ds-icon,
+.ds-input:hover .ds-icon,
+button:hover > .ds-icon,
+.ant-btn:hover .ds-icon:not(.ant-btn-primary .ds-icon) {
+  color: var(--color-icon-hover, rgba(0, 0, 0, 0.65));
+}
+
+.ant-btn-primary:not(:disabled) .ds-icon,
+.ant-btn-primary:not(:disabled):hover .ds-icon {
+  color: currentColor;
+}
+
+/* Component CSS written for Ant `.anticon` — mirror for `DsIcon` */
+.ds-select .ant-select-arrow :is(.anticon, .ds-icon),
+.ds-select .ant-select-suffix :is(.anticon, .ds-icon),
+.ds-select--open.ds-select--search .ant-select-arrow :is(.anticon, .ds-icon),
+.ds-select--open.ds-select--multiple .ant-select-arrow :is(.anticon, .ds-icon) {
+  font-size: var(--text-xs-normal-font-size, 12px);
+}
+
+.ds-datepicker .ant-picker-suffix :is(.anticon, .ds-icon),
+.ds-timepicker .ant-picker-suffix :is(.anticon, .ds-icon) {
+  font-size: var(--text-xs-normal-font-size, 12px);
+}
+
+.ds-switch--icon .ant-switch-inner-checked :is(.anticon, .ds-icon),
+.ds-switch--icon .ant-switch-inner-unchecked :is(.anticon, .ds-icon) {
+  font-size: var(--text-xs-normal-font-size, 12px);
+  color: var(--color-text-white, #fff);
+  vertical-align: -0.15em;
+}
+
+.ds-tag.ant-tag :is(.anticon, .ds-icon) {
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: 1;
+}
+
+.ds-tag--status-default.ant-tag :is(.anticon, .ds-icon) {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+.ds-tag--status-success.ant-tag :is(.anticon, .ds-icon) {
+  color: var(--color-system-success-default);
+}
+
+.ds-tag--status-processing.ant-tag :is(.anticon, .ds-icon) {
+  color: var(--color-system-info-default);
+}
+
+.ds-tag--status-warning.ant-tag :is(.anticon, .ds-icon) {
+  color: var(--color-system-warning-default);
+}
+
+.ds-tag--status-error.ant-tag :is(.anticon, .ds-icon) {
+  color: var(--color-system-error-default);
+}
+
+.ds-tag-add.ant-tag :is(.anticon, .ds-icon) {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+  font-size: var(--text-xs-normal-font-size, 12px);
+}
+
+.ds-tag-add.ant-tag:hover :is(.anticon, .ds-icon) {
+  color: var(--color-icon-hover, rgba(0, 0, 0, 0.65));
+}
+
+.ds-upload--button .ds-upload__trigger .ant-btn .ant-btn-icon .ds-icon,
+.ds-upload__dragger-icon :is(.anticon, .ds-icon) {
+  font-size: var(--text-lg-normal-font-size, 20px);
+}
+
+.ds-avatar--icon .ant-avatar .ant-avatar-icon .ds-icon {
+  color: var(--component-avatar-text-default, #fff);
+}
+
+.ds-avatar--icon.ds-avatar--small .ant-avatar .ant-avatar-icon .ds-icon {
+  font-size: var(--text-xs-normal-font-size, 12px);
+}
+
+.ds-avatar--icon.ds-avatar--default .ant-avatar .ant-avatar-icon .ds-icon,
+.ds-avatar--icon.ds-avatar--large .ant-avatar .ant-avatar-icon .ds-icon,
+.ds-avatar--icon.ds-avatar--custom .ant-avatar .ant-avatar-icon .ds-icon {
+  font-size: var(--text-base-normal-font-size, 16px);
+}

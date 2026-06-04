@@ -1,5 +1,5 @@
-import { UploadOutlined } from '@ant-design/icons';
 import { Button, Upload } from 'antd';
+import { DsIconUpload } from '../../icons';
 import type { UploadProps } from 'antd';
 import {
   mapSizeToAntProps,
@@ -85,7 +85,7 @@ function UploadTrigger({
         'ds-button--secondary',
       ].join(' ')}
     >
-      <Button {...antSize} icon={<UploadOutlined />} disabled={disabled}>
+      <Button {...antSize} icon={<DsIconUpload />} disabled={disabled}>
         {label}
       </Button>
     </span>
@@ -102,7 +102,7 @@ function DraggerContent({
   return (
     <>
       <p className="ds-upload__dragger-icon">
-        <UploadOutlined />
+        <DsIconUpload />
       </p>
       <div className="ds-upload__dragger-text">
         <p className="ds-upload__dragger-title text-base-normal">{draggerTitle}</p>

@@ -1,5 +1,5 @@
-import { SearchOutlined } from '@ant-design/icons';
 import { Button, Space } from 'antd';
+import { DsIconSearch } from '../../icons';
 import type { ButtonProps } from 'antd';
 import type { ReactNode } from 'react';
 import './component.css';
@@ -21,7 +21,7 @@ export const DS_BUTTON_VARIANTS: DsButtonVariant[] = [
 export const DS_BUTTON_SIZES: DsButtonSize[] = ['x-small', 'small', 'base'];
 
 const DEFAULT_LABEL = 'Button';
-const DEFAULT_ICON = <SearchOutlined />;
+const DEFAULT_ICON = <DsIconSearch />;
 
 export interface DsButtonProps {
   variant?: DsButtonVariant;
@@ -30,6 +30,7 @@ export interface DsButtonProps {
   iconOnly?: boolean;
   icon?: ReactNode;
   disabled?: boolean;
+  htmlType?: ButtonProps['htmlType'];
   className?: string;
   onClick?: () => void;
 }
@@ -98,6 +99,7 @@ export function DsButton({
   iconOnly = false,
   icon = DEFAULT_ICON,
   disabled = false,
+  htmlType,
   className,
   onClick,
 }: DsButtonProps) {
@@ -119,6 +121,7 @@ export function DsButton({
         {...antVariant}
         {...antSize}
         disabled={disabled}
+        htmlType={htmlType}
         icon={iconOnly ? icon : undefined}
         onClick={onClick}
       >

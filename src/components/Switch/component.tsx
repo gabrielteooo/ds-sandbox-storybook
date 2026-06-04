@@ -1,5 +1,5 @@
-import { CheckOutlined } from '@ant-design/icons';
 import { Switch } from 'antd';
+import { DsIconCheck } from '../../icons';
 import type { SwitchProps as AntSwitchProps } from 'antd';
 import { forwardRef, type ReactNode, type ReactElement } from 'react';
 import { SwitchThemeProvider } from './SwitchThemeProvider';
@@ -59,7 +59,7 @@ function resolveChildren(
     case 'number':
       return { checkedChildren: '1', unCheckedChildren: '0' };
     case 'icon':
-      return { checkedChildren: <CheckOutlined aria-hidden /> };
+      return { checkedChildren: <DsIconCheck /> };
     default:
       return {};
   }

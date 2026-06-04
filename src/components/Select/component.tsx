@@ -1,5 +1,5 @@
-import { DownOutlined, SearchOutlined } from '@ant-design/icons';
 import { Checkbox, Select } from 'antd';
+import { DsIconChevronDown, DsIconSearch } from '../../icons';
 import type { SelectProps } from 'antd';
 import type { BaseSelectRef } from 'rc-select';
 import type { DefaultOptionType } from 'rc-select/es/Select';
@@ -144,8 +144,8 @@ export const DsSelect = forwardRef<BaseSelectRef, DsSelectProps>(function DsSele
     suffixIconProp !== undefined
       ? suffixIconProp
       : isSearch && open
-        ? <SearchOutlined />
-        : <DownOutlined />;
+        ? <DsIconSearch />
+        : <DsIconChevronDown />;
 
   const popupCls = [
     'ds-select__popup',

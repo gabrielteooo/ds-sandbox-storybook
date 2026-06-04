@@ -1,5 +1,5 @@
-import { ClockCircleOutlined } from '@ant-design/icons';
 import { TimePicker } from 'antd';
+import { DsIconClock } from '../../icons';
 import type { TimePickerProps } from 'antd';
 import type { TimeRangePickerProps } from 'antd/es/time-picker';
 import type { Dayjs } from 'dayjs';
@@ -93,7 +93,7 @@ export const DsTimePicker = forwardRef<DsTimePickerRef, DsTimePickerAllProps>(fu
   const antStatus = mapDatePickerStatusToAnt(status);
   const mergedClass = rootClass(size, status, range, className);
   const mergedPopup = ['ds-timepicker__popup', popupClassName].filter(Boolean).join(' ');
-  const suffixIcon = <ClockCircleOutlined aria-hidden />;
+  const suffixIcon = <DsIconClock />;
   const format = formatProp ?? DS_TIME_FORMAT;
   const placeholder = placeholderProp ?? getTimePickerPlaceholder(range);
 

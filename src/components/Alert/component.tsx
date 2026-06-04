@@ -1,13 +1,13 @@
-import {
-  CheckCircleFilled,
-  CloseOutlined,
-  ExclamationCircleFilled,
-  InfoCircleFilled,
-  LeftOutlined,
-  RightOutlined,
-  WarningFilled,
-} from '@ant-design/icons';
 import { Alert, Button, Space } from 'antd';
+import {
+  DsIconCheckCircle,
+  DsIconChevronLeft,
+  DsIconChevronRight,
+  DsIconClose,
+  DsIconExclamationCircle,
+  DsIconInfoCircle,
+  DsIconWarning,
+} from '../../icons';
 import type { AlertProps } from 'antd';
 import type { ReactNode } from 'react';
 import { DsButton } from '../Button/component';
@@ -34,10 +34,10 @@ const BROADCAST_MESSAGES: Record<DsAlertType, string> = {
 };
 
 const TYPE_ICONS: Record<DsAlertType, ReactNode> = {
-  info: <InfoCircleFilled />,
-  success: <CheckCircleFilled />,
-  warning: <WarningFilled />,
-  error: <ExclamationCircleFilled />,
+  info: <DsIconInfoCircle />,
+  success: <DsIconCheckCircle />,
+  warning: <DsIconWarning />,
+  error: <DsIconExclamationCircle />,
 };
 
 export interface DsAlertProps {
@@ -67,14 +67,14 @@ function BroadcastPagination({ label }: { label: string }) {
         type="text"
         size="small"
         className="ds-alert-broadcast__nav-btn"
-        icon={<LeftOutlined />}
+        icon={<DsIconChevronLeft />}
         aria-label="Previous"
       />
       <Button
         type="text"
         size="small"
         className="ds-alert-broadcast__nav-btn"
-        icon={<RightOutlined />}
+        icon={<DsIconChevronRight />}
         aria-label="Next"
       />
     </div>
@@ -156,7 +156,7 @@ function DsAlertWithButton({
                 onClick={onClose}
                 aria-label="Close"
               >
-                <CloseOutlined />
+                <DsIconClose />
               </button>
             )}
           </div>
@@ -203,7 +203,7 @@ function DsAlertBroadcast({
               onClick={onClose}
               aria-label="Close"
             >
-              <CloseOutlined />
+              <DsIconClose />
             </button>
           )}
         </div>

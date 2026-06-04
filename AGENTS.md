@@ -9,7 +9,8 @@ Design system source: Figma library **MCP DS Sandbox** ([file](https://www.figma
 3. Prefer **semantic** CSS variables from `src/tokens.css` (e.g. `--color-text-default`, `--color-primary-default`).
 4. Use **component** tokens only inside matching component wrappers.
 5. Typography: Figma text style classes (e.g. `.text-heading-5`, `.text-sm-normal`) or `--text-*` variables.
-6. See `design-system-audit.md` for component variants and Figma node IDs.
+6. **Icons:** Font Awesome 6 Pro via `DsIcon` / presets (`load-fontawesome-pro.ts`). Default colour `--color-icon-default` (Figma `color/Icon/default`, `#0000008c`); hover `--color-icon-hover`. See **Foundation/Icons** and [Figma Icon](https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=472-11122).
+7. See `design-system-audit.md` for component variants and Figma node IDs.
 
 ## Regenerating tokens
 
@@ -25,3 +26,9 @@ npm run tokens:build
 npm install
 npm run storybook
 ```
+
+**Sidebar structure:** `Foundation/` (tokens, icons) · `Components/` (primitives) · `Forms/` (Figma screen compositions) · `Templates/` (app shell & page templates for full-screen implementation).
+
+**Product mockups** (not in Storybook): standalone HTML via Vite — e.g. `npm run mockup:service-config` opens `mockups/service-asset-config.html` (source in `src/mockups/ServiceAssetConfigForm/`).
+
+Templates live in `src/templates/` — compose `DsAppShell` + `DsPageTemplate` when building product pages from Figma.
