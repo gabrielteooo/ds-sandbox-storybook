@@ -1,0 +1,99 @@
+/**
+ * MCP DS Sandbox Card — Figma 406:74 / 22753:7871.
+ * TOKEN GAP: no --components-card-global-* semantic tokens; --component-card-* used.
+ */
+
+.ds-card.ant-card {
+  background: var(--component-card-bg-default);
+  border-color: var(--component-card-border-default);
+  border-radius: var(--primitive-radius-base);
+  box-shadow: none;
+}
+
+.ds-card.ant-card .ant-card-head {
+  border-bottom-color: var(--component-card-border-default);
+  margin-bottom: 0;
+  min-height: auto;
+}
+
+.ds-card.ant-card .ant-card-head-wrapper {
+  align-items: center;
+  gap: var(--primitive-space-xs);
+}
+
+.ds-card.ant-card .ant-card-extra {
+  display: inline-flex;
+  align-items: center;
+  padding-inline-start: var(--primitive-space-xs);
+}
+
+.ds-card__extra-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-icon-default);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.ds-card__extra-btn:hover {
+  color: var(--color-text-default);
+}
+
+.ds-card__extra-btn .ds-icon {
+  font-size: 16px;
+}
+
+/* Figma Small — header 38px, SM/Strong title, body 12px padding */
+.ds-card--small.ant-card .ant-card-head {
+  padding: var(--primitive-space-xs) var(--primitive-space-sm);
+  min-height: 38px;
+}
+
+.ds-card--small.ant-card .ant-card-head-title {
+  font-family: var(--text-sm-strong-font-family);
+  font-size: var(--text-sm-strong-font-size);
+  line-height: var(--text-sm-strong-line-height);
+  font-weight: var(--text-sm-strong-font-weight);
+  color: var(--component-card-text-default);
+}
+
+.ds-card--small.ant-card .ant-card-body {
+  padding: var(--primitive-space-sm);
+}
+
+/* Figma Default — header 56px, Base/Strong title, body 16px × 24px padding */
+.ds-card--default.ant-card .ant-card-head {
+  padding: var(--primitive-space-base) var(--primitive-space-lg);
+  min-height: 56px;
+}
+
+.ds-card--default.ant-card .ant-card-head-title {
+  font-family: var(--text-base-strong-font-family);
+  font-size: var(--text-base-strong-font-size);
+  line-height: var(--text-base-strong-line-height);
+  font-weight: var(--text-base-strong-font-weight);
+  color: var(--component-card-text-default);
+}
+
+.ds-card--default.ant-card .ant-card-body {
+  padding: var(--primitive-space-base) var(--primitive-space-lg);
+}
+
+/* Body copy — SM/Normal in both sizes (Figma 22753:7871) */
+.ds-card__content {
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--color-text-default);
+}
+
+.ds-card__content p {
+  margin: 0;
+}

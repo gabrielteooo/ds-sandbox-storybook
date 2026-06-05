@@ -3,6 +3,8 @@
  */
 export const DS_TOOLTIP_PANEL = {
   maxWidthPx: 288,
+  /** Figma 413:13152 — chart tooltip fixed width. */
+  chartWidthPx: 200,
   /** Figma reference width for long copy — description variant hugs content instead. */
   referenceWidthDescriptionPx: 226,
   borderRadiusPx: 6,

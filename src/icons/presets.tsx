@@ -31,7 +31,7 @@ export const DsIconChevronRight = (props?: Partial<DsIconProps>) =>
   preset(props, { name: 'chevron-right' });
 
 export const DsIconUpload = (props?: Partial<DsIconProps>) =>
-  preset(props, { name: 'upload' });
+  preset(props, { name: 'arrow-up-from-line' });
 
 export const DsIconGear = (props?: Partial<DsIconProps>) =>
   preset(props, { name: 'gear' });
@@ -80,3 +80,6 @@ export const DsIconMinusCircle = (props?: Partial<DsIconProps>) =>
 
 export const DsIconCloseCircle = (props?: Partial<DsIconProps>) =>
   preset(props, { name: 'circle-xmark', variant: 'solid' });
+
+export const DsIconEllipsisVertical = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'ellipsis-vertical' });

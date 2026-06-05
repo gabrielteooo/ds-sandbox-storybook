@@ -2,7 +2,7 @@ import { App } from 'antd';
 import type { MessageInstance } from 'antd/es/message/interface';
 import { useMemo, type ReactNode } from 'react';
 import type { DsToastMessageShowOptions, DsToastMessageType } from './component';
-import { DS_TOAST_MESSAGE_CLASS } from './constants';
+import { getToastMessageArgs } from './toastMessageArgs';
 
 const TYPE_TO_ANT = {
   normal: 'info',
@@ -19,11 +19,7 @@ function buildToastApi(messageApi: MessageInstance) {
     options?: DsToastMessageShowOptions,
   ) => {
     const antType = TYPE_TO_ANT[type];
-    return messageApi[antType]({
-      content,
-      className: DS_TOAST_MESSAGE_CLASS,
-      ...options,
-    });
+    return messageApi[antType](getToastMessageArgs(type, content, options));
   };
 
   return {

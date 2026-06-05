@@ -9,7 +9,7 @@ export type FaIconName =
   | 'chevron-down'
   | 'chevron-left'
   | 'chevron-right'
-  | 'upload'
+  | 'arrow-up-from-line'
   | 'gear'
   | 'circle-check'
   | 'circle-info'
@@ -25,9 +25,10 @@ export type FaIconName =
   | 'house'
   | 'file-lines'
   | 'table-cells'
-  | 'arrows-rotate';
+  | 'arrows-rotate'
+  | 'ellipsis-vertical';
 
-export type DsIconVariant = 'regular' | 'solid';
+export type DsIconVariant = 'regular' | 'solid' | 'light';
 
 export interface DsIconProps extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
   name: FaIconName;
@@ -39,7 +40,14 @@ export interface DsIconProps extends Omit<HTMLAttributes<HTMLElement>, 'children
 }
 
 function variantClass(variant: DsIconVariant): string {
-  return variant === 'solid' ? 'fa-solid' : 'fa-regular';
+  switch (variant) {
+    case 'solid':
+      return 'fa-solid';
+    case 'light':
+      return 'fa-light';
+    default:
+      return 'fa-regular';
+  }
 }
 
 export function DsIcon({

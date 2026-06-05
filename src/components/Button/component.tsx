@@ -132,7 +132,7 @@ export function DsButton({
 }
 
 export function DsButtonGroup({
-  variant = 'primary',
+  variant = 'secondary',
   size = 'default',
   direction = 'horizontal',
   labels = ['Button', 'Button', 'Button', 'Button'],

@@ -1,0 +1,238 @@
+/**
+ * MCP DS Sandbox Dropdown — Figma 371:10124 / 375:2319.
+ *
+ * TOKEN GAPS:
+ *   Figma uses `dropdown/text/default`, `dropdown/text/selected`,
+ *   `dropdown/text/danger`, `dropdown/bg/hover-danger`, etc.
+ *   No --component-dropdown-* tokens exist in tokens.css.
+ *   Nearest --color-* and --color-system-* equivalents used throughout.
+ *
+ *   Disabled item bg uses `--color-system-control-bg-active-disabled`
+ *   (rgba(0,0,0,0.15)) — Figma maps this to dropdown/bg/disabled.
+ */
+
+/* ── Trigger button ───────────────────────────────────────────────── */
+
+.ds-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+  height: 32px;
+  padding-inline: var(--primitive-space-sm);
+  border-radius: var(--primitive-radius-sm);
+  border: 1px solid var(--color-system-control-border);
+  background: var(--color-bg-container);
+  box-shadow: 0 2px 0 rgba(217, 217, 217, 0.10);
+  cursor: pointer;
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--color-text-default);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.ds-dropdown-trigger:hover:not(:disabled):not(.ds-dropdown-trigger--open) {
+  border-color: var(--component-button-secondary-border-hover);
+  color: var(--component-button-secondary-text-hover);
+}
+
+.ds-dropdown-trigger:hover:not(:disabled):not(.ds-dropdown-trigger--open)
+  .ds-dropdown-trigger__chevron.ds-icon {
+  color: var(--component-button-secondary-text-hover);
+}
+
+/* Figma 22754:15462 — pressed/open trigger */
+.ds-dropdown.ant-dropdown-open .ds-dropdown-trigger:not(:disabled),
+.ds-dropdown-trigger--open:not(:disabled) {
+  border-color: var(--component-button-secondary-border-active);
+  color: var(--component-button-secondary-text-active);
+  /* TOKEN GAP: Figma Component/Input/activeShadow — no shadow token in tokens.css */
+  box-shadow: 0 0 0 2px rgba(203, 232, 231, 0.4);
+}
+
+.ds-dropdown.ant-dropdown-open .ds-dropdown-trigger:not(:disabled)
+  .ds-dropdown-trigger__chevron.ds-icon,
+.ds-dropdown-trigger--open:not(:disabled) .ds-dropdown-trigger__chevron.ds-icon {
+  color: var(--component-button-secondary-text-active);
+}
+
+.ds-dropdown-trigger--disabled,
+.ds-dropdown-trigger:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ds-dropdown-trigger__label {
+  flex: 1;
+}
+
+.ds-dropdown-trigger__chevron.ds-icon {
+  color: var(--color-icon-default);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Menu popup container — Figma 376:10633 ───────────────────────── */
+/* Hugs items · min 190px · radius/base 8px · no container inset */
+
+.ds-dropdown-overlay .ant-dropdown-menu {
+  width: fit-content;
+  min-width: 190px;
+  padding: 0;
+  border: 1px solid var(--color-border-split);
+  border-radius: var(--primitive-radius-base);
+  background: var(--color-system-control-bg-menu);
+  overflow: hidden;
+  /* TOKEN GAP: Figma Component/shadow-secondary — no shadow token in tokens.css */
+  box-shadow:
+    0 0 2px rgba(0, 0, 0, 0.04),
+    0 4px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Base item size — Figma 375:2319 / menu 376:10633 ─────────────── */
+/* Height hugs text: 8px padding + 24px line-height + 8px padding = 40px */
+
+.ds-dropdown-overlay .ant-dropdown-menu-item,
+.ds-dropdown-overlay .ant-dropdown-menu-submenu-title {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+  width: 100%;
+  height: auto !important;
+  min-height: unset !important;
+  margin: 0;
+  padding: var(--primitive-space-xs) var(--primitive-space-sm) !important;
+  box-sizing: border-box;
+  border-radius: var(--primitive-radius-base);
+  font-family: var(--text-base-normal-font-family);
+  font-size: var(--text-base-normal-font-size);
+  line-height: var(--text-base-normal-line-height);
+  font-weight: var(--text-base-normal-font-weight);
+  color: var(--color-text-default);
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.ds-dropdown-overlay .ant-dropdown-menu-item .ant-dropdown-menu-title-content {
+  flex: 1;
+  min-width: 0;
+  line-height: var(--text-base-normal-line-height);
+}
+
+/* Icon inside item — 16px frame, 14px glyph */
+.ds-dropdown-overlay .ant-dropdown-menu-item .ant-dropdown-menu-item-icon,
+.ds-dropdown-overlay .ant-dropdown-menu-item .ds-icon {
+  color: var(--color-icon-default);
+  font-size: 14px;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Default ──────────────────────────────────────────────────────── */
+
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item:not(.ant-dropdown-menu-item-disabled):not(.ant-dropdown-menu-item-selected):not(.ant-dropdown-menu-item-danger) {
+  background: transparent;
+  color: var(--color-text-default);
+}
+
+/* ── Hover / active (keyboard) ────────────────────────────────────── */
+
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item:not(.ant-dropdown-menu-item-disabled):not(.ant-dropdown-menu-item-selected):not(.ant-dropdown-menu-item-danger):hover,
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item:not(.ant-dropdown-menu-item-disabled):not(.ant-dropdown-menu-item-selected):not(.ant-dropdown-menu-item-danger).ant-dropdown-menu-item-active {
+  background: var(--color-system-control-bg-option-hover) !important;
+  color: var(--color-text-default) !important;
+}
+
+/* ── Selected ─────────────────────────────────────────────────────── */
+
+.ds-dropdown-overlay .ant-dropdown-menu-item-selected {
+  background: var(--color-system-control-bg-option-select) !important;
+  color: var(--color-primary-default) !important;
+}
+
+.ds-dropdown-overlay .ant-dropdown-menu-item-selected:hover,
+.ds-dropdown-overlay .ant-dropdown-menu-item-selected.ant-dropdown-menu-item-active {
+  background: var(--color-system-control-bg-option-select) !important;
+  color: var(--color-primary-default) !important;
+}
+
+.ds-dropdown-overlay .ant-dropdown-menu-item-selected .ant-dropdown-menu-item-icon,
+.ds-dropdown-overlay .ant-dropdown-menu-item-selected .ds-icon {
+  color: var(--color-primary-default) !important;
+}
+
+/* ── Disabled ─────────────────────────────────────────────────────── */
+
+.ds-dropdown-overlay .ant-dropdown-menu-item-disabled,
+.ds-dropdown-overlay .ant-dropdown-menu-item-disabled:hover,
+.ds-dropdown-overlay .ant-dropdown-menu-item-disabled.ant-dropdown-menu-item-active {
+  background: var(--color-system-control-bg-active-disabled) !important;
+  color: var(--color-text-disabled) !important;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.ds-dropdown-overlay .ant-dropdown-menu-item-disabled .ant-dropdown-menu-item-icon,
+.ds-dropdown-overlay .ant-dropdown-menu-item-disabled .ds-icon {
+  color: var(--color-text-disabled) !important;
+}
+
+/* ── Danger — default ─────────────────────────────────────────────── */
+
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled) {
+  color: var(--color-system-error-default) !important;
+  background: transparent !important;
+}
+
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled)
+  .ant-dropdown-menu-item-icon,
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled)
+  .ds-icon {
+  color: var(--color-system-error-default) !important;
+}
+
+/* ── Danger — hover / active ──────────────────────────────────────── */
+
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled):hover,
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled).ant-dropdown-menu-item-active {
+  background: var(--color-system-error-active) !important;
+  color: var(--color-text-white) !important;
+}
+
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled):hover
+  .ant-dropdown-menu-item-icon,
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled):hover
+  .ds-icon,
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled).ant-dropdown-menu-item-active
+  .ant-dropdown-menu-item-icon,
+.ds-dropdown-overlay
+  .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled).ant-dropdown-menu-item-active
+  .ds-icon {
+  color: var(--color-text-white) !important;
+}
+
+/* ── Divider — Figma 376:10633 py-4px ───────────────────────────── */
+
+.ds-dropdown-overlay .ant-dropdown-menu-item-divider {
+  margin: var(--primitive-space-xxs) 0;
+  background: var(--color-border-split);
+}

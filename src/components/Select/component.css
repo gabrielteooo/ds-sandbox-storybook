@@ -3,11 +3,11 @@
  * Menu: 4171:8655 · item: 1226:85295 · chip: 1226:85294.
  */
 
-/* —— Width: 320px standard, min 120px, responsive —— */
+/* —— Width: 320px (Figma Select 415:57) — Storybook / standalone reference only; forms use width: 100% —— */
 .ds-select.ant-select {
-  width: 100%;
+  width: 320px;
   max-width: 320px;
-  min-width: 120px;
+  min-width: 320px;
   font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
 }
 
@@ -216,8 +216,23 @@
 }
 
 .ds-select.ant-select-multiple .ant-select-selection-item-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
   font-size: var(--text-xs-normal-font-size, 12px);
+  line-height: 1;
+}
+
+.ds-select.ant-select-multiple .ant-select-selection-item-remove :is(.anticon, .ds-icon) {
+  color: inherit;
+  font-size: 1em;
+  line-height: 1;
+}
+
+.ds-select.ant-select-multiple .ant-select-selection-item-remove:hover,
+.ds-select.ant-select-multiple .ant-select-selection-item-remove:hover :is(.anticon, .ds-icon) {
+  color: var(--color-icon-hover, rgba(0, 0, 0, 0.65));
 }
 
 .ds-select.ant-select-multiple .ant-select-selection-overflow {

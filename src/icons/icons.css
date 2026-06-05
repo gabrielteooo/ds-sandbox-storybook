@@ -32,6 +32,7 @@
 .ant-select .ds-icon,
 .ant-picker .ds-icon,
 .ant-alert .ds-icon,
+.ant-message .ds-icon,
 .ant-switch .ds-icon,
 .ant-tag .ds-icon,
 .ant-menu .ds-icon,
@@ -70,14 +71,12 @@ button:hover > .ds-icon,
   font-size: var(--text-xs-normal-font-size, 12px);
 }
 
-.ds-switch--icon .ant-switch-inner-checked :is(.anticon, .ds-icon),
-.ds-switch--icon .ant-switch-inner-unchecked :is(.anticon, .ds-icon) {
-  font-size: var(--text-xs-normal-font-size, 12px);
+.ds-switch--icon .ant-switch-inner-checked .ds-icon,
+.ds-switch--icon .ant-switch-inner-unchecked .ds-icon {
   color: var(--color-text-white, #fff);
-  vertical-align: -0.15em;
 }
 
-.ds-tag.ant-tag :is(.anticon, .ds-icon) {
+.ds-tag.ant-tag > :is(.anticon, .ds-icon) {
   font-size: var(--text-base-normal-font-size, 16px);
   line-height: 1;
 }
@@ -111,21 +110,19 @@ button:hover > .ds-icon,
   color: var(--color-icon-hover, rgba(0, 0, 0, 0.65));
 }
 
-.ds-upload--button .ds-upload__trigger .ant-btn .ant-btn-icon .ds-icon,
+.ds-upload--button .ds-upload__trigger .ant-btn .ant-btn-icon .ds-icon {
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: 1;
+  vertical-align: 0;
+}
+
 .ds-upload__dragger-icon :is(.anticon, .ds-icon) {
-  font-size: var(--text-lg-normal-font-size, 20px);
+  font-size: 48px;
+  line-height: 1;
+  vertical-align: 0;
 }
 
 .ds-avatar--icon .ant-avatar .ant-avatar-icon .ds-icon {
   color: var(--component-avatar-text-default, #fff);
-}
-
-.ds-avatar--icon.ds-avatar--small .ant-avatar .ant-avatar-icon .ds-icon {
-  font-size: var(--text-xs-normal-font-size, 12px);
-}
-
-.ds-avatar--icon.ds-avatar--default .ant-avatar .ant-avatar-icon .ds-icon,
-.ds-avatar--icon.ds-avatar--large .ant-avatar .ant-avatar-icon .ds-icon,
-.ds-avatar--icon.ds-avatar--custom .ant-avatar .ant-avatar-icon .ds-icon {
-  font-size: var(--text-base-normal-font-size, 16px);
+  vertical-align: 0;
 }

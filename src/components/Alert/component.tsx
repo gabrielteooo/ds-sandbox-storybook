@@ -40,6 +40,12 @@ const TYPE_ICONS: Record<DsAlertType, ReactNode> = {
   error: <DsIconExclamationCircle />,
 };
 
+/** Figma Alert/Broadcast (22677:23610) — error uses triangle-exclamation, info uses circle-info. */
+const BROADCAST_TYPE_ICONS: Partial<Record<DsAlertType, ReactNode>> = {
+  info: <DsIconInfoCircle />,
+  error: <DsIconWarning />,
+};
+
 export interface DsAlertProps {
   layout?: DsAlertLayout;
   type?: DsAlertType;
@@ -56,10 +62,26 @@ export interface DsAlertProps {
   onClose?: () => void;
   showCarousel?: boolean;
   carouselLabel?: string;
+  onCarouselPrevious?: () => void;
+  onCarouselNext?: () => void;
+  carouselPreviousDisabled?: boolean;
+  carouselNextDisabled?: boolean;
   className?: string;
 }
 
-function BroadcastPagination({ label }: { label: string }) {
+function BroadcastPagination({
+  label,
+  onPrevious,
+  onNext,
+  previousDisabled = false,
+  nextDisabled = false,
+}: {
+  label: string;
+  onPrevious?: () => void;
+  onNext?: () => void;
+  previousDisabled?: boolean;
+  nextDisabled?: boolean;
+}) {
   return (
     <div className="ds-alert-broadcast__carousel" role="group" aria-label="Alert pagination">
       <span className="ds-alert-broadcast__pagination">{label}</span>
@@ -69,6 +91,8 @@ function BroadcastPagination({ label }: { label: string }) {
         className="ds-alert-broadcast__nav-btn"
         icon={<DsIconChevronLeft />}
         aria-label="Previous"
+        onClick={onPrevious}
+        disabled={previousDisabled}
       />
       <Button
         type="text"
@@ -76,6 +100,8 @@ function BroadcastPagination({ label }: { label: string }) {
         className="ds-alert-broadcast__nav-btn"
         icon={<DsIconChevronRight />}
         aria-label="Next"
+        onClick={onNext}
+        disabled={nextDisabled}
       />
     </div>
   );
@@ -176,38 +202,61 @@ function DsAlertBroadcast({
   closable = true,
   showCarousel = false,
   carouselLabel = '1 / 3',
+  onCarouselPrevious,
+  onCarouselNext,
+  carouselPreviousDisabled,
+  carouselNextDisabled,
   onClose,
   className,
 }: DsAlertProps) {
-  const resolvedMessage = message ?? BROADCAST_MESSAGES[type ?? 'info'];
+  const resolvedType = type ?? 'info';
+  const isInfo = resolvedType === 'info';
+  const resolvedMessage = message ?? BROADCAST_MESSAGES[resolvedType];
+  const statusIcon =
+    BROADCAST_TYPE_ICONS[resolvedType] ?? TYPE_ICONS[resolvedType];
 
   return (
     <div
-      className={['ds-alert-broadcast', `ds-alert-broadcast--${type}`, className]
+      className={['ds-alert-broadcast', `ds-alert-broadcast--${resolvedType}`, className]
         .filter(Boolean)
         .join(' ')}
       role="alert"
     >
-      {showIcon && (
+      {!isInfo && showIcon && (
         <span className="ds-alert-broadcast__icon" aria-hidden>
-          {TYPE_ICONS[type ?? 'info']}
+          {statusIcon}
         </span>
       )}
       <div className="ds-alert-broadcast__content">
         <div className="ds-alert-broadcast__main">
-          <p className="ds-alert-broadcast__message">{resolvedMessage}</p>
-          {closable && (
-            <button
-              type="button"
-              className="ds-alert-broadcast__close"
-              onClick={onClose}
-              aria-label="Close"
-            >
-              <DsIconClose />
-            </button>
+          {isInfo && showIcon && (
+            <span className="ds-alert-broadcast__icon" aria-hidden>
+              {statusIcon}
+            </span>
           )}
+          <div className="ds-alert-broadcast__message-row">
+            <p className="ds-alert-broadcast__message">{resolvedMessage}</p>
+            {closable && (
+              <button
+                type="button"
+                className="ds-alert-broadcast__close"
+                onClick={onClose}
+                aria-label="Close"
+              >
+                <DsIconClose />
+              </button>
+            )}
+          </div>
         </div>
-        {showCarousel && <BroadcastPagination label={carouselLabel} />}
+        {showCarousel && (
+          <BroadcastPagination
+            label={carouselLabel}
+            onPrevious={onCarouselPrevious}
+            onNext={onCarouselNext}
+            previousDisabled={carouselPreviousDisabled}
+            nextDisabled={carouselNextDisabled}
+          />
+        )}
       </div>
     </div>
   );
@@ -229,6 +278,10 @@ export function DsAlert({
   onClose,
   showCarousel = false,
   carouselLabel = '1 / 3',
+  onCarouselPrevious,
+  onCarouselNext,
+  carouselPreviousDisabled,
+  carouselNextDisabled,
   className,
 }: DsAlertProps) {
   if (layout === 'with-button') {
@@ -260,6 +313,10 @@ export function DsAlert({
         closable={closable}
         showCarousel={showCarousel}
         carouselLabel={carouselLabel}
+        onCarouselPrevious={onCarouselPrevious}
+        onCarouselNext={onCarouselNext}
+        carouselPreviousDisabled={carouselPreviousDisabled}
+        carouselNextDisabled={carouselNextDisabled}
         onClose={onClose}
         className={className}
       />
@@ -268,14 +325,18 @@ export function DsAlert({
 
   const resolvedMessage = message ?? TITLES[type ?? 'info'];
 
+  const resolvedType = type ?? 'info';
+
   return (
     <div className={['ds-alert-basic', className].filter(Boolean).join(' ')}>
       <Alert
-        type={type}
+        type={resolvedType}
         message={resolvedMessage}
         description={showDescription ? description : undefined}
         showIcon={showIcon}
+        icon={showIcon ? TYPE_ICONS[resolvedType] : false}
         closable={closable}
+        closeIcon={closable ? <DsIconClose /> : undefined}
         onClose={onClose}
       />
     </div>

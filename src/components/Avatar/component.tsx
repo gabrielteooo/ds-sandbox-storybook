@@ -70,6 +70,19 @@ function wrapperClass(
     .join(' ');
 }
 
+function iconFontSizePx(size: DsAvatarSize): number {
+  switch (size) {
+    case 'small':
+      return DS_AVATAR_PANEL.iconFontSizeSmallPx;
+    case 'default':
+      return DS_AVATAR_PANEL.iconFontSizeDefaultPx;
+    case 'large':
+      return DS_AVATAR_PANEL.iconFontSizeLargePx;
+    case 'custom':
+      return DS_AVATAR_PANEL.iconFontSizeCustomPx;
+  }
+}
+
 function wrapperStyle(size: DsAvatarSize, showBadge: boolean): CSSProperties | undefined {
   const sizePx =
     size === 'small'
@@ -108,7 +121,7 @@ export function DsAvatar({
   };
 
   if (type === 'icon') {
-    avatarProps.icon = icon ?? <DsIconUser />;
+    avatarProps.icon = icon ?? <DsIconUser size={iconFontSizePx(size)} />;
   } else if (type === 'image') {
     avatarProps.src = src;
     avatarProps.alt = alt ?? '';

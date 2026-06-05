@@ -3,5 +3,6 @@
  * Requires `.npmrc` with npm.fontawesome.com auth for install.
  */
 import '@fortawesome/fontawesome-pro/css/fontawesome.min.css';
+import '@fortawesome/fontawesome-pro/css/light.min.css';
 import '@fortawesome/fontawesome-pro/css/regular.min.css';
 import '@fortawesome/fontawesome-pro/css/solid.min.css';

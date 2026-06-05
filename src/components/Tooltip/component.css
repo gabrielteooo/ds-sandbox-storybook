@@ -51,7 +51,15 @@
 
 
 /* —— Chart variant body (Figma 413:13152) —— */
+.ds-tooltip--chart.ant-tooltip {
+  width: 200px;
+  max-width: 200px;
+}
+
 .ds-tooltip--chart.ant-tooltip .ant-tooltip-inner {
+  width: 200px;
+  max-width: 200px;
+  box-sizing: border-box;
   padding: var(--primitive-space-xs, 8px) var(--primitive-space-sm, 12px);
 }
 
@@ -154,7 +162,7 @@
 }
 
 .ds-tooltip-trigger__icon {
-  color: var(--color-primary-default, #00636A);
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
   font-size: 16px;
 }
 
@@ -172,9 +180,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 0;
   height: 100%;
   cursor: pointer;
   transition: opacity 0.15s ease;
+}
+
+.ds-tooltip-bar-chart__segment-label {
+  padding-inline: var(--primitive-space-xxs, 4px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
+  font-size: var(--text-sm-normal-font-size, 14px);
+  line-height: var(--text-sm-normal-line-height, 22px);
+  font-weight: var(--text-sm-normal-font-weight, 400);
+  color: var(--color-text-white, #fff);
 }
 
 .ds-tooltip-bar-chart__segment:hover {

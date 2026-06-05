@@ -1,7 +1,35 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { useEffect, useState } from 'react';
 import type { DsCheckboxProps } from '../../src/components/Checkbox';
 import { DsCheckbox, DS_CHECKBOX_STATES } from '../../src/components/Checkbox';
 import { DsCheckboxCheckAll } from '../../src/components/Checkbox/DsCheckboxCheckAll';
+
+/** Controlled wrapper so Basic can be clicked while Controls still drive `checked`. */
+function InteractiveCheckbox(args: DsCheckboxProps) {
+  const [checked, setChecked] = useState(args.checked ?? false);
+  const [indeterminate, setIndeterminate] = useState(args.indeterminate ?? false);
+
+  useEffect(() => {
+    setChecked(args.checked ?? false);
+  }, [args.checked]);
+
+  useEffect(() => {
+    setIndeterminate(args.indeterminate ?? false);
+  }, [args.indeterminate]);
+
+  return (
+    <DsCheckbox
+      {...args}
+      checked={checked}
+      indeterminate={indeterminate}
+      onChange={(event) => {
+        setChecked(event.target.checked);
+        setIndeterminate(event.target.indeterminate ?? false);
+        args.onChange?.(event);
+      }}
+    />
+  );
+}
 
 const meta: Meta<DsCheckboxProps> = {
   title: 'Components/Checkbox',
@@ -37,6 +65,7 @@ export default meta;
 type Story = StoryObj<DsCheckboxProps>;
 
 export const Basic: Story = {
+  render: (args) => <InteractiveCheckbox {...args} />,
   args: {
     label: 'Checkbox',
     showLabel: true,
@@ -48,7 +77,8 @@ export const Basic: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Default inactive checkbox with label (Status=Inactive, State=Default).',
+        story:
+          'Default checkbox with label — click to toggle. **Controls** still set checked / indeterminate / disabled.',
       },
     },
   },

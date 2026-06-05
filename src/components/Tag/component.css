@@ -28,20 +28,24 @@
 }
 
 .ds-tag.ant-tag .ant-tag-close-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-inline-start: 0;
   color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
   font-size: var(--text-xs-normal-font-size, 12px);
   line-height: 1;
 }
 
-.ds-tag.ant-tag .ant-tag-close-icon .anticon {
+.ds-tag.ant-tag .ant-tag-close-icon :is(.anticon, .ds-icon) {
   color: inherit;
-  font-size: inherit;
+  font-size: 1em;
+  line-height: 1;
 }
 
 .ds-tag.ant-tag .ant-tag-close-icon:hover,
-.ds-tag.ant-tag .ant-tag-close-icon:hover .anticon {
-  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+.ds-tag.ant-tag .ant-tag-close-icon:hover :is(.anticon, .ds-icon) {
+  color: var(--color-icon-hover, rgba(0, 0, 0, 0.65));
 }
 
 /* Borderless basic — same fill as default, no border (Figma type=borderless) */

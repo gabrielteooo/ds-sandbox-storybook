@@ -12,6 +12,16 @@ export const DS_AVATAR_PANEL = {
   iconPaddingSmallPx: 5,
   iconPaddingDefaultPx: 7,
   iconPaddingLargePx: 8,
+  /** FA user glyph — Figma size/xs · base · lg · xl per avatar size */
+  iconFontSizeSmallPx: 12,
+  iconFontSizeDefaultPx: 16,
+  iconFontSizeLargePx: 20,
+  iconFontSizeCustomPx: 24,
   /** Status dot — Figma Badge / Basic `dotSize` 8px; no component badge token in tokens.css */
   badgeDotSizePx: 8,
+  /** Avatar Group overlap (Figma 1233:39288 — negative margin between items) */
+  groupOverlapSmallPx: 8,
+  groupOverlapDefaultPx: 4,
+  groupOverlapLargePx: 12,
+  groupOverlapCustomPx: 12,
 } as const;

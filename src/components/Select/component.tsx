@@ -1,5 +1,5 @@
 import { Checkbox, Select } from 'antd';
-import { DsIconChevronDown, DsIconSearch } from '../../icons';
+import { DsIconChevronDown, DsIconClose, DsIconSearch } from '../../icons';
 import type { SelectProps } from 'antd';
 import type { BaseSelectRef } from 'rc-select';
 import type { DefaultOptionType } from 'rc-select/es/Select';
@@ -93,6 +93,7 @@ export const DsSelect = forwardRef<BaseSelectRef, DsSelectProps>(function DsSele
     popupClassName,
     options = [...DS_SELECT_DEFAULT_OPTIONS],
     suffixIcon: suffixIconProp,
+    removeIcon: removeIconProp,
     defaultValue,
     value: valueProp,
     onChange,
@@ -146,6 +147,11 @@ export const DsSelect = forwardRef<BaseSelectRef, DsSelectProps>(function DsSele
       : isSearch && open
         ? <DsIconSearch />
         : <DsIconChevronDown />;
+
+  const removeIcon =
+    isMultiple && removeIconProp === undefined
+      ? <DsIconClose />
+      : removeIconProp;
 
   const popupCls = [
     'ds-select__popup',
@@ -203,6 +209,7 @@ export const DsSelect = forwardRef<BaseSelectRef, DsSelectProps>(function DsSele
       className={rootClass(size, variant, status, open, className)}
       popupClassName={popupCls}
       suffixIcon={suffixIcon}
+      removeIcon={removeIcon}
       status={antStatus}
       mode={isMultiple ? 'multiple' : undefined}
       showSearch={isSearch}

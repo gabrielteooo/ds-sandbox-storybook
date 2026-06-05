@@ -59,7 +59,7 @@ function resolveChildren(
     case 'number':
       return { checkedChildren: '1', unCheckedChildren: '0' };
     case 'icon':
-      return { checkedChildren: <DsIconCheck /> };
+      return { checkedChildren: <DsIconCheck variant="solid" /> };
     default:
       return {};
   }

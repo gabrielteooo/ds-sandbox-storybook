@@ -31,18 +31,21 @@ function fruitShopChart(
 const BAR_SEGMENTS = [
   {
     key: 'banana',
+    label: 'Banana',
     width: '40%',
     color: 'var(--primitive-data-color-yellow-3)',
     chart: fruitShopChart('Banana', 'var(--primitive-data-color-yellow-3)', 120, 40),
   },
   {
     key: 'apple',
+    label: 'Apple',
     width: '35%',
     color: 'var(--primitive-data-color-red-4)',
     chart: fruitShopChart('Apple', 'var(--primitive-data-color-red-4)', 105, 35),
   },
   {
     key: 'orange',
+    label: 'Orange',
     width: '25%',
     color: 'var(--primitive-data-color-orange-3)',
     chart: fruitShopChart('Orange', 'var(--primitive-data-color-orange-3)', 75, 25),
@@ -144,8 +147,10 @@ export const StackedBarChart: Story = {
               className="ds-tooltip-bar-chart__segment"
               style={{ width: segment.width, backgroundColor: segment.color }}
               tabIndex={0}
-              aria-label={`${segment.chart.legend?.name} — ${FRUIT_SHOP_CATEGORY}`}
-            />
+              aria-label={`${segment.label} — ${FRUIT_SHOP_CATEGORY}`}
+            >
+              <span className="ds-tooltip-bar-chart__segment-label">{segment.label}</span>
+            </div>
           </DsTooltip>
         ))}
       </div>

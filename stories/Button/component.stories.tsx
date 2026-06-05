@@ -1,15 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import type {
-  DsButtonGroupProps,
-  DsButtonProps,
-  DsButtonSize,
-  DsButtonVariant,
-} from '../../src/components/Button';
 import {
   DsButton,
   DsButtonGroup,
   DS_BUTTON_SIZES,
   DS_BUTTON_VARIANTS,
+  type DsButtonGroupProps,
+  type DsButtonProps,
+  type DsButtonSize,
+  type DsButtonVariant,
 } from '../../src/components/Button';
 
 const meta: Meta<DsButtonProps> = {
@@ -119,7 +117,7 @@ type GroupStory = StoryObj<DsButtonGroupProps>;
 export const ButtonGroups: GroupStory = {
   render: (args) => <DsButtonGroup {...args} />,
   args: {
-    variant: 'primary',
+    variant: 'secondary',
     size: 'default',
     direction: 'horizontal',
   },

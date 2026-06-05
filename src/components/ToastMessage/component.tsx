@@ -1,7 +1,7 @@
 import { message } from 'antd';
 import type { ArgsProps, ConfigOptions } from 'antd/es/message/interface';
 import type { ReactNode } from 'react';
-import { DS_TOAST_MESSAGE_CLASS } from './constants';
+import { getToastMessageArgs } from './toastMessageArgs';
 
 /** Figma Toast Message types — Normal maps to Ant `info`. */
 export type DsToastMessageType = 'normal' | 'success' | 'error' | 'warning' | 'loading';
@@ -34,11 +34,7 @@ function show(
   options?: DsToastMessageShowOptions,
 ) {
   const antType = TYPE_TO_ANT[type];
-  return message[antType]({
-    content,
-    className: DS_TOAST_MESSAGE_CLASS,
-    ...options,
-  });
+  return message[antType](getToastMessageArgs(type, content, options));
 }
 
 export function configureDsToastMessage(config: ConfigOptions = {}) {

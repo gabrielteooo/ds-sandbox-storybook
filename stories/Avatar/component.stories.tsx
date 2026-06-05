@@ -2,8 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import type { CSSProperties } from 'react';
 import {
   DsAvatar,
+  DsAvatarGroup,
   DS_AVATAR_SIZES,
   DS_AVATAR_TYPES,
+  type DsAvatarGroupProps,
   type DsAvatarProps,
 } from '../../src/components/Avatar';
 import '../../src/components/Avatar/component.css';
@@ -16,6 +18,7 @@ const FIGMA = {
   componentSet: 'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=398-11741',
   basicSizes: 'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22737-18584',
   types: 'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22742-3502',
+  group: 'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=1233-39288',
 } as const;
 
 const meta: Meta<DsAvatarProps> = {
@@ -65,11 +68,12 @@ const rowStyle: CSSProperties = {
   gap: 'var(--primitive-space-lg, 24px)',
 };
 
-/** Figma 22737:18584 — Icon avatar at Large, Default, and Small. */
+/** Figma 398:11741 — Icon avatar at Custom, Large, Default, and Small. */
 export const Basic: Story = {
   name: 'Basic / Icon sizes',
   render: () => (
     <div style={rowStyle}>
+      <DsAvatar type="icon" size="custom" />
       <DsAvatar type="icon" size="large" />
       <DsAvatar type="icon" size="default" />
       <DsAvatar type="icon" size="small" />
@@ -79,7 +83,8 @@ export const Basic: Story = {
     design: { type: 'figma', url: FIGMA.basicSizes },
     docs: {
       description: {
-        story: 'Icon type with grey background at **large** (40px), **default** (32px), and **small** (24px).',
+        story:
+          'Icon type (`fa-user` regular) at **large** (40px / 20px icon), **default** (32px / 16px), **small** (24px / 12px) — Figma 398:11741.',
       },
     },
   },
@@ -101,6 +106,36 @@ export const Types: Story = {
       description: {
         story:
           'Three Figma types at **default** size — Icon (`--component-avatar-bg-grey`), Image, Text (`--component-avatar-bg-primary`).',
+      },
+    },
+  },
+};
+
+type GroupStory = StoryObj<DsAvatarGroupProps>;
+
+const groupControls: GroupStory['argTypes'] = {
+  size: {
+    control: 'select',
+    options: DS_AVATAR_SIZES,
+  },
+  imageSrc: { table: { disable: true } },
+  className: { table: { disable: true } },
+};
+
+/** Figma 1233:39288 — overlapping group; default size with size control. */
+export const AvatarGroup: GroupStory = {
+  name: 'Avatar Group',
+  render: (args) => <DsAvatarGroup {...args} />,
+  args: {
+    size: 'default',
+  },
+  argTypes: groupControls,
+  parameters: {
+    design: { type: 'figma', url: FIGMA.group },
+    docs: {
+      description: {
+        story:
+          'Stacked **Image · JD · user icon (green) · +2** at **default** (32px). Use **size** control for Small / Large / Custom — overlap and overflow label follow Figma.',
       },
     },
   },

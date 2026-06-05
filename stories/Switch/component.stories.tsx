@@ -91,7 +91,7 @@ export const TextAndIcon: Story = {
     docs: {
       description: {
         story:
-          '**Number** (`checkedChildren="1"`, `unCheckedChildren="0"`) and **icon** (`CheckOutlined`) presets at base size.',
+          '**Number** (`1` / `0`) and **icon** (Font Awesome check) presets at base size.',
       },
     },
   },

@@ -1,6 +1,7 @@
 import { Tag } from 'antd';
 import type { TagProps } from 'antd';
 import type { ReactNode } from 'react';
+import { DsIconClose } from '../../icons';
 import type { DsTagColorPreset, DsTagStatus } from './tagPresets';
 import './component.css';
 
@@ -60,6 +61,7 @@ export function DsTag({
       className={tagClass(variant, closable, color, status, className)}
       bordered={status ? true : bordered}
       closable={closable}
+      closeIcon={closable ? <DsIconClose /> : undefined}
       color={status ? undefined : antColor}
       icon={icon}
       onClose={onClose}

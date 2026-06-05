@@ -2,13 +2,38 @@
 
 .ds-button {
   display: inline-flex;
+  align-items: center;
 }
 
 .ds-button .ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: var(--type-size-sm, 14px);
   line-height: var(--type-line-h-s, 22px);
   font-weight: 400;
   box-shadow: none;
+}
+
+.ds-button .ant-btn .ant-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.ds-button .ant-btn .ant-btn-icon .ds-icon {
+  vertical-align: 0;
+  line-height: 1;
+}
+
+.ds-button--secondary .ant-btn:not(:disabled) .ant-btn-icon .ds-icon {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+.ds-button--tertiary .ant-btn:not(:disabled) .ant-btn-icon .ds-icon,
+.ds-button--link .ant-btn:not(:disabled) .ant-btn-icon .ds-icon {
+  color: currentColor;
 }
 
 /* —— Sizes (basic) —— */
@@ -52,8 +77,13 @@
   padding-inline: 0;
 }
 
+.ds-button--icon-only .ant-btn {
+  padding-block: 0;
+}
+
 .ds-button--icon-only .ant-btn .ant-btn-icon {
   font-size: var(--type-size-base, 16px);
+  margin: 0;
 }
 
 /* —— Variants —— */

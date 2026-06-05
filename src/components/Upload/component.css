@@ -24,7 +24,7 @@
   width: 100%;
 }
 
-/* —— Upload / Button (397:12031) — Figma secondary + UploadOutlined —— */
+/* —— Upload / Button (397:12031) — Figma secondary + arrow-up-from-line —— */
 .ds-upload.ant-upload-wrapper .ant-upload.ant-upload-select {
   display: inline-flex;
   justify-content: flex-start;
@@ -70,7 +70,16 @@
 }
 
 .ds-upload--button .ds-upload__trigger .ant-btn .ant-btn-icon {
-  color: var(--component-button-secondary-text-icon);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.ds-upload--button .ds-upload__trigger .ant-btn .ant-btn-icon :is(.anticon, .ds-icon) {
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+  font-size: var(--text-base-normal-font-size, 16px);
+  line-height: 1;
 }
 
 /* —— Upload List Item / Basic (397:12034) — hug content, 8px between rows —— */
@@ -197,7 +206,7 @@
   color: var(--color-system-error-text);
 }
 
-/* —— Upload / drag and drop (397:12043) —— */
+/* —— Upload / drag and drop (397:12043 · 19825:31708) —— */
 .ds-upload__dragger.ant-upload-wrapper .ant-upload-drag {
   background: var(--component-upload-bg-container);
   border-color: var(--component-upload-bg-border);
@@ -214,17 +223,34 @@
 }
 
 .ds-upload__dragger .ant-upload-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
   padding: 0;
 }
 
+.ds-upload__dragger-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--primitive-space-base, 16px);
+  width: 100%;
+}
+
 .ds-upload__dragger-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   line-height: 1;
 }
 
-.ds-upload__dragger-icon .anticon {
+.ds-upload__dragger-icon :is(.anticon, .ds-icon) {
   font-size: 48px;
-  color: var(--color-icon-default);
+  line-height: 1;
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
 }
 
 .ds-upload__dragger-text {

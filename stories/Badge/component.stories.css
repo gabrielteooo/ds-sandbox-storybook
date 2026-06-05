@@ -1,0 +1,56 @@
+.ds-badge-story-basic {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Figma 22748:5926 — empty grey avatar anchor (badge is the focus). */
+.ds-badge-story-avatar {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--component-avatar-bg-grey);
+}
+
+.ds-badge-story-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.ds-badge-story-ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  max-width: 900px;
+}
+
+.ds-badge-story-card {
+  width: 200px;
+  padding: 16px;
+  background: var(--component-card-bg-default);
+  border: 1px solid var(--component-card-border-default);
+  border-radius: var(--primitive-radius-xs);
+}
+
+.ds-badge-story-card__title {
+  margin: 0 0 8px;
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--component-card-text-default);
+}
+
+.ds-badge-story-card__body {
+  margin: 0;
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--component-card-text-description);
+}

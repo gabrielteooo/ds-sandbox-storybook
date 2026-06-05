@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { Radio } from 'antd';
+import { useState } from 'react';
 import type {
   DsRadioGroupProps,
   DsRadioProps,
@@ -12,6 +14,25 @@ import {
   DS_RADIO_GROUP_SIZES,
   DS_RADIO_STATES,
 } from '../../src/components/Radio';
+
+type BasicRadioPairArgs = Pick<DsRadioProps, 'disabled' | 'state' | 'showLabel'>;
+
+function BasicRadioPair({ disabled = false, state = 'default', showLabel = true }: BasicRadioPairArgs) {
+  const [value, setValue] = useState('option-1');
+  const groupDisabled = disabled || state === 'disabled';
+
+  return (
+    <Radio.Group
+      value={value}
+      onChange={(event) => setValue(event.target.value)}
+      disabled={groupDisabled}
+      className="ds-radio-basic-group"
+    >
+      <DsRadio value="option-1" label="Radio button" showLabel={showLabel} state={state} />
+      <DsRadio value="option-2" label="Radio button" showLabel={showLabel} state={state} />
+    </Radio.Group>
+  );
+}
 
 const meta: Meta<DsRadioProps> = {
   title: 'Components/Radio',
@@ -49,14 +70,29 @@ const meta: Meta<DsRadioProps> = {
 export default meta;
 type Story = StoryObj<DsRadioProps>;
 
+const basicStoryArgTypes: Story['argTypes'] = {
+  label: { table: { disable: true } },
+  defaultChecked: { table: { disable: true } },
+  checked: { table: { disable: true } },
+  value: { table: { disable: true } },
+  onChange: { table: { disable: true } },
+  className: { table: { disable: true } },
+};
+
 export const Basic: Story = {
+  render: (args) => (
+    <BasicRadioPair
+      disabled={args.disabled}
+      state={args.state}
+      showLabel={args.showLabel}
+    />
+  ),
   args: {
-    label: 'Radio button',
     showLabel: true,
-    defaultChecked: false,
     disabled: false,
     state: 'default',
   },
+  argTypes: basicStoryArgTypes,
   parameters: {
     design: {
       type: 'figma',
@@ -65,7 +101,7 @@ export const Basic: Story = {
     docs: {
       description: {
         story:
-          'Default unchecked radio. Click to select — active state matches Figma 395:11364 (solid primary + white dot).',
+          'Two radio buttons in a group — click either to select (only one active). **Controls**: disabled, state, showLabel.',
       },
     },
   },

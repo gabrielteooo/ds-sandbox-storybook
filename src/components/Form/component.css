@@ -256,6 +256,7 @@
 .ds-form--variants .ds-select.ant-select,
 .ds-form--variants .ds-datepicker.ant-picker,
 .ds-form--variants .ds-timepicker.ant-picker {
+  min-width: 0;
   max-width: 100%;
 }
 

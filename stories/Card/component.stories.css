@@ -1,0 +1,11 @@
+.ds-card-story-basic {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 400px;
+  padding: 24px;
+}
+
+.ds-card-story-basic .ds-card {
+  width: 400px;
+}

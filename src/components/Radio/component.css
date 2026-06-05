@@ -259,6 +259,18 @@
   margin-inline-end: 0;
 }
 
+/* —— Basic story: two radios side by side —— */
+.ds-radio-basic-group.ant-radio-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--primitive-space-base, 16px);
+  align-items: center;
+}
+
+.ds-radio-basic-group .ds-radio.ant-radio-wrapper {
+  margin-inline-end: 0;
+}
+
 /* —— Story layout —— */
 .ds-radio-story-disabled {
   display: flex;

@@ -1,0 +1,170 @@
+/**
+ * MCP DS Sandbox Badge — Figma 399:66 / 399:67 / 507:38121.
+ * TOKEN GAP: no --component-badge-* semantic tokens; primitives + system colours used.
+ */
+
+.ds-badge--basic .ant-badge-count {
+  background-color: var(--color-system-error-default);
+  color: var(--color-text-white);
+  border: 1px solid var(--color-text-white);
+  padding: 0 var(--primitive-space-xxs);
+  box-shadow: none;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  inline-size: max-content;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+/* Ant scroll-number clips multi-digit counts when overflow is hidden */
+.ds-badge--basic .ant-badge-count.ant-scroll-number {
+  overflow: visible;
+}
+
+.ds-badge--basic .ant-badge-count bdi {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Figma Small — indicatorHeightSM 16px, Badge count 8px semibold */
+.ds-badge--basic.ds-badge--size-small .ant-badge-count {
+  --ds-badge-indicator-height: 16px;
+
+  min-width: var(--ds-badge-indicator-height);
+  height: var(--ds-badge-indicator-height);
+  line-height: var(--ds-badge-indicator-height);
+  /* TOKEN GAP: Figma 12px small count radius */
+  border-radius: 12px;
+  font-family: var(--text-badge-count-font-family);
+  font-size: var(--text-badge-count-font-size);
+  font-weight: var(--text-badge-count-font-weight);
+}
+
+.ds-badge--basic.ds-badge--size-small .ant-badge-count .ant-scroll-number-only,
+.ds-badge--basic.ds-badge--size-small .ant-badge-count .ant-scroll-number-only-unit {
+  height: var(--ds-badge-indicator-height);
+  line-height: var(--ds-badge-indicator-height);
+}
+
+/* Figma Base — indicatorHeight 20px, SM/Normal 14px regular */
+.ds-badge--basic.ds-badge--size-default .ant-badge-count {
+  --ds-badge-indicator-height: 20px;
+
+  min-width: var(--ds-badge-indicator-height);
+  height: var(--ds-badge-indicator-height);
+  line-height: var(--ds-badge-indicator-height);
+  /* TOKEN GAP: Figma 16px base count radius */
+  border-radius: 16px;
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  font-weight: var(--text-sm-normal-font-weight);
+}
+
+.ds-badge--basic.ds-badge--size-default .ant-badge-count .ant-scroll-number-only,
+.ds-badge--basic.ds-badge--size-default .ant-badge-count .ant-scroll-number-only-unit {
+  height: var(--ds-badge-indicator-height);
+  line-height: var(--ds-badge-indicator-height);
+}
+
+.ds-badge--basic .ant-badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-system-error-default);
+  box-shadow: 0 0 0 1px var(--color-text-white);
+}
+
+.ds-badge--status.ant-badge {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ds-badge--status .ant-badge-status-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.ds-badge--status .ant-badge-status-text {
+  margin-inline-start: var(--primitive-space-xs);
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--color-text-default);
+}
+
+.ds-badge--status-success .ant-badge-status-dot {
+  background-color: var(--color-system-success-default);
+}
+
+.ds-badge--status-default .ant-badge-status-dot {
+  /* TOKEN GAP: no --color-system-default-default; icon default approximates Figma */
+  background-color: var(--color-icon-default);
+}
+
+.ds-badge--status-error .ant-badge-status-dot {
+  background-color: var(--color-system-error-default);
+}
+
+.ds-badge--status-processing .ant-badge-status-dot {
+  background-color: var(--color-system-info-default);
+}
+
+.ds-badge--status-warning .ant-badge-status-dot {
+  background-color: var(--color-system-warning-default);
+}
+
+/* Figma 507:38121 — ribbon fills + darker fold (ant-7 / data-blue-7). */
+.ds-badge-ribbon--cyan {
+  --ds-badge-ribbon-bg: var(--primitive-color-cyan-ant-6);
+  --ds-badge-ribbon-corner: var(--primitive-color-cyan-ant-7);
+}
+
+.ds-badge-ribbon--green {
+  --ds-badge-ribbon-bg: var(--primitive-color-green-ant-6);
+  --ds-badge-ribbon-corner: var(--primitive-color-green-ant-7);
+}
+
+.ds-badge-ribbon--purple {
+  --ds-badge-ribbon-bg: var(--primitive-color-purple-ant-6);
+  --ds-badge-ribbon-corner: var(--primitive-color-purple-ant-7);
+}
+
+.ds-badge-ribbon--blue {
+  --ds-badge-ribbon-bg: var(--primitive-data-color-blue-6);
+  --ds-badge-ribbon-corner: var(--primitive-data-color-blue-7);
+}
+
+.ds-badge-ribbon--volcano {
+  --ds-badge-ribbon-bg: var(--primitive-color-volcano-ant-6);
+  --ds-badge-ribbon-corner: var(--primitive-color-volcano-ant-7);
+}
+
+.ds-badge-ribbon--magenta {
+  --ds-badge-ribbon-bg: var(--primitive-color-magenta-ant-6);
+  --ds-badge-ribbon-corner: var(--primitive-color-magenta-ant-7);
+}
+
+.ds-badge-ribbon--red {
+  --ds-badge-ribbon-bg: var(--primitive-color-red-ant-6);
+  --ds-badge-ribbon-corner: var(--primitive-color-red-ant-7);
+}
+
+.ds-badge-ribbon.ant-ribbon {
+  background-color: var(--ds-badge-ribbon-bg) !important;
+  border-radius: var(--primitive-radius-xs) var(--primitive-radius-xs) 0 var(--primitive-radius-xs);
+  padding-inline: var(--primitive-space-xs);
+}
+
+.ds-badge-ribbon.ant-ribbon .ant-ribbon-corner {
+  color: var(--ds-badge-ribbon-corner) !important;
+}
+
+.ds-badge-ribbon.ant-ribbon .ant-ribbon-text {
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--color-text-white);
+}

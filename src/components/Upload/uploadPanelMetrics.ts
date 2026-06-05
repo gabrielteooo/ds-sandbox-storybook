@@ -12,4 +12,6 @@ export const DS_UPLOAD_PANEL = {
   draggerContentGapPx: 16,
   draggerTextGapPx: 4,
   draggerIconSizePx: 48,
+  /** Figma 397:12031 — arrow-up-from-line on Upload / Button (all sizes). */
+  buttonIconSizePx: 16,
 } as const;

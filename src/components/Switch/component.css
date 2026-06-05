@@ -47,37 +47,29 @@
 }
 
 /* —— Number / icon inner label (Figma 396:13325) —— */
-/* Keep Ant `display: block` + margin slide; only override typography/color. */
+/* Flex center keeps 1/0 text and FA check aligned; Ant margin slide unchanged. */
 .ds-switch--number .ant-switch-inner-checked,
 .ds-switch--number .ant-switch-inner-unchecked,
 .ds-switch--icon .ant-switch-inner-checked,
 .ds-switch--icon .ant-switch-inner-unchecked {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   font-family: var(--text-xs-normal-font-family, Inter, system-ui, sans-serif);
   font-size: var(--text-xs-normal-font-size, 12px);
   font-weight: var(--text-xs-normal-font-weight, 400);
+  line-height: 1;
   color: var(--color-text-white, #fff);
   text-align: center;
 }
 
-.ds-switch--base.ds-switch--number .ant-switch-inner-checked,
-.ds-switch--base.ds-switch--number .ant-switch-inner-unchecked,
-.ds-switch--base.ds-switch--icon .ant-switch-inner-checked,
-.ds-switch--base.ds-switch--icon .ant-switch-inner-unchecked {
-  line-height: 22px;
-}
-
-.ds-switch--small.ds-switch--number .ant-switch-inner-checked,
-.ds-switch--small.ds-switch--number .ant-switch-inner-unchecked,
-.ds-switch--small.ds-switch--icon .ant-switch-inner-checked,
-.ds-switch--small.ds-switch--icon .ant-switch-inner-unchecked {
-  line-height: 16px;
-}
-
-.ds-switch--icon .ant-switch-inner-checked .anticon,
-.ds-switch--icon .ant-switch-inner-unchecked .anticon {
-  font-size: var(--text-xs-normal-font-size, 12px);
-  color: var(--color-text-white, #fff);
-  vertical-align: -0.15em;
+.ds-switch--icon .ant-switch-inner-checked :is(.anticon, .ds-icon),
+.ds-switch--icon .ant-switch-inner-unchecked :is(.anticon, .ds-icon) {
+  flex-shrink: 0;
+  font-size: 1em;
+  line-height: 1;
+  color: inherit;
+  vertical-align: 0;
 }
 
 /* —— Toggle field (Figma 12128:6648) —— */

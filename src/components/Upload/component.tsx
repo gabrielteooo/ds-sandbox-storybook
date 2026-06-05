@@ -100,15 +100,15 @@ function DraggerContent({
   draggerHint: string;
 }) {
   return (
-    <>
+    <div className="ds-upload__dragger-content">
       <p className="ds-upload__dragger-icon">
-        <DsIconUpload />
+        <DsIconUpload variant="light" />
       </p>
       <div className="ds-upload__dragger-text">
         <p className="ds-upload__dragger-title text-base-normal">{draggerTitle}</p>
         <p className="ds-upload__dragger-hint text-xs-normal">{draggerHint}</p>
       </div>
-    </>
+    </div>
   );
 }
 

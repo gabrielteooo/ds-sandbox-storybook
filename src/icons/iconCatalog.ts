@@ -16,7 +16,12 @@ export const FA_REGULAR_CATALOG: IconCatalogEntry[] = [
   { name: 'chevron-down', label: 'Chevron down', antDesign: 'DownOutlined', usage: 'Select, Input tabs' },
   { name: 'chevron-left', label: 'Chevron left', antDesign: 'LeftOutlined', usage: 'Alert broadcast' },
   { name: 'chevron-right', label: 'Chevron right', antDesign: 'RightOutlined', usage: 'Alert broadcast' },
-  { name: 'upload', label: 'Upload', antDesign: 'UploadOutlined', usage: 'Upload' },
+  {
+    name: 'arrow-up-from-line',
+    label: 'Upload',
+    antDesign: 'UploadOutlined',
+    usage: 'Upload button, drag-and-drop',
+  },
   { name: 'gear', label: 'Settings', antDesign: 'SettingOutlined', usage: 'Input tab, App shell' },
   { name: 'xmark', label: 'Close', antDesign: 'CloseOutlined', usage: 'Alert dismiss' },
   { name: 'plus', label: 'Plus', antDesign: 'PlusOutlined', usage: 'Tag add' },

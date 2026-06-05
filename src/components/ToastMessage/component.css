@@ -131,27 +131,31 @@
   line-height: var(--text-base-normal-line-height, 24px);
 }
 
-.ant-message-notice.ds-toast-message .ant-message-custom-content > .anticon {
-  font-size: 16px;
+.ant-message-notice.ds-toast-message .ant-message-custom-content > :is(.anticon, .ds-icon) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-base-normal-font-size, 16px);
   line-height: 1;
   flex-shrink: 0;
   /* Ant default marginInlineEnd (marginXS / 8px) — spacing via gap only */
   margin: 0 !important;
+  vertical-align: 0;
 }
 
-.ant-message-notice.ds-toast-message .ant-message-info > .anticon,
-.ant-message-notice.ds-toast-message .ant-message-loading > .anticon {
+.ant-message-notice.ds-toast-message .ant-message-info > :is(.anticon, .ds-icon),
+.ant-message-notice.ds-toast-message .ant-message-loading > :is(.anticon, .ds-icon) {
   color: var(--color-system-info-hover);
 }
 
-.ant-message-notice.ds-toast-message .ant-message-success > .anticon {
+.ant-message-notice.ds-toast-message .ant-message-success > :is(.anticon, .ds-icon) {
   color: var(--color-system-success-hover);
 }
 
-.ant-message-notice.ds-toast-message .ant-message-error > .anticon {
+.ant-message-notice.ds-toast-message .ant-message-error > :is(.anticon, .ds-icon) {
   color: var(--color-system-error-hover);
 }
 
-.ant-message-notice.ds-toast-message .ant-message-warning > .anticon {
+.ant-message-notice.ds-toast-message .ant-message-warning > :is(.anticon, .ds-icon) {
   color: var(--color-system-warning-hover);
 }
