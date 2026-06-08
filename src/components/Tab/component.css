@@ -1,0 +1,233 @@
+/**
+ * MCP DS Sandbox Tabs — Figma 512:65398 / 22758:578.
+ * Uses --component-tab-* tokens from tokens.css.
+ */
+
+.ds-tabs.ant-tabs {
+  background: var(--component-tab-bg-active);
+  color: var(--color-text-default);
+}
+
+/* ── Nav bar border ───────────────────────────────────────────────── */
+
+.ds-tabs.ds-tabs--top > .ant-tabs-nav::before,
+.ds-tabs.ds-tabs--bottom > .ant-tabs-nav::before {
+  border-bottom-color: var(--component-tab-border-default);
+}
+
+.ds-tabs.ds-tabs--left > .ant-tabs-nav,
+.ds-tabs.ds-tabs--right > .ant-tabs-nav {
+  border-color: var(--component-tab-border-default);
+}
+
+/* ── Tab label — default state ────────────────────────────────────── */
+
+.ds-tabs .ant-tabs-tab-btn {
+  color: var(--component-tab-text-default);
+  transition: color 0.2s;
+}
+
+.ds-tabs.ds-tabs--default .ant-tabs-tab-btn,
+.ds-tabs.ds-tabs--small .ant-tabs-tab-btn {
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+}
+
+.ds-tabs.ds-tabs--large .ant-tabs-tab-btn {
+  font-family: var(--text-base-normal-font-family);
+  font-size: var(--text-base-normal-font-size);
+  line-height: var(--text-base-normal-line-height);
+  font-weight: var(--text-base-normal-font-weight);
+}
+
+/* ── Tab label — active state ─────────────────────────────────────── */
+
+.ds-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--component-tab-text-active);
+  text-shadow: none;
+}
+
+.ds-tabs.ds-tabs--default .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn,
+.ds-tabs.ds-tabs--small .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-family: var(--text-sm-strong-font-family);
+  font-size: var(--text-sm-strong-font-size);
+  line-height: var(--text-sm-strong-line-height);
+  font-weight: var(--text-sm-strong-font-weight);
+}
+
+.ds-tabs.ds-tabs--large .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-family: var(--text-base-strong-font-family);
+  font-size: var(--text-base-strong-font-size);
+  line-height: var(--text-base-strong-line-height);
+  font-weight: var(--text-base-strong-font-weight);
+}
+
+/* ── Hover ────────────────────────────────────────────────────────── */
+
+.ds-tabs .ant-tabs-tab:not(.ant-tabs-tab-disabled):hover .ant-tabs-tab-btn {
+  color: var(--component-tab-text-active);
+}
+
+/* ── Disabled ─────────────────────────────────────────────────────── */
+
+.ds-tabs .ant-tabs-tab-disabled .ant-tabs-tab-btn {
+  color: var(--component-tab-text-disabled);
+}
+
+/* ── Ink bar indicator ────────────────────────────────────────────── */
+
+.ds-tabs .ant-tabs-ink-bar {
+  background: var(--component-tab-border-active);
+  height: 2px;
+}
+
+.ds-tabs.ds-tabs--left .ant-tabs-ink-bar,
+.ds-tabs.ds-tabs--right .ant-tabs-ink-bar {
+  width: 2px;
+}
+
+/* ── Vertical active tab background (left/right) ──────────────────── */
+
+.ds-tabs.ds-tabs--left .ant-tabs-tab.ant-tabs-tab-active,
+.ds-tabs.ds-tabs--right .ant-tabs-tab.ant-tabs-tab-active {
+  background: var(--color-system-control-bg-option-select);
+}
+
+/* ── Vertical size overrides ──────────────────────────────────────── */
+
+.ds-tabs.ds-tabs--small.ds-tabs--left .ant-tabs-tab,
+.ds-tabs.ds-tabs--small.ds-tabs--right .ant-tabs-tab {
+  padding: var(--primitive-space-xxs) var(--primitive-space-lg) !important;
+}
+
+.ds-tabs.ds-tabs--large.ds-tabs--left .ant-tabs-tab,
+.ds-tabs.ds-tabs--large.ds-tabs--right .ant-tabs-tab {
+  padding: var(--primitive-space-sm) var(--primitive-space-lg) !important;
+}
+
+/* ── Tab content area (basic variant only) ────────────────────────── */
+
+.ds-tabs--basic .ant-tabs-content-holder {
+  padding-block: var(--primitive-space-lg);
+}
+
+.ds-tabs .ant-tabs-tabpane {
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--color-text-default);
+}
+
+/* ── Icon spacing ─────────────────────────────────────────────────── */
+
+.ds-tabs .ant-tabs-tab .ant-tabs-tab-icon:not(:last-child) {
+  margin-inline-end: 12px;
+}
+
+/* ════════════════════════════════════════════════════════════════════ */
+/* Container variant — Figma 1819:69698 / 22758:645                    */
+/* Card tabs: inactive grey chips + active white tab + content panel   */
+/* ════════════════════════════════════════════════════════════════════ */
+
+.ds-tabs--container.ant-tabs-card {
+  width: 100%;
+  background: transparent;
+}
+
+/* Flush tab row against content — remove Ant nav bottom margin */
+.ds-tabs--container.ant-tabs-card > .ant-tabs-nav {
+  margin: 0 !important;
+}
+
+/* Remove default nav divider */
+.ds-tabs--container.ant-tabs-card > .ant-tabs-nav::before {
+  display: none;
+}
+
+/* Inactive tab item */
+.ds-tabs--container.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
+  margin: 0 !important;
+  border: none !important;
+  background: var(--component-tab-bg-default);
+  border-radius: var(--primitive-radius-base) var(--primitive-radius-base) 0 0;
+  box-sizing: border-box;
+}
+
+.ds-tabs--container.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab {
+  margin-inline-start: 2px !important;
+}
+
+/* Active tab item */
+.ds-tabs--container.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active {
+  background: var(--component-tab-bg-active) !important;
+  border-bottom-color: transparent !important;
+}
+
+/* Base size — 48px tab, Base/Normal typography */
+.ds-tabs--container.ds-tabs--default > .ant-tabs-nav .ant-tabs-tab,
+.ds-tabs--container.ds-tabs--large > .ant-tabs-nav .ant-tabs-tab {
+  height: 48px;
+  padding: var(--primitive-space-xs) var(--primitive-space-base) !important;
+}
+
+.ds-tabs--container.ds-tabs--default .ant-tabs-tab-btn,
+.ds-tabs--container.ds-tabs--large .ant-tabs-tab-btn {
+  font-family: var(--text-base-normal-font-family);
+  font-size: var(--text-base-normal-font-size);
+  line-height: var(--text-base-normal-line-height);
+  font-weight: var(--text-base-normal-font-weight);
+}
+
+.ds-tabs--container.ds-tabs--default .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn,
+.ds-tabs--container.ds-tabs--large .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-family: var(--text-base-strong-font-family);
+  font-size: var(--text-base-strong-font-size);
+  line-height: var(--text-base-strong-line-height);
+  font-weight: var(--text-base-strong-font-weight);
+}
+
+/* Small size — 40px tab, SM typography */
+.ds-tabs--container.ds-tabs--small > .ant-tabs-nav .ant-tabs-tab {
+  height: 40px;
+  padding: var(--primitive-space-xs) var(--primitive-space-base) !important;
+}
+
+.ds-tabs--container.ds-tabs--small .ant-tabs-tab-btn {
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+}
+
+.ds-tabs--container.ds-tabs--small .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-family: var(--text-sm-strong-font-family);
+  font-size: var(--text-sm-strong-font-size);
+  line-height: var(--text-sm-strong-line-height);
+  font-weight: var(--text-sm-strong-font-weight);
+}
+
+/* Content panel nested directly below tab row */
+.ds-tabs--container.ant-tabs-card > .ant-tabs-content-holder {
+  margin: 0;
+  padding: var(--primitive-space-base);
+  background: var(--component-tab-bg-active);
+  border: none;
+  border-radius: 0 var(--primitive-radius-base) var(--primitive-radius-base)
+    var(--primitive-radius-base);
+}
+
+.ds-tabs--container .ant-tabs-tabpane {
+  font-family: var(--text-base-normal-font-family);
+  font-size: var(--text-base-normal-font-size);
+  line-height: var(--text-base-normal-line-height);
+  font-weight: var(--text-base-normal-font-weight);
+  color: var(--color-text-default);
+}
+
+/* Hide ink bar — card variant uses background, not indicator */
+.ds-tabs--container .ant-tabs-ink-bar {
+  display: none;
+}

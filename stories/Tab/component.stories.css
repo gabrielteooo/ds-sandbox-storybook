@@ -1,0 +1,13 @@
+.ds-tab-story-basic {
+  width: 640px;
+  padding: 24px;
+  background: var(--component-tab-bg-active);
+}
+
+.ds-tab-story-container {
+  width: 100%;
+}
+
+.ds-tab-story-container .ds-tabs {
+  width: 100%;
+}

@@ -112,12 +112,17 @@
 }
 
 .ds-button--tertiary .ant-btn-text:not(:disabled) {
-  color: var(--color-primary-default, #00636a);
+  color: var(--component-button-tertiary-text-default);
 }
 
 .ds-button--tertiary .ant-btn-text:not(:disabled):hover {
-  color: var(--color-primary-hover, #008585);
-  background: var(--color-primary-bg, #e6f2f2);
+  color: var(--component-button-tertiary-text-hover);
+  background: var(--component-button-tertiary-bg-hover);
+}
+
+.ds-button--tertiary .ant-btn-text:not(:disabled):active {
+  color: var(--component-button-tertiary-text-active);
+  background: var(--component-button-tertiary-bg-active);
 }
 
 .ds-button--link .ant-btn-link:not(:disabled) {

@@ -25,8 +25,16 @@ export type FaIconName =
   | 'house'
   | 'file-lines'
   | 'table-cells'
+  | 'table'
+  | 'arrow-down-to-line'
+  | 'up-right-and-down-left-from-center'
   | 'arrows-rotate'
-  | 'ellipsis-vertical';
+  | 'ellipsis-vertical'
+  | 'filter'
+  | 'arrow-up-arrow-down'
+  | 'arrow-up-wide-short'
+  | 'arrow-down-wide-short'
+  | 'circle-question';
 
 export type DsIconVariant = 'regular' | 'solid' | 'light';
 

@@ -3,7 +3,9 @@ import {
   DsIcon,
   FA_REGULAR_CATALOG,
   FA_SOLID_CATALOG,
+  ICON_STATUS_TOKENS,
   type FaIconName,
+  type IconStatus,
 } from '../../src/icons';
 
 const meta: Meta = {
@@ -60,12 +62,17 @@ function IconCell({
   variant,
   label,
   antDesign,
+  status,
 }: {
   name: FaIconName;
   variant: 'regular' | 'solid';
   label: string;
   antDesign?: string;
+  status?: IconStatus;
 }) {
+  const statusClass = status ? `ds-icon--status-${status}` : undefined;
+  const statusToken = status ? ICON_STATUS_TOKENS[status] : undefined;
+
   return (
     <div
       style={{
@@ -79,11 +86,16 @@ function IconCell({
         background: 'var(--color-bg-container, #fff)',
       }}
     >
-      <DsIcon name={name} variant={variant} size={24} />
+      <DsIcon name={name} variant={variant} size={24} className={statusClass} />
       <span className="text-sm-normal" style={{ fontWeight: 600, textAlign: 'center' }}>
         {label}
       </span>
       <code style={{ fontSize: 11, opacity: 0.7 }}>fa-{name}</code>
+      {statusToken ? (
+        <code style={{ fontSize: 10, opacity: 0.65, textAlign: 'center', wordBreak: 'break-all' }}>
+          {statusToken}
+        </code>
+      ) : null}
       {antDesign ? (
         <span className="text-sm-normal" style={{ fontSize: 11, opacity: 0.55 }}>
           was {antDesign}
@@ -92,6 +104,14 @@ function IconCell({
     </div>
   );
 }
+
+const STATUS_ICONS = FA_SOLID_CATALOG.filter(
+  (entry): entry is typeof entry & { status: IconStatus } =>
+    entry.status === 'info' ||
+    entry.status === 'success' ||
+    entry.status === 'warning' ||
+    entry.status === 'error',
+);
 
 /** Regular + solid catalogs used across MCP DS components. */
 export const Catalog: Story = {
@@ -102,8 +122,29 @@ export const Catalog: Story = {
         <p style={noteStyle}>
           Default UI icon colour: <code>--color-icon-default</code> (
           <code>#0000008c</code>, 55% black). Hover: <code>--color-icon-hover</code>. Status icons
-          use system tokens; primary actions use <code>--color-primary-default</code>.
+          use <code>--color-system-*</code> tokens (see below); primary actions use{' '}
+          <code>--color-primary-default</code>.
         </p>
+      </section>
+
+      <section style={sectionStyle}>
+        <h3 style={subheadingStyle}>System status colours</h3>
+        <p style={noteStyle}>
+          Alert semantic icons — aligned with <code>DsAlert</code>, <code>DsTag</code>, and{' '}
+          <code>tokens.css</code> system palette.
+        </p>
+        <div style={gridStyle}>
+          {STATUS_ICONS.map((entry) => (
+            <IconCell
+              key={entry.name}
+              name={entry.name}
+              variant="solid"
+              label={entry.label}
+              status={entry.status}
+              antDesign={entry.antDesign}
+            />
+          ))}
+        </div>
       </section>
 
       <section style={sectionStyle}>
@@ -130,6 +171,7 @@ export const Catalog: Story = {
               name={entry.name}
               variant="solid"
               label={entry.label}
+              status={entry.status}
               antDesign={entry.antDesign}
             />
           ))}

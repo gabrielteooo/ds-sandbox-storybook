@@ -1,0 +1,423 @@
+/**
+ * MCP DS Sandbox Table — Figma 940:69332 (header), 940:83747 (body), row states.
+ * Uses --component-table-* and related semantic tokens from tokens.css.
+ */
+
+.ds-table.ant-table-wrapper {
+  border-radius: var(--primitive-radius-base);
+  overflow: hidden;
+}
+
+.ds-table.ant-table-wrapper .ant-table {
+  background: var(--component-table-bg-row);
+  border-radius: 0;
+}
+
+.ds-table.ant-table-wrapper .ant-table-container {
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+/* Template Table S frame — Figma 22553:65229 */
+.ds-table--framed.ant-table-wrapper {
+  border: 1px solid var(--color-border-secondary);
+}
+
+/* ── Header cells ─────────────────────────────────────────────────── */
+
+.ds-table .ant-table-thead > tr > th {
+  background: var(--component-table-bg-header);
+  border-bottom: 1px solid var(--component-table-bg-split);
+  color: var(--color-text-default);
+  font-family: var(--text-sm-medium-font-family);
+  font-size: var(--text-sm-medium-font-size);
+  line-height: var(--text-sm-medium-line-height);
+  font-weight: var(--text-sm-medium-font-weight);
+  vertical-align: middle;
+}
+
+.ds-table .ant-table-thead > tr > th::before {
+  background-color: var(--component-table-bg-split) !important;
+}
+
+.ds-table--large .ant-table-thead > tr > th {
+  font-family: var(--text-base-medium-font-family);
+  font-size: var(--text-base-medium-font-size);
+  line-height: var(--text-base-medium-line-height);
+  font-weight: var(--text-base-medium-font-weight);
+}
+
+.ds-table--small .ant-table-thead > tr > th:not(.ant-table-selection-column) {
+  /* Figma Template Table S — 5px + 22px line + 5px = 32px header */
+  padding-block: 5px;
+  padding-inline: var(--primitive-space-sm);
+  min-height: 32px;
+}
+
+.ds-table--middle .ant-table-thead > tr > th {
+  padding-block: 9px;
+  padding-inline: var(--primitive-space-base);
+  min-height: 40px;
+}
+
+.ds-table--large .ant-table-thead > tr > th {
+  padding-block: var(--primitive-space-sm);
+  padding-inline: var(--primitive-space-lg);
+  min-height: 48px;
+}
+
+.ds-table__header-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+  max-width: 100%;
+}
+
+.ds-table__header-title--right {
+  flex-direction: row-reverse;
+}
+
+.ds-table__header-title--center {
+  justify-content: center;
+  width: 100%;
+}
+
+.ds-table__header-label {
+  color: var(--color-text-default);
+}
+
+.ds-table__header-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+  flex-shrink: 0;
+}
+
+.ds-table__header-icon {
+  color: var(--color-icon-default);
+}
+
+.ds-table__header-icon.ds-icon {
+  color: currentColor;
+}
+
+/* Sort / filter icons — Figma 4503:89445 / 5965:18647 / 940:69332 */
+
+.ds-table .ant-table-filter-column {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+}
+
+.ds-table .ant-table-column-sorters {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+  justify-content: flex-start;
+}
+
+.ds-table .ant-table-column-title {
+  flex: none;
+}
+
+.ds-table .ant-table-column-sorter {
+  margin-inline: 0;
+}
+
+.ds-table .ant-table-column-sorter-inner {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ds-table .ant-table-column-sorter-inner .anticon {
+  display: none;
+}
+
+.ds-table__sort-icon {
+  color: var(--color-icon-default);
+}
+
+.ds-table__sort-icon.ds-icon {
+  color: currentColor;
+}
+
+.ds-table__sort-icon--active {
+  color: var(--color-system-control-selected);
+}
+
+.ds-table .ant-table-filter-trigger {
+  margin-inline: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-icon-default);
+}
+
+/* Fallback: filter sibling outside filter-column wrapper */
+.ds-table .ant-table-column-sorters + .ant-table-filter-trigger {
+  margin-inline-start: var(--primitive-space-xs);
+}
+
+.ds-table__filter-icon {
+  color: var(--color-icon-default);
+}
+
+.ds-table__filter-icon.ds-icon {
+  color: currentColor;
+}
+
+.ds-table__filter-icon--active,
+.ds-table .ant-table-filter-trigger.active {
+  color: var(--color-system-control-selected);
+}
+
+/* ── Filter dropdown (Figma 22764:14768) ─────────────────────────── */
+
+.ds-table .ant-table-filter-dropdown {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.ds-table-filter-dropdown {
+  display: flex;
+  flex-direction: column;
+  width: var(--component-table-filter-dropdown-width, 248px);
+  background: var(--color-system-control-bg-menu);
+  border: 1px solid var(--color-border-split);
+  border-radius: var(--primitive-radius-base, 8px);
+  box-shadow:
+    0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.ds-table-filter-dropdown__search {
+  padding: var(--primitive-space-xs, 8px) var(--primitive-space-sm, 12px);
+  border-bottom: 1px solid var(--color-border-secondary, #f0f0f0);
+}
+
+.ds-table-filter-dropdown__search .ds-input {
+  width: 100%;
+}
+
+.ds-table-filter-dropdown__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-base, 16px);
+  min-height: 40px;
+  padding: 5px var(--primitive-space-sm, 12px);
+  border-bottom: 1px solid var(--color-border-secondary, #f0f0f0);
+}
+
+.ds-table-filter-dropdown__action {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
+  font-size: var(--type-size-base, 16px);
+  line-height: var(--type-line-h-base, 24px);
+  font-weight: var(--type-weight-regular, 400);
+  color: var(--component-button-tertiary-text-default);
+}
+
+.ds-table-filter-dropdown__action:hover:not(:disabled) {
+  color: var(--component-button-tertiary-text-hover);
+}
+
+.ds-table-filter-dropdown__action:active:not(:disabled) {
+  color: var(--component-button-tertiary-text-active);
+}
+
+.ds-table-filter-dropdown__action:disabled,
+.ds-table-filter-dropdown__action--disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.ds-table-filter-dropdown__list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: var(--primitive-space-xs, 8px) 0;
+}
+
+.ds-table-filter-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+  min-height: 32px;
+  padding: 4px var(--primitive-space-sm, 12px);
+  cursor: pointer;
+}
+
+.ds-table-filter-dropdown__item:hover {
+  background: var(--color-system-control-bg-hover);
+}
+
+.ds-table-filter-dropdown__item-label {
+  flex: 1;
+  color: var(--color-text-default);
+}
+
+/* ── Body cells ───────────────────────────────────────────────────── */
+
+.ds-table .ant-table-tbody > tr > td {
+  border-bottom: 1px solid var(--component-table-bg-split);
+  color: var(--color-text-default);
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  vertical-align: middle;
+}
+
+.ds-table--large .ant-table-tbody > tr > td {
+  font-family: var(--text-base-normal-font-family);
+  font-size: var(--text-base-normal-font-size);
+  line-height: var(--text-base-normal-line-height);
+  font-weight: var(--text-base-normal-font-weight);
+}
+
+.ds-table--small .ant-table-tbody > tr > td:not(.ant-table-selection-column) {
+  /* Figma Template Table S — 12px + 22px line + 12px = 46px row */
+  padding-block: var(--primitive-space-sm);
+  padding-inline: var(--primitive-space-base);
+  min-height: 46px;
+}
+
+.ds-table--middle .ant-table-tbody > tr > td {
+  padding-block: 9px;
+  padding-inline: var(--primitive-space-base);
+}
+
+.ds-table--large .ant-table-tbody > tr > td {
+  padding-block: var(--primitive-space-sm);
+  padding-inline: var(--primitive-space-lg);
+}
+
+.ds-table__body-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-xxs);
+}
+
+.ds-table__body-text--center {
+  align-items: center;
+  text-align: center;
+}
+
+.ds-table__body-text--right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.ds-table__body-text-primary {
+  color: var(--color-text-default);
+}
+
+.ds-table__body-text-description {
+  color: var(--color-text-description);
+}
+
+/* ── Row states ───────────────────────────────────────────────────── */
+
+.ds-table .ant-table-tbody > tr.ds-table__row--default > td {
+  background: var(--component-table-bg-row);
+}
+
+.ds-table .ant-table-tbody > tr.ds-table__row--split > td {
+  background: var(--component-table-bg-row-split);
+}
+
+.ds-table .ant-table-tbody > tr.ds-table__row--selected > td {
+  background: var(--color-system-control-bg-option-select);
+}
+
+.ds-table .ant-table-tbody > tr.ds-table__row--error > td {
+  background: var(--color-system-error-bg);
+}
+
+.ds-table .ant-table-tbody > tr.ds-table__row--disabled > td {
+  color: var(--color-text-disabled);
+}
+
+.ds-table .ant-table-tbody > tr.ds-table__row--disabled .ds-table__body-text-primary,
+.ds-table .ant-table-tbody > tr.ds-table__row--disabled .ds-table__body-text-description {
+  color: var(--color-text-disabled);
+}
+
+.ds-table--striped .ant-table-tbody > tr:nth-child(even):not(.ds-table__row--selected):not(.ds-table__row--error) > td {
+  background: var(--component-table-bg-row-split);
+}
+
+.ds-table--striped .ant-table-tbody > tr:nth-child(odd):not(.ds-table__row--selected):not(.ds-table__row--error) > td {
+  background: var(--component-table-bg-row);
+}
+
+.ds-table .ant-table-tbody > tr.ant-table-row:hover > td {
+  background: var(--component-table-bg-row-split);
+}
+
+.ds-table .ant-table-tbody > tr.ds-table__row--selected:hover > td,
+.ds-table .ant-table-tbody > tr.ant-table-row-selected > td {
+  background: var(--color-system-control-bg-option-select);
+}
+
+.ds-table .ant-table-tbody > tr.ds-table__row--error:hover > td {
+  background: var(--color-system-error-bg);
+}
+
+/* ── Selection (checkbox / radio) ─────────────────────────────────── */
+
+.ds-table .ant-table-selection-column {
+  padding-inline: var(--primitive-space-sm) !important;
+  text-align: center;
+}
+
+.ds-table--small .ant-table-selection-column {
+  /* Figma 22553:65231 — checkbox column 12px / 8px padding, ~40px wide */
+  padding: var(--primitive-space-xs) var(--primitive-space-sm) !important;
+  width: 40px;
+  min-width: 40px;
+}
+
+.ds-table .ant-table-bordered .ant-table-thead > tr > th,
+.ds-table .ant-table-bordered .ant-table-tbody > tr > td {
+  border-color: var(--component-table-bg-split);
+}
+
+.ds-table .ant-table-bordered > .ant-table-container {
+  border-color: var(--component-table-bg-split);
+}
+
+.ds-table .ant-table-selection-column .ant-checkbox-wrapper,
+.ds-table .ant-table-selection-column .ant-radio-wrapper {
+  margin-inline-end: 0;
+}
+
+.ds-table .ant-table-selection-column .ds-icon {
+  color: currentColor;
+}
+
+/* ── Column actions (Figma 961:61536) ─────────────────────────────── */
+
+.ds-table--small .ant-table-tbody > tr > td.ds-table__actions-cell:not(.ant-table-selection-column),
+.ds-table--middle .ant-table-tbody > tr > td.ds-table__actions-cell:not(.ant-table-selection-column) {
+  /* Figma 961:61536 — 8px cell padding (Small + Base) */
+  padding: var(--primitive-space-xs);
+}
+
+.ds-table--large .ant-table-tbody > tr > td.ds-table__actions-cell:not(.ant-table-selection-column) {
+  padding: var(--primitive-space-xs);
+}
+
+.ds-table__column-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+  min-width: 80px;
+}
+

@@ -1,0 +1,281 @@
+/**
+ * MCP DS Sandbox Modal — Figma 2914:74905 (basic), 422:13514 (information), 423:364 (results).
+ *
+ * TOKEN GAPS:
+ *   No --component-modal-* semantic tokens in tokens.css.
+ *   Nearest --component-card-*, --color-system-*, --primitive-space-* used.
+ *   20px vertical padding (Figma) has no --primitive-space token.
+ *   Secondary shadow (0 0 4px / 0 4px 8px) has no shadow token.
+ *   Footer button min-width 80px has no dedicated token.
+ */
+
+.ds-modal.ant-modal .ant-modal-content {
+  background: var(--component-card-bg-default);
+  border-radius: var(--primitive-radius-base);
+  /* TOKEN GAP: no --shadow-secondary token */
+  box-shadow:
+    0 0 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+  padding: 0;
+}
+
+.ds-modal.ant-modal .ant-modal-header {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.ds-modal.ant-modal .ant-modal-footer {
+  border-top: none;
+  margin-top: 0;
+}
+
+/* ── Basic variant ────────────────────────────────────────────────── */
+
+.ds-modal--basic .ant-modal-header {
+  /* TOKEN GAP: 20px top/bottom padding — no matching --primitive-space */
+  padding: 20px var(--primitive-space-lg) var(--primitive-space-xs);
+}
+
+.ds-modal--basic .ant-modal-body {
+  padding: 0 var(--primitive-space-lg) var(--primitive-space-sm);
+}
+
+.ds-modal--basic .ant-modal-footer {
+  padding: 0 var(--primitive-space-lg) 20px;
+}
+
+.ds-modal__title {
+  margin: 0;
+  color: var(--color-text-heading);
+}
+
+.ds-modal__basic-body {
+  margin: 0;
+  color: var(--color-text-default);
+}
+
+/* ── Information variant ────────────────────────────────────────── */
+
+.ds-modal--information .ant-modal-body {
+  padding: 20px var(--primitive-space-lg) 0;
+}
+
+.ds-modal--information .ant-modal-footer {
+  padding: var(--primitive-space-sm) var(--primitive-space-lg) 20px;
+}
+
+.ds-modal__information-body {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--primitive-space-sm);
+}
+
+.ds-modal__information-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* Inherit system colour from status wrapper — overrides .ds-icon default icon colour */
+.ds-modal__information-icon .ds-icon {
+  color: currentColor;
+}
+
+.ds-modal--information.ds-modal--info .ds-modal__information-icon {
+  color: var(--color-system-info-default);
+}
+
+.ds-modal--information.ds-modal--error .ds-modal__information-icon {
+  color: var(--color-system-error-default);
+}
+
+.ds-modal--information.ds-modal--success .ds-modal__information-icon {
+  color: var(--color-system-success-default);
+}
+
+.ds-modal--information.ds-modal--warning .ds-modal__information-icon {
+  color: var(--color-system-warning-default);
+}
+
+.ds-modal__information-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-xs);
+  flex: 1;
+  min-width: 0;
+}
+
+.ds-modal__information-title {
+  margin: 0;
+  color: var(--color-text-heading);
+}
+
+.ds-modal__information-text {
+  margin: 0;
+  color: var(--color-text-default);
+}
+
+/* ── Results variant ──────────────────────────────────────────────── */
+
+.ds-modal--results .ant-modal-body {
+  padding: var(--primitive-space-3xl) var(--primitive-space-lg) var(--primitive-space-2xl);
+}
+
+.ds-modal__results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--primitive-space-lg);
+  text-align: center;
+}
+
+.ds-modal__results-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.ds-modal__results-icon .ds-icon {
+  color: currentColor;
+}
+
+.ds-modal--results.ds-modal--success .ds-modal__results-icon {
+  color: var(--color-system-success-default);
+}
+
+.ds-modal--results.ds-modal--info .ds-modal__results-icon {
+  color: var(--color-system-info-default);
+}
+
+.ds-modal--results.ds-modal--warning .ds-modal__results-icon,
+.ds-modal--results.ds-modal--delete .ds-modal__results-icon {
+  color: var(--color-system-warning-default);
+}
+
+.ds-modal--results.ds-modal--error .ds-modal__results-icon {
+  color: var(--color-system-error-default);
+}
+
+.ds-modal__results-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+  width: 100%;
+  max-width: 580px;
+}
+
+.ds-modal__results-title {
+  margin: 0;
+  color: var(--component-card-text-default);
+}
+
+.ds-modal__results-subtitle {
+  margin: 0;
+  color: var(--component-card-text-description);
+}
+
+.ds-modal__results-caption {
+  margin: 0;
+  color: var(--component-card-text-description);
+}
+
+.ds-modal__results-error-details {
+  align-self: stretch;
+  width: auto;
+  max-width: none;
+  margin-inline: calc(-1 * var(--primitive-space-lg));
+  padding: var(--primitive-space-lg) var(--primitive-space-2xl);
+  background: var(--color-bg-layout);
+  text-align: left;
+}
+
+.ds-modal__results-error-heading {
+  margin: 0 0 14px;
+  color: var(--component-card-text-default);
+}
+
+.ds-modal__results-error-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-xs);
+}
+
+.ds-modal__results-error-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--primitive-space-xs);
+}
+
+.ds-modal__results-error-item-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  padding-top: 4px;
+  color: var(--color-system-error-default);
+  line-height: 1;
+}
+
+.ds-modal__results-error-item-icon .ds-icon {
+  color: currentColor;
+}
+
+.ds-modal__results-error-item-text {
+  margin: 0;
+  color: var(--component-card-text-default);
+}
+
+.ds-modal__results-actions {
+  display: flex;
+  width: 100%;
+  max-width: 580px;
+  padding-top: var(--primitive-space-2xl);
+  gap: var(--primitive-space-base);
+}
+
+.ds-modal__results-actions--single,
+.ds-modal__results-actions--dual-center {
+  justify-content: center;
+}
+
+.ds-modal__results-actions--dual-end {
+  justify-content: flex-end;
+}
+
+/* ── Footer & close ───────────────────────────────────────────────── */
+
+.ds-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--primitive-space-xs);
+}
+
+/* All modal actions — min 80px, width hugs label (TOKEN GAP: no min-width token) */
+.ds-modal .ds-modal__footer .ds-button,
+.ds-modal .ds-modal__results-actions .ds-button {
+  flex: 0 0 auto;
+  width: fit-content;
+}
+
+.ds-modal .ds-modal__footer .ds-button .ant-btn,
+.ds-modal .ds-modal__results-actions .ds-button .ant-btn {
+  min-width: 80px;
+  width: auto;
+}
+
+.ds-modal__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-icon-default);
+  line-height: 1;
+}
+
+.ds-modal__close:hover {
+  color: var(--color-icon-hover);
+}

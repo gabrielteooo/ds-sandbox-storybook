@@ -18,6 +18,27 @@
   display: inline-block;
 }
 
+/* System status icon colours — Figma color/system/{type}/default (error alert: active) */
+.ds-icon--status-info {
+  color: var(--color-system-info-default);
+}
+
+.ds-icon--status-success {
+  color: var(--color-system-success-default);
+}
+
+.ds-icon--status-warning {
+  color: var(--color-system-warning-default);
+}
+
+.ds-icon--status-error {
+  color: var(--color-system-error-active);
+}
+
+.ds-icon--status-error-tag {
+  color: var(--color-system-error-default);
+}
+
 /* Semantic / branded wrappers set color on the parent */
 .ant-alert-icon .ds-icon,
 .ant-avatar-icon .ds-icon,

@@ -1,0 +1,12 @@
+.ds-modal-story-basic,
+.ds-modal-story-information {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ds-modal-story-information__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--primitive-space-xs);
+}

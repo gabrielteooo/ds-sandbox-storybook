@@ -1,0 +1,118 @@
+/**
+ * MCP DS Sandbox Pagination — Figma 807:49160 (Pagination/Default).
+ */
+
+.ds-pagination {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--primitive-space-base);
+  width: 100%;
+}
+
+.ds-pagination__range {
+  margin: 0;
+  color: var(--color-text-default);
+  font-family: var(--text-base-normal-font-family);
+  font-size: var(--text-base-normal-font-size);
+  line-height: var(--text-base-normal-line-height);
+  font-weight: var(--text-base-normal-font-weight);
+  white-space: nowrap;
+}
+
+.ds-pagination__controls {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+}
+
+.ds-pagination__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0 2px;
+  border: none;
+  border-radius: var(--primitive-radius-sm);
+  background: transparent;
+  color: var(--color-icon-default);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.ds-pagination__arrow:hover:not(:disabled) {
+  color: var(--color-icon-hover);
+}
+
+.ds-pagination__arrow:disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.ds-pagination__arrow .ds-icon {
+  color: currentColor;
+}
+
+.ds-pagination__page-input.ds-input {
+  width: 56px;
+}
+
+.ds-pagination__page-input .ant-input {
+  height: 32px;
+  text-align: center;
+  padding-inline: var(--primitive-space-sm);
+  border-color: var(--color-border-default);
+  border-radius: var(--primitive-radius-sm);
+  color: var(--color-text-default);
+  font-family: var(--text-base-normal-font-family);
+  font-size: var(--text-base-normal-font-size);
+  line-height: var(--text-base-normal-line-height);
+  font-weight: var(--text-base-normal-font-weight);
+}
+
+.ds-pagination__separator,
+.ds-pagination__total-pages {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  color: var(--color-text-default);
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  text-align: center;
+}
+
+.ds-pagination__total-pages {
+  font-size: var(--text-base-normal-font-size);
+  line-height: var(--text-base-normal-line-height);
+}
+
+.ds-pagination__size.ds-select.ant-select {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  flex: 0 0 auto;
+}
+
+.ds-pagination__size .ant-select-selector {
+  width: auto !important;
+  min-height: 32px !important;
+  height: 32px !important;
+  padding-inline: var(--primitive-space-sm) !important;
+  border-color: var(--color-border-default) !important;
+  border-radius: var(--primitive-radius-sm) !important;
+}
+
+.ds-pagination__size .ant-select-selection-item {
+  flex: 0 0 auto;
+  padding-inline-end: var(--primitive-space-xs) !important;
+  color: var(--color-text-default);
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-base-normal-font-size);
+  line-height: var(--text-base-normal-line-height);
+  font-weight: var(--text-base-normal-font-weight);
+}

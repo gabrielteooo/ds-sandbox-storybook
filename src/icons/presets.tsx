@@ -60,6 +60,15 @@ export const DsIconFileText = (props?: Partial<DsIconProps>) =>
 export const DsIconAppstore = (props?: Partial<DsIconProps>) =>
   preset(props, { name: 'table-cells' });
 
+export const DsIconTable = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'table', variant: 'solid' });
+
+export const DsIconArrowDownToLine = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'arrow-down-to-line' });
+
+export const DsIconExpand = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'up-right-and-down-left-from-center' });
+
 export const DsIconSync = (props?: Partial<DsIconProps>) =>
   preset(props, { name: 'arrows-rotate', spin: true });
 
@@ -83,3 +92,18 @@ export const DsIconCloseCircle = (props?: Partial<DsIconProps>) =>
 
 export const DsIconEllipsisVertical = (props?: Partial<DsIconProps>) =>
   preset(props, { name: 'ellipsis-vertical' });
+
+export const DsIconFilter = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'filter' });
+
+export const DsIconSort = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'arrow-up-arrow-down' });
+
+export const DsIconSortAsc = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'arrow-up-wide-short', variant: 'solid' });
+
+export const DsIconSortDesc = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'arrow-down-wide-short', variant: 'solid' });
+
+export const DsIconCircleQuestion = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'circle-question' });
