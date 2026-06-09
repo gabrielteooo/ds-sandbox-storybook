@@ -6,6 +6,7 @@
     "tokens:build": "node scripts/generate-tokens.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build-storybook:gh-pages": "STORYBOOK_BASE_PATH=/ds-sandbox-storybook/ storybook build",
     "mockup:service-config": "vite --open /mockups/service-asset-config.html",
     "build:mockup:service-config": "vite build",
     "figma:connect:publish": "figma connect publish",
