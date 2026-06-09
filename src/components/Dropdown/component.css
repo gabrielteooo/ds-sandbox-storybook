@@ -1,14 +1,5 @@
 /**
- * MCP DS Sandbox Dropdown — Figma 371:10124 / 375:2319.
- *
- * TOKEN GAPS:
- *   Figma uses `dropdown/text/default`, `dropdown/text/selected`,
- *   `dropdown/text/danger`, `dropdown/bg/hover-danger`, etc.
- *   No --component-dropdown-* tokens exist in tokens.css.
- *   Nearest --color-* and --color-system-* equivalents used throughout.
- *
- *   Disabled item bg uses `--color-system-control-bg-active-disabled`
- *   (rgba(0,0,0,0.15)) — Figma maps this to dropdown/bg/disabled.
+ * MCP DS Sandbox Dropdown — Figma 371:10124 / 375:2319 / 22770:15500.
  */
 
 /* ── Trigger button ───────────────────────────────────────────────── */
@@ -75,25 +66,24 @@
   flex-shrink: 0;
 }
 
-/* ── Menu popup container — Figma 376:10633 ───────────────────────── */
-/* Hugs items · min 190px · radius/base 8px · no container inset */
+/* ── Menu popup container — Figma 22770:15500 ─────────────────────── */
+/* Hugs items · 4px inset · radius/base 8px */
 
 .ds-dropdown-overlay .ant-dropdown-menu {
   width: fit-content;
-  min-width: 190px;
-  padding: 0;
-  border: 1px solid var(--color-border-split);
+  min-width: 0;
+  padding: var(--primitive-space-xxs, 4px);
+  border: 1px solid var(--component-dropdown-border);
   border-radius: var(--primitive-radius-base);
   background: var(--color-system-control-bg-menu);
   overflow: hidden;
-  /* TOKEN GAP: Figma Component/shadow-secondary — no shadow token in tokens.css */
   box-shadow:
     0 0 2px rgba(0, 0, 0, 0.04),
     0 4px 4px rgba(0, 0, 0, 0.08);
 }
 
-/* ── Base item size — Figma 375:2319 / menu 376:10633 ─────────────── */
-/* Height hugs text: 8px padding + 24px line-height + 8px padding = 40px */
+/* ── Base item size — Figma 22770:15500 ───────────────────────────── */
+/* Height: 5px padding + 22px line-height + 5px padding = 32px */
 
 .ds-dropdown-overlay .ant-dropdown-menu-item,
 .ds-dropdown-overlay .ant-dropdown-menu-submenu-title {
@@ -101,17 +91,17 @@
   align-items: center;
   gap: var(--primitive-space-xs);
   width: 100%;
-  height: auto !important;
-  min-height: unset !important;
+  height: 32px !important;
+  min-height: 32px !important;
   margin: 0;
-  padding: var(--primitive-space-xs) var(--primitive-space-sm) !important;
+  padding: 5px var(--primitive-space-sm) !important;
   box-sizing: border-box;
   border-radius: var(--primitive-radius-base);
-  font-family: var(--text-base-normal-font-family);
-  font-size: var(--text-base-normal-font-size);
-  line-height: var(--text-base-normal-line-height);
-  font-weight: var(--text-base-normal-font-weight);
-  color: var(--color-text-default);
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--component-dropdown-text-default);
   background: transparent;
   transition: background 0.15s, color 0.15s;
 }
@@ -119,7 +109,7 @@
 .ds-dropdown-overlay .ant-dropdown-menu-item .ant-dropdown-menu-title-content {
   flex: 1;
   min-width: 0;
-  line-height: var(--text-base-normal-line-height);
+  line-height: var(--text-sm-normal-line-height);
 }
 
 /* Icon inside item — 16px frame, 14px glyph */
@@ -141,7 +131,7 @@
 .ds-dropdown-overlay
   .ant-dropdown-menu-item:not(.ant-dropdown-menu-item-disabled):not(.ant-dropdown-menu-item-selected):not(.ant-dropdown-menu-item-danger) {
   background: transparent;
-  color: var(--color-text-default);
+  color: var(--component-dropdown-text-default);
 }
 
 /* ── Hover / active (keyboard) ────────────────────────────────────── */
@@ -151,25 +141,25 @@
 .ds-dropdown-overlay
   .ant-dropdown-menu-item:not(.ant-dropdown-menu-item-disabled):not(.ant-dropdown-menu-item-selected):not(.ant-dropdown-menu-item-danger).ant-dropdown-menu-item-active {
   background: var(--color-system-control-bg-option-hover) !important;
-  color: var(--color-text-default) !important;
+  color: var(--component-dropdown-text-default) !important;
 }
 
 /* ── Selected ─────────────────────────────────────────────────────── */
 
 .ds-dropdown-overlay .ant-dropdown-menu-item-selected {
   background: var(--color-system-control-bg-option-select) !important;
-  color: var(--color-primary-default) !important;
+  color: var(--component-dropdown-text-selected) !important;
 }
 
 .ds-dropdown-overlay .ant-dropdown-menu-item-selected:hover,
 .ds-dropdown-overlay .ant-dropdown-menu-item-selected.ant-dropdown-menu-item-active {
   background: var(--color-system-control-bg-option-select) !important;
-  color: var(--color-primary-default) !important;
+  color: var(--component-dropdown-text-selected) !important;
 }
 
 .ds-dropdown-overlay .ant-dropdown-menu-item-selected .ant-dropdown-menu-item-icon,
 .ds-dropdown-overlay .ant-dropdown-menu-item-selected .ds-icon {
-  color: var(--color-primary-default) !important;
+  color: var(--component-dropdown-text-selected) !important;
 }
 
 /* ── Disabled ─────────────────────────────────────────────────────── */
@@ -178,21 +168,21 @@
 .ds-dropdown-overlay .ant-dropdown-menu-item-disabled:hover,
 .ds-dropdown-overlay .ant-dropdown-menu-item-disabled.ant-dropdown-menu-item-active {
   background: var(--color-system-control-bg-active-disabled) !important;
-  color: var(--color-text-disabled) !important;
+  color: var(--component-dropdown-text-disable) !important;
   cursor: not-allowed;
   opacity: 1;
 }
 
 .ds-dropdown-overlay .ant-dropdown-menu-item-disabled .ant-dropdown-menu-item-icon,
 .ds-dropdown-overlay .ant-dropdown-menu-item-disabled .ds-icon {
-  color: var(--color-text-disabled) !important;
+  color: var(--component-dropdown-text-disable) !important;
 }
 
 /* ── Danger — default ─────────────────────────────────────────────── */
 
 .ds-dropdown-overlay
   .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled) {
-  color: var(--color-system-error-default) !important;
+  color: var(--component-dropdown-text-danger) !important;
   background: transparent !important;
 }
 
@@ -202,7 +192,7 @@
 .ds-dropdown-overlay
   .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled)
   .ds-icon {
-  color: var(--color-system-error-default) !important;
+  color: var(--component-dropdown-text-danger) !important;
 }
 
 /* ── Danger — hover / active ──────────────────────────────────────── */
@@ -211,8 +201,8 @@
   .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled):hover,
 .ds-dropdown-overlay
   .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled).ant-dropdown-menu-item-active {
-  background: var(--color-system-error-active) !important;
-  color: var(--color-text-white) !important;
+  background: var(--component-dropdown-bg-hover-danger) !important;
+  color: var(--component-dropdown-text-danger-hover) !important;
 }
 
 .ds-dropdown-overlay
@@ -227,10 +217,10 @@
 .ds-dropdown-overlay
   .ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled).ant-dropdown-menu-item-active
   .ds-icon {
-  color: var(--color-text-white) !important;
+  color: var(--component-dropdown-text-danger-hover) !important;
 }
 
-/* ── Divider — Figma 376:10633 py-4px ───────────────────────────── */
+/* ── Divider — Figma 22770:15500 py-4px ─────────────────────────── */
 
 .ds-dropdown-overlay .ant-dropdown-menu-item-divider {
   margin: var(--primitive-space-xxs) 0;

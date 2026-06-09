@@ -1,0 +1,461 @@
+/**
+ * MCP DS Sandbox Global Header — Figma 700:84831 / Header-title 4822:86378.
+ */
+
+.ds-global-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-base, 16px);
+  width: 100%;
+  padding-block: var(--primitive-space-lg, 24px);
+  padding-inline: var(--primitive-space-2xl, 40px);
+  background: var(--component-header-bg-default);
+  border-bottom: 1px solid var(--component-header-border-default);
+  /* TOKEN GAP: Figma Component/shadow-default — no shadow token in tokens.css */
+  box-shadow:
+    0 0 1px rgba(0, 0, 0, 0.04),
+    0 2px 2px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+/* Figma With Tabs — top padding only; tab bar sits on bottom edge */
+.ds-global-header--with-tabs {
+  padding-block-end: 0;
+}
+
+.ds-global-header__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--primitive-space-base, 16px);
+  min-height: 32px;
+  width: 100%;
+}
+
+.ds-global-header__bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--primitive-space-base, 16px);
+  width: 100%;
+}
+
+.ds-global-header--with-search .ds-global-header__bottom {
+  align-items: center;
+}
+
+.ds-global-header--with-search .ds-global-header-title {
+  flex-shrink: 0;
+}
+
+.ds-global-header__title-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-base, 16px);
+  width: 100%;
+}
+
+.ds-global-header__search {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+.ds-global-header__search .ds-input {
+  width: 100%;
+}
+
+.ds-global-header__tabs {
+  width: 100%;
+}
+
+/* Header embeds tab labels only — no content panel */
+.ds-global-header__tabs .ant-tabs-content-holder {
+  display: none;
+  padding: 0;
+}
+
+/* Figma With Tabs — flush tab bar to header bottom edge */
+.ds-global-header--with-tabs .ds-global-header__tabs.ant-tabs > .ant-tabs-nav {
+  margin-bottom: 0 !important;
+}
+
+.ds-global-header--with-tabs .ds-global-header__tabs.ds-tabs--basic .ant-tabs-content-holder {
+  padding-block: 0;
+}
+
+.ds-global-header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--primitive-space-base, 16px);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.ds-global-header__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--primitive-radius-xs, 4px);
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-icon-default);
+}
+
+.ds-global-header__icon-btn:hover {
+  background: var(--color-bg-text-hover);
+  color: var(--color-icon-hover);
+}
+
+.ds-global-header__meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--primitive-space-base, 16px);
+  flex-shrink: 0;
+}
+
+.ds-global-header__timestamp {
+  margin: 0;
+  text-align: right;
+  color: var(--color-text-description);
+  white-space: nowrap;
+}
+
+.ds-global-header__timestamp-label {
+  color: var(--color-text-description);
+}
+
+.ds-global-header__timestamp-value {
+  color: var(--color-text-description);
+}
+
+.ds-global-header__cta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--primitive-space-xs, 8px);
+}
+
+/* ── Header title — Figma 4822:86378 ──────────────────────────────── */
+
+.ds-global-header-title {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--primitive-space-base, 16px);
+  min-width: 0;
+}
+
+.ds-global-header-title__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  padding-block: var(--primitive-space-xs, 8px);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-icon-default);
+}
+
+.ds-global-header-title__back:hover {
+  color: var(--color-icon-hover);
+}
+
+.ds-global-header-title__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-xxs, 4px);
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.ds-global-header-title__row {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+}
+
+.ds-global-header-title__heading {
+  margin: 0;
+  color: var(--color-text-heading);
+}
+
+.ds-global-header-title__subtitle {
+  margin: 0;
+  color: var(--color-text-description);
+}
+
+.ds-global-header-title__external .ds-icon {
+  color: var(--color-icon-default);
+}
+
+.ds-global-header-title__help-link {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--component-button-link-text-default);
+  text-decoration: underline;
+}
+
+.ds-global-header-title__help-link:hover {
+  color: var(--component-button-link-text-hover);
+}
+
+/* ── Dashboard Header — Figma 4212:91089 ───────────────────────────── */
+
+.ds-dashboard-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--component-header-bg-default);
+  box-sizing: border-box;
+}
+
+.ds-dashboard-header__global.ds-global-header {
+  border-bottom: 1px solid var(--component-header-border-default);
+  box-shadow: none;
+}
+
+/* ── Dashboard filter — Figma 22503:28865 ────────────────────────── */
+
+.ds-dashboard-filter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--primitive-space-base, 16px);
+  width: 100%;
+  padding-block: var(--primitive-space-lg, 24px);
+  padding-inline: var(--primitive-space-2xl, 40px);
+  background: var(--component-header-bg-default);
+  border-bottom: 1px solid var(--color-border-split);
+  /* TOKEN GAP: Figma Component/shadow-default — no shadow token in tokens.css */
+  box-shadow:
+    0 0 1px rgba(0, 0, 0, 0.04),
+    0 2px 2px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.ds-dashboard-filter__fields {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: flex-end;
+  gap: var(--primitive-space-base, 16px);
+  min-width: 0;
+}
+
+.ds-dashboard-filter__field {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--primitive-space-xxs, 4px);
+  min-width: 160px;
+}
+
+.ds-dashboard-filter__label {
+  margin: 0;
+  color: var(--color-text-default);
+}
+
+.ds-dashboard-filter__select.ds-select.ant-select {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+
+.ds-dashboard-filter__ctas {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+}
+
+/* ── Qlik filter bar — Figma 4276:31326 ──────────────────────────── */
+
+.ds-qlik-filter-bar {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  background: var(--component-qlik-filter-bg-container);
+  /* TOKEN GAP: Figma Component/shadow-secondary — no shadow token in tokens.css */
+  box-shadow:
+    0 0 2px rgba(0, 0, 0, 0.04),
+    0 4px 4px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* ── Qlik Filter-Actions — Figma 4212:86915 ─────────────────────── */
+
+.ds-qlik-filter-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  background: var(--component-qlik-filter-bg-container);
+  border-right: 1px solid var(--color-border-secondary);
+}
+
+.ds-qlik-filter-actions__undo,
+.ds-qlik-filter-actions__redo,
+.ds-qlik-filter-actions__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.ds-qlik-filter-actions__undo {
+  padding-inline: var(--primitive-space-2xl, 40px) 12px;
+}
+
+.ds-qlik-filter-actions__redo,
+.ds-qlik-filter-actions__clear {
+  width: 60px;
+}
+
+.ds-qlik-filter-actions__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--primitive-radius-xs, 4px);
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-icon-default);
+}
+
+.ds-qlik-filter-actions__btn:hover:not(:disabled) {
+  background: var(--color-bg-text-hover);
+  color: var(--color-icon-hover);
+}
+
+.ds-qlik-filter-actions__btn:disabled {
+  cursor: not-allowed;
+}
+
+.ds-qlik-filter-actions__icon--disabled {
+  opacity: 0.5;
+}
+
+/* ── Qlik Fliter-Selected — Figma 4234:36594 ────────────────────── */
+
+.ds-qlik-filter-selected {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--component-qlik-filter-bg-container);
+  border-right: 1px solid var(--color-border-secondary);
+}
+
+.ds-qlik-filter-selected__content {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-base, 16px);
+  padding-inline: var(--primitive-space-xs, 8px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ds-qlik-filter-selected__text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.ds-qlik-filter-selected__label {
+  overflow: hidden;
+  color: var(--color-text-default);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-qlik-filter-selected__value {
+  overflow: hidden;
+  color: var(--color-text-disabled);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-qlik-filter-selected__remove {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 2px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-icon-default);
+}
+
+.ds-qlik-filter-selected__remove:hover {
+  color: var(--color-icon-hover);
+}
+
+.ds-qlik-filter-selected__progress {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ds-qlik-filter-selected__progress-track {
+  position: absolute;
+  inset: 0;
+  background: var(--component-qlik-filter-bg-default-bar);
+}
+
+.ds-qlik-filter-selected__progress-active {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  background: var(--component-qlik-filter-bg-active);
+}
+
+/* ── Qlik Multi-row — Figma 4639:86556 ──────────────────────────── */
+
+.ds-qlik-filter-multi-row {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: var(--primitive-space-xs, 8px);
+  padding-inline: var(--primitive-space-base, 16px);
+  border: none;
+  border-right: 1px solid var(--color-border-secondary);
+  background: var(--component-qlik-filter-bg-container);
+  cursor: pointer;
+  color: var(--color-icon-default);
+}
+
+.ds-qlik-filter-multi-row:hover {
+  background: var(--color-bg-text-hover);
+}
+
+.ds-qlik-filter-multi-row__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  width: 24px;
+  height: 24px;
+  padding-inline: var(--primitive-space-xxs, 4px);
+  border-radius: 16px;
+  background: var(--component-qlik-filter-bg-active);
+  color: var(--color-text-white);
+  text-align: center;
+}

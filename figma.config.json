@@ -1,0 +1,9 @@
+{
+  "codeConnect": {
+    "parser": "react",
+    "label": "React",
+    "language": "tsx",
+    "include": ["src/**/*.{tsx,ts}", "src/**/*.figma.ts"],
+    "exclude": ["**/node_modules/**", "stories/**", "mockups/**", ".storybook/**"]
+  }
+}

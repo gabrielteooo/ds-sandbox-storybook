@@ -1,8 +1,11 @@
 import { Breadcrumb } from 'antd';
+import type { DropdownProps } from 'antd';
 import type { BreadcrumbProps, BreadcrumbItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import type { ReactNode } from 'react';
+import { DS_DROPDOWN_PANEL } from '../Dropdown/dropdownPanelMetrics';
 import { DsIconHome } from '../../icons';
 import { BreadcrumbThemeProvider } from './BreadcrumbThemeProvider';
+import '../Dropdown/component.css';
 import './component.css';
 
 export { DS_BREADCRUMB_PANEL } from './breadcrumbPanelMetrics';
@@ -18,6 +21,38 @@ export interface DsBreadcrumbItem extends BreadcrumbItemType {
   title: ReactNode;
   href?: string;
   onClick?: () => void;
+  dropdownProps?: DropdownProps;
+}
+
+export interface DsBreadcrumbEllipsisMenuItem {
+  key: string;
+  label: ReactNode;
+  onClick?: () => void;
+}
+
+/** Shared hover dropdown props — Figma 22770:15528 (small dropdown menu). */
+export const BREADCRUMB_ELLIPSIS_DROPDOWN_PROPS: DropdownProps = {
+  trigger: ['hover'],
+  overlayClassName: 'ds-dropdown-overlay',
+  placement: 'bottomLeft',
+  align: { offset: [0, DS_DROPDOWN_PANEL.menuGapPx] },
+};
+
+/** Ellipsis item with hover menu — reuses DsDropdown small menu styles. */
+export function createBreadcrumbEllipsisItem(
+  menuItems: DsBreadcrumbEllipsisMenuItem[],
+): DsBreadcrumbItem {
+  return {
+    title: '…',
+    menu: {
+      items: menuItems.map((item) => ({
+        key: item.key,
+        label: item.label,
+        onClick: item.onClick,
+      })),
+    },
+    dropdownProps: BREADCRUMB_ELLIPSIS_DROPDOWN_PROPS,
+  };
 }
 
 export interface DsBreadcrumbProps extends Omit<BreadcrumbProps, 'items'> {

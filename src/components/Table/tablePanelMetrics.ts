@@ -24,7 +24,7 @@ export const DS_TABLE_PANEL = {
   headerIconGapPx: 8,
   sortIconSizePx: 12,
   filterIconSizePx: 12,
-  filterDropdownWidthPx: 248,
+  filterDropdownWidthPx: 200,
   filterDropdownMaxHeightPx: 160,
   infoIconSizePx: 12,
   selectionColumnWidthPx: 48,

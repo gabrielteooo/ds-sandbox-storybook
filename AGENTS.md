@@ -32,3 +32,13 @@ npm run storybook
 **Product mockups** (not in Storybook): standalone HTML via Vite — e.g. `npm run mockup:service-config` opens `mockups/service-asset-config.html` (source in `src/mockups/ServiceAssetConfigForm/`).
 
 Templates live in `src/templates/` — compose `DsAppShell` + `DsPageTemplate` when building product pages from Figma.
+
+## Figma Code Connect
+
+Maps published Figma library components to `Ds*` React implementations so Figma MCP (`get_design_context`) returns your code snippets in Dev Mode.
+
+- **Config:** `figma.config.json` · **Templates:** `src/figma/*.figma.ts`
+- **Publish:** `npm run figma:connect:publish` (requires Figma personal access token with Code Connect scope — set `FIGMA_ACCESS_TOKEN`)
+- **File key:** `9EWHgAT1kDwK3NmfT8hBFk` · **Library:** MCP DS Sandbox
+- **Mapped so far:** Alert (`508:37318`), Button (`376:26847`), Icon (`472:11122`)
+- Add more templates alongside existing ones; node IDs are in each story’s `parameters.design.url` and `design-system-audit.md`.

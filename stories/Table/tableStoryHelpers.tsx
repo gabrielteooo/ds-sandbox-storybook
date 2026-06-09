@@ -36,6 +36,17 @@ export function createTemplateTableData(rowCount: number): TemplateTableRow[] {
 
 type TableDataColumnKey = (typeof TABLE_COLUMN_KEYS)[number];
 
+export function createPlainColumns(
+  keys: readonly TableDataColumnKey[] = TABLE_COLUMN_KEYS,
+): TableColumnsType<TemplateTableRow> {
+  return keys.map((key) => ({
+    title: <DsTableHeaderTitle label="Table Header" />,
+    dataIndex: key,
+    key,
+    render: (value: string) => <DsTableBodyText text={value} />,
+  }));
+}
+
 export function createSortFilterColumns(
   keys: readonly TableDataColumnKey[] = TABLE_COLUMN_KEYS,
 ): TableColumnsType<TemplateTableRow> {
@@ -109,9 +120,7 @@ export const TABLE_STATE_COLUMNS: TableColumnsType<TableStateRow> = [
 export const BASIC_SORT_FILTER_COLUMNS = createSortFilterColumns(
   TABLE_COLUMN_KEYS.slice(0, -1),
 );
-export const NO_RECORDS_SORT_FILTER_COLUMNS = createSortFilterColumns(
-  TABLE_COLUMN_KEYS.slice(0, 4),
-);
+export const NO_RECORDS_COLUMNS = createPlainColumns(TABLE_COLUMN_KEYS.slice(0, 4));
 export const SORT_FILTER_COLUMNS = createSortFilterColumns();
 export const CONTAINER_TABLE_COLUMNS = createContainerTableColumns();
 export const TEMPLATE_TABLE_DATA = createTemplateTableData(5);

@@ -55,10 +55,15 @@ export const FA_REGULAR_CATALOG: IconCatalogEntry[] = [
     usage: 'Container table header — fullscreen',
   },
   { name: 'arrows-rotate', label: 'Sync', antDesign: 'SyncOutlined', usage: 'Tag processing (spin)' },
+  { name: 'angles-up', label: 'Collapse', usage: 'Global header — collapse filters' },
 ];
 
 export const FA_SOLID_CATALOG: IconCatalogEntry[] = [
   { name: 'table', label: 'Table', usage: 'Container table header — table view' },
+  { name: 'bell', label: 'Notifications', usage: 'Global header — notification bell' },
+  { name: 'arrow-rotate-left', label: 'Undo', usage: 'Qlik filter bar — undo' },
+  { name: 'arrow-rotate-right', label: 'Redo', usage: 'Qlik filter bar — redo' },
+  { name: 'ban', label: 'Clear filters', usage: 'Qlik filter bar — clear all' },
   {
     name: 'circle-info',
     label: 'Info',

@@ -75,3 +75,23 @@
 .ds-breadcrumb.ant-breadcrumb li:not(:last-child) .ant-breadcrumb-link:hover {
   border-radius: var(--primitive-radius-xs);
 }
+
+/* Ellipsis hover menu — Figma 22770:15528 */
+.ds-breadcrumb.ant-breadcrumb .ant-breadcrumb-overlay-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xxs);
+  padding: var(--primitive-space-xxs);
+  border-radius: var(--primitive-radius-xs);
+  color: var(--color-text-default);
+  cursor: pointer;
+}
+
+.ds-breadcrumb.ant-breadcrumb .ant-breadcrumb-overlay-link:hover {
+  background-color: var(--color-bg-text-hover);
+}
+
+/* Figma shows ellipsis only — hide Ant default chevron */
+.ds-breadcrumb.ant-breadcrumb .ant-breadcrumb-overlay-link .anticon-down {
+  display: none;
+}

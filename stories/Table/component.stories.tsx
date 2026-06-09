@@ -20,7 +20,7 @@ import {
 import {
   BASIC_SORT_FILTER_COLUMNS,
   CONTAINER_TABLE_COLUMNS,
-  NO_RECORDS_SORT_FILTER_COLUMNS,
+  NO_RECORDS_COLUMNS,
   TABLE_STATE_COLUMNS,
   TABLE_STATE_ROWS,
   TEMPLATE_TABLE_DATA,
@@ -337,7 +337,7 @@ function ContainerTableNoRecordsStory() {
           size="middle"
           bordered
           pagination={false}
-          columns={NO_RECORDS_SORT_FILTER_COLUMNS}
+          columns={NO_RECORDS_COLUMNS}
           dataSource={[]}
           locale={{ emptyText: <TableEmptyState /> }}
         />

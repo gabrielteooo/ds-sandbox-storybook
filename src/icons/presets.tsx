@@ -107,3 +107,18 @@ export const DsIconSortDesc = (props?: Partial<DsIconProps>) =>
 
 export const DsIconCircleQuestion = (props?: Partial<DsIconProps>) =>
   preset(props, { name: 'circle-question' });
+
+export const DsIconBell = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'bell', variant: 'solid' });
+
+export const DsIconAnglesUp = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'angles-up' });
+
+export const DsIconArrowRotateLeft = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'arrow-rotate-left' });
+
+export const DsIconArrowRotateRight = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'arrow-rotate-right' });
+
+export const DsIconBan = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'ban' });

@@ -7,7 +7,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "mockup:service-config": "vite --open /mockups/service-asset-config.html",
-    "build:mockup:service-config": "vite build"
+    "build:mockup:service-config": "vite build",
+    "figma:connect:publish": "figma connect publish",
+    "figma:connect:publish:dry-run": "figma connect publish --dry-run"
   },
   "dependencies": {
     "@awesome.me/kit-c2a5ffb56a": "^1.0.2",
@@ -17,6 +19,7 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@figma/code-connect": "^1.4.8",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-links": "^8.6.14",
     "@storybook/blocks": "^8.6.14",

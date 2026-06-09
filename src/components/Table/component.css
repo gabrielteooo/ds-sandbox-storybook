@@ -182,7 +182,7 @@
 .ds-table-filter-dropdown {
   display: flex;
   flex-direction: column;
-  width: var(--component-table-filter-dropdown-width, 248px);
+  width: var(--component-table-filter-dropdown-width, 200px);
   background: var(--color-system-control-bg-menu);
   border: 1px solid var(--color-border-split);
   border-radius: var(--primitive-radius-base, 8px);
@@ -207,7 +207,7 @@
   align-items: center;
   gap: var(--primitive-space-base, 16px);
   min-height: 40px;
-  padding: 5px var(--primitive-space-sm, 12px);
+  padding: 0 var(--primitive-space-sm, 12px);
   border-bottom: 1px solid var(--color-border-secondary, #f0f0f0);
 }
 
@@ -248,8 +248,10 @@
   display: flex;
   align-items: center;
   gap: var(--primitive-space-xs, 8px);
+  box-sizing: border-box;
+  height: 32px;
   min-height: 32px;
-  padding: 4px var(--primitive-space-sm, 12px);
+  padding: 0 var(--primitive-space-sm, 12px);
   cursor: pointer;
 }
 

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import {
+  createBreadcrumbEllipsisItem,
   DsBreadcrumb,
   type DsBreadcrumbProps,
 } from '../../src/components/Breadcrumb';
@@ -12,6 +13,8 @@ const FIGMA = {
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=446-26123',
   link:
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=376-10769',
+  ellipsisMenu:
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22770-15528',
 } as const;
 
 const meta: Meta<DsBreadcrumbProps> = {
@@ -23,7 +26,7 @@ const meta: Meta<DsBreadcrumbProps> = {
     docs: {
       description: {
         component:
-          'MCP DS Sandbox **Breadcrumb** (Ant Design + tokens). Shows navigation hierarchy — Home icon, intermediate links, truncated `…`, and an unclickable current item.',
+          'MCP DS Sandbox **Breadcrumb** (Ant Design + tokens). Shows navigation hierarchy — Home icon, hover ellipsis menu (small dropdown), intermediate links, and an unclickable current item.',
       },
     },
     design: { type: 'figma', url: FIGMA.componentSet },
@@ -59,7 +62,11 @@ export const Basic: Story = {
       {...args}
       items={[
         { title: 'Home', href: '#' },
-        { title: '…', href: '#' },
+        createBreadcrumbEllipsisItem([
+          { key: '1', label: 'Breadcrumb 1' },
+          { key: '2', label: 'Breadcrumb 2' },
+          { key: '3', label: 'Breadcrumb 3' },
+        ]),
         { title: 'Breadcrumb Link', href: '#' },
         { title: 'Breadcrumb Link' },
       ]}
@@ -70,7 +77,7 @@ export const Basic: Story = {
     docs: {
       description: {
         story:
-          'Basic breadcrumb — home icon + intermediate links + current page (no href = unclickable). Matches Figma 446:26123.',
+          'Basic breadcrumb — home icon, hover ellipsis menu (Figma 22770:15528), intermediate links, and current page. Matches Figma 446:26123.',
       },
     },
   },

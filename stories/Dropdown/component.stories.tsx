@@ -10,6 +10,8 @@ const FIGMA = {
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=371-10124',
   menuItem:
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=375-2319',
+  menu:
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22770-15500',
   basic:
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22754-14713',
   open:
@@ -32,7 +34,7 @@ const meta: Meta<DsDropdownProps> = {
     docs: {
       description: {
         component:
-          'MCP DS Sandbox **Dropdown** (Ant Design + tokens). Click the trigger to open the menu below. Matches Figma 371:10124 (button), 375:2319 (menu item), and 22754:15462 (open state).',
+          'MCP DS Sandbox **Dropdown** (Ant Design + tokens). Click the trigger to open the menu below. Matches Figma 371:10124 (button), 22770:15500 (menu), and 22754:15462 (open state).',
       },
     },
     design: { type: 'figma', url: FIGMA.basic },
@@ -96,7 +98,7 @@ export const Basic: Story = {
     </div>
   ),
   parameters: {
-    design: { type: 'figma', url: FIGMA.open },
+    design: { type: 'figma', url: FIGMA.menu },
     docs: {
       description: {
         story:

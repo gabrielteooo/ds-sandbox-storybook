@@ -34,7 +34,12 @@ export type FaIconName =
   | 'arrow-up-arrow-down'
   | 'arrow-up-wide-short'
   | 'arrow-down-wide-short'
-  | 'circle-question';
+  | 'circle-question'
+  | 'bell'
+  | 'angles-up'
+  | 'arrow-rotate-left'
+  | 'arrow-rotate-right'
+  | 'ban';
 
 export type DsIconVariant = 'regular' | 'solid' | 'light';
 
