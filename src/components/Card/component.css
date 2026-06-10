@@ -1,30 +1,124 @@
 /**
- * MCP DS Sandbox Card — Figma 406:74 / 22753:7871.
+ * MCP DS Sandbox Card — Figma 406:74 / 22753:7871 / card-header 22456:9547.
  * TOKEN GAP: no --components-card-global-* semantic tokens; --component-card-* used.
  */
 
-.ds-card.ant-card {
+.ds-card-shell {
+  display: flex;
+  flex-direction: column;
   background: var(--component-card-bg-default);
-  border-color: var(--component-card-border-default);
   border-radius: var(--primitive-radius-base);
+  overflow: hidden;
+}
+
+.ds-card-shell--bordered {
+  border: 1px solid var(--component-card-border-default);
+}
+
+.ds-card.ant-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
   box-shadow: none;
 }
 
-.ds-card.ant-card .ant-card-head {
-  border-bottom-color: var(--component-card-border-default);
-  margin-bottom: 0;
-  min-height: auto;
+/* ── card-header — Figma 22456:9547 (internal) ───────────────────────────── */
+
+.ds-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--component-card-border-default);
 }
 
-.ds-card.ant-card .ant-card-head-wrapper {
+.ds-card-header__dot {
+  display: flex;
+  flex-shrink: 0;
+  align-items: flex-start;
+  padding-top: 7px;
+  width: 8px;
+}
+
+.ds-card-header__main {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+}
+
+.ds-card-header__main--stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+}
+
+.ds-card-header__title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  word-break: break-word;
+  color: var(--component-card-text-default);
+}
+
+/* Hug-content row height — padding + single-line title (Figma 22456:9547) */
+.ds-card-header--default .ds-card-header__title {
+  line-height: var(--text-base-strong-line-height);
+}
+
+.ds-card-header--small .ds-card-header__title {
+  line-height: var(--text-sm-strong-line-height);
+}
+
+.ds-card-header__title--active {
+  color: var(--component-card-text-active);
+}
+
+.ds-card-header__description {
+  color: var(--color-text-description);
+  white-space: nowrap;
+}
+
+.ds-card-header__actions {
+  display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   gap: var(--primitive-space-xs);
 }
 
-.ds-card.ant-card .ant-card-extra {
-  display: inline-flex;
-  align-items: center;
-  padding-inline-start: var(--primitive-space-xs);
+/* Default — hug: 16px + 24px title + 16px = 56px */
+.ds-card-header--default {
+  height: 56px;
+  padding: var(--primitive-space-base) var(--primitive-space-lg);
+}
+
+/* Small — hug: 8px + 22px title + 8px = 38px */
+.ds-card-header--small:not(.ds-card-header--compact-padding) {
+  height: 38px;
+  padding: var(--primitive-space-xs) var(--primitive-space-sm);
+}
+
+.ds-card-header--small.ds-card-header--compact-padding {
+  min-height: auto;
+  padding: 0 var(--primitive-space-sm);
+}
+
+/* Table — auto height, stacked title + description */
+.ds-card-header--table {
+  align-items: flex-start;
+  min-height: 64px;
+  padding: var(--primitive-space-base) var(--primitive-space-lg);
+}
+
+.ds-card-header--table .ds-card-header__actions {
+  align-items: flex-start;
+}
+
+/* Chart — hug: 16px + 24px title + 16px = 56px (single-line title) */
+.ds-card-header--chart {
+  height: 56px;
+  padding: var(--primitive-space-base) var(--primitive-space-lg);
 }
 
 .ds-card__extra-btn {
@@ -49,38 +143,19 @@
   font-size: 16px;
 }
 
-/* Figma Small — header 38px, SM/Strong title, body 12px padding */
-.ds-card--small.ant-card .ant-card-head {
-  padding: var(--primitive-space-xs) var(--primitive-space-sm);
-  min-height: 38px;
+/* Small header hug — 8px + 22px action + 8px = 38px (Figma 22456:9545) */
+.ds-card-header--small:not(.ds-card-header--compact-padding) .ds-card__extra-btn,
+.ds-notification-card .ds-card-header .ds-card__extra-btn {
+  width: 22px;
+  height: 22px;
 }
 
-.ds-card--small.ant-card .ant-card-head-title {
-  font-family: var(--text-sm-strong-font-family);
-  font-size: var(--text-sm-strong-font-size);
-  line-height: var(--text-sm-strong-line-height);
-  font-weight: var(--text-sm-strong-font-weight);
-  color: var(--component-card-text-default);
-}
-
+/* Figma Small — body 12px padding */
 .ds-card--small.ant-card .ant-card-body {
   padding: var(--primitive-space-sm);
 }
 
-/* Figma Default — header 56px, Base/Strong title, body 16px × 24px padding */
-.ds-card--default.ant-card .ant-card-head {
-  padding: var(--primitive-space-base) var(--primitive-space-lg);
-  min-height: 56px;
-}
-
-.ds-card--default.ant-card .ant-card-head-title {
-  font-family: var(--text-base-strong-font-family);
-  font-size: var(--text-base-strong-font-size);
-  line-height: var(--text-base-strong-line-height);
-  font-weight: var(--text-base-strong-font-weight);
-  color: var(--component-card-text-default);
-}
-
+/* Figma Default — body 16px × 24px padding */
 .ds-card--default.ant-card .ant-card-body {
   padding: var(--primitive-space-base) var(--primitive-space-lg);
 }
@@ -288,6 +363,13 @@
   overflow: hidden;
 }
 
+.ds-notification-card .ds-card-header {
+  border-bottom: none;
+  /* Same hug height as card-header Small — 8px + 22px + 8px = 38px */
+  height: 38px;
+  padding: var(--primitive-space-xs) var(--primitive-space-sm);
+}
+
 .ds-notification-card[role='button'] {
   cursor: pointer;
 }
@@ -296,34 +378,6 @@
 .ds-notification-card:focus-visible {
   background: var(--component-card-bg-hover);
   outline: none;
-}
-
-.ds-notification-card__header {
-  display: flex;
-  align-items: center;
-  gap: var(--primitive-space-xs);
-  min-height: 38px;
-  padding: 0 var(--primitive-space-sm);
-}
-
-.ds-notification-card__title {
-  margin: 0;
-  flex: 1;
-  min-width: 0;
-  word-break: break-word;
-}
-
-.ds-notification-card--new .ds-notification-card__title {
-  color: var(--component-card-text-active);
-}
-
-.ds-notification-card--read .ds-notification-card__title {
-  color: var(--component-card-text-default);
-}
-
-.ds-notification-card__extra {
-  display: inline-flex;
-  flex-shrink: 0;
 }
 
 .ds-card-notification-dot {

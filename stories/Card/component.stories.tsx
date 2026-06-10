@@ -13,6 +13,7 @@ import './component.stories.css';
 
 const FIGMA = {
   componentSet: 'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=406-74',
+  cardHeader: 'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22456-9547',
   basic: 'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22753-7871',
   statistic: 'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22458-10002',
   statisticTag: 'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=1053-77186',
@@ -37,7 +38,7 @@ const meta: Meta<DsCardProps> = {
     docs: {
       description: {
         component:
-          'MCP DS Sandbox **Card** (Ant Design + tokens). A card displays content related to a single subject — header, body slot, and optional extra actions.',
+          'MCP DS Sandbox **Card** (Ant Design + tokens). Uses the Figma **card-header** (22456:9547) for title rows — Default and Small variants map from `size`; Table and Chart available via `headerVariant`.',
       },
     },
     design: { type: 'figma', url: FIGMA.componentSet },
@@ -82,11 +83,11 @@ export const Basic: Story = {
     </div>
   ),
   parameters: {
-    design: { type: 'figma', url: FIGMA.basic },
+    design: { type: 'figma', url: FIGMA.cardHeader },
     docs: {
       description: {
         story:
-          'Small and Default basic cards with title, ellipsis extra, and body copy — matches Figma 22753:7871.',
+          'Small and Default basic cards using **card-header** with title, ellipsis extra, and body copy — matches Figma 22753:7871.',
       },
     },
   },

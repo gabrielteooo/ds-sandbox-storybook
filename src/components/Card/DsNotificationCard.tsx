@@ -1,6 +1,6 @@
+import { CardHeader } from './cardHeader';
 import { CardThemeProvider } from './CardThemeProvider';
 import { DsCardExtraButton } from './component';
-import { DsCardNotificationDot } from './DsCardNotificationDot';
 import { DS_NOTIFICATION_CARD_DEFAULTS } from './cardNotificationPresets';
 import './component.css';
 
@@ -61,18 +61,19 @@ export function DsNotificationCard({
             : undefined
         }
       >
-        <header className="ds-notification-card__header">
-          {isNew ? <DsCardNotificationDot /> : null}
-          <h3 className="ds-notification-card__title text-sm-strong">{title}</h3>
-          {showExtra ? (
-            <span
-              className="ds-notification-card__extra"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <DsCardExtraButton onClick={onExtraClick} />
-            </span>
-          ) : null}
-        </header>
+        <CardHeader
+          variant="small"
+          title={title}
+          showDot={isNew}
+          titleActive={isNew}
+          extra={
+            showExtra ? (
+              <span onClick={(event) => event.stopPropagation()}>
+                <DsCardExtraButton onClick={onExtraClick} />
+              </span>
+            ) : undefined
+          }
+        />
 
         <div className="ds-notification-card__body">
           <p className="ds-notification-card__message">{message}</p>

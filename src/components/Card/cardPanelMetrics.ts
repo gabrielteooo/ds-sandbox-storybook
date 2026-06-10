@@ -5,6 +5,7 @@ export const DS_CARD_PANEL = {
   widthPx: 309,
   headerHeightSmallPx: 38,
   headerHeightDefaultPx: 56,
+  headerHeightTablePx: 64,
   headerGapPx: 8,
   headerPaddingSmallPx: 12,
   headerPaddingVerticalSmallPx: 8,
@@ -15,6 +16,7 @@ export const DS_CARD_PANEL = {
   bodyPaddingDefaultHorizontalPx: 24,
   extraIconSizePx: 16,
   extraButtonSizePx: 24,
+  extraButtonSizeSmallPx: 22,
   basicStoryGapPx: 30,
   basicStoryPaddingPx: 24,
   /** Figma Statistic card 22458:10002 */
