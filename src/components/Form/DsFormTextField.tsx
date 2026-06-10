@@ -1,11 +1,13 @@
 import { Form } from 'antd';
 import { DsInput } from '../Input/component';
 import { DsForm } from './component';
+import { InputCaption, type InputCaptionStatus } from './inputCaption';
+import { InputLabelVertical, labelModeToMark } from './inputLabelVertical';
 import { DS_FORM_PANEL, dsFormOuterWidthPx } from './formPanelMetrics';
 import '../Input/component.css';
 import './component.css';
 
-/** Figma Input Label Vertical — default · required (*) · optional (22737:7451) */
+/** @deprecated Use InputLabelMark via InputLabelVertical — kept for mockups. */
 export type DsFormLabelMode = 'default' | 'required' | 'optional';
 
 export const DS_FORM_LABEL_MODES: DsFormLabelMode[] = [
@@ -18,10 +20,15 @@ export interface DsFormTextFieldProps {
   label?: string;
   labelMode?: DsFormLabelMode;
   placeholder?: string;
+  caption?: string;
+  captionStatus?: InputCaptionStatus;
+  showTooltip?: boolean;
+  showHelpIcon?: boolean;
   disabled?: boolean;
   className?: string;
 }
 
+/** @deprecated Use InputLabelVertical — thin alias for existing imports. */
 export function DsFormFieldLabel({
   label,
   labelMode,
@@ -29,33 +36,19 @@ export function DsFormFieldLabel({
   label: string;
   labelMode: DsFormLabelMode;
 }) {
-  if (labelMode === 'required') {
-    return (
-      <span className="ds-form__label-inner">
-        <span className="ds-form__label-required" aria-hidden>
-          *
-        </span>
-        {label}
-      </span>
-    );
-  }
-
-  if (labelMode === 'optional') {
-    return (
-      <span className="ds-form__label-inner">
-        {label}
-        <span className="ds-form__label-optional"> (optional)</span>
-      </span>
-    );
-  }
-
-  return <span className="ds-form__label-inner">{label}</span>;
+  return (
+    <InputLabelVertical label={label} mark={labelModeToMark(labelMode)} />
+  );
 }
 
 export function DsFormTextField({
   label = 'Input Label',
   labelMode = 'default',
   placeholder = 'Type here',
+  caption,
+  captionStatus = 'default',
+  showTooltip = false,
+  showHelpIcon = false,
   disabled = false,
   className,
 }: DsFormTextFieldProps) {
@@ -80,7 +73,24 @@ export function DsFormTextField({
       requiredMark={false}
       disabled={disabled}
     >
-      <Form.Item label={<DsFormFieldLabel label={label} labelMode={labelMode} />} name="text" rules={rules}>
+      <Form.Item
+        className="ds-form__field"
+        label={
+          <InputLabelVertical
+            label={label}
+            mark={labelModeToMark(labelMode)}
+            showTooltip={showTooltip}
+            showHelpIcon={showHelpIcon}
+          />
+        }
+        name="text"
+        rules={rules}
+        extra={
+          caption ? (
+            <InputCaption text={caption} status={captionStatus} />
+          ) : undefined
+        }
+      >
         <DsInput kind="basic" size="base" placeholder={placeholder} disabled={disabled} />
       </Form.Item>
     </DsForm>

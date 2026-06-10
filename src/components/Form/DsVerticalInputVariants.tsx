@@ -12,6 +12,8 @@ import { DsSwitch } from '../Switch/component';
 import { DsTimePicker } from '../TimePicker/component';
 import { DsUpload } from '../Upload/component';
 import { DsForm } from './component';
+import { InputCaption } from './inputCaption';
+import { InputLabelVertical } from './inputLabelVertical';
 import {
   DS_FORM_PANEL,
   DS_FORM_VARIANTS_SLIDER_MARKS,
@@ -27,6 +29,11 @@ import '../Slider/component.css';
 import '../Switch/component.css';
 import '../TimePicker/component.css';
 import '../Upload/component.css';
+import './component.css';
+
+function fieldLabel(text: string) {
+  return <InputLabelVertical label={text} />;
+}
 
 const RADIO_GROUP_OPTIONS = ['Apple', 'Banana', 'Carrot'];
 
@@ -76,11 +83,18 @@ export function DsVerticalInputVariants({
         slider: 100,
       }}
     >
-      <Form.Item label="Text" name="text">
+      <Form.Item
+        className="ds-form__field"
+        label={fieldLabel('Text')}
+        name="text"
+        extra={
+          <InputCaption text="This is a caption under a text input." status="default" />
+        }
+      >
         <DsInput kind="basic" size="base" placeholder="Type here" disabled={disabled} />
       </Form.Item>
 
-      <Form.Item label="Select" name="select">
+      <Form.Item className="ds-form__field" label={fieldLabel('Select')} name="select">
         <DsSelect
           variant="basic"
           size="base"
@@ -90,7 +104,7 @@ export function DsVerticalInputVariants({
         />
       </Form.Item>
 
-      <Form.Item label="Password" name="password">
+      <Form.Item className="ds-form__field" label={fieldLabel('Password')} name="password">
         <DsInput
           kind="password"
           size="base"
@@ -99,7 +113,7 @@ export function DsVerticalInputVariants({
         />
       </Form.Item>
 
-      <Form.Item label="Text Area" name="textArea">
+      <Form.Item className="ds-form__field" label={fieldLabel('Text Area')} name="textArea">
         <DsInput
           kind="textarea"
           size="base"
@@ -109,7 +123,7 @@ export function DsVerticalInputVariants({
         />
       </Form.Item>
 
-      <Form.Item label="Date Picker" name="date">
+      <Form.Item className="ds-form__field" label={fieldLabel('Date Picker')} name="date">
         <DsDatePicker
           size="base"
           picker="date"
@@ -118,7 +132,7 @@ export function DsVerticalInputVariants({
         />
       </Form.Item>
 
-      <Form.Item label="Date Range Picker" name="dateRange">
+      <Form.Item className="ds-form__field" label={fieldLabel('Date Range Picker')} name="dateRange">
         <DsDatePicker
           size="base"
           picker="date"
@@ -128,15 +142,15 @@ export function DsVerticalInputVariants({
         />
       </Form.Item>
 
-      <Form.Item label="Time Picker" name="time">
+      <Form.Item className="ds-form__field" label={fieldLabel('Time Picker')} name="time">
         <DsTimePicker size="base" disabled={disabled} />
       </Form.Item>
 
-      <Form.Item label="Input Number" name="inputNumber">
+      <Form.Item className="ds-form__field" label={fieldLabel('Input Number')} name="inputNumber">
         <DsInput kind="number" size="base" disabled={disabled} />
       </Form.Item>
 
-      <Form.Item label="Radio Groups" name="radioGroup">
+      <Form.Item className="ds-form__field" label={fieldLabel('Radio Groups')} name="radioGroup">
         <DsRadioGroup
           buttonStyle="outline"
           size="base"
@@ -144,7 +158,7 @@ export function DsVerticalInputVariants({
         />
       </Form.Item>
 
-      <Form.Item label="Radio Buttons" name="radioButtons">
+      <Form.Item className="ds-form__field" label={fieldLabel('Radio Buttons')} name="radioButtons">
         <Radio.Group disabled={disabled} className="ds-form__choice-row">
           {CHOICE_OPTIONS.map((option) => (
             <DsRadio
@@ -156,7 +170,7 @@ export function DsVerticalInputVariants({
         </Radio.Group>
       </Form.Item>
 
-      <Form.Item label="Checkbox" name="checkboxes">
+      <Form.Item className="ds-form__field" label={fieldLabel('Checkbox')} name="checkboxes">
         <div className="ds-form__choice-row">
           <Checkbox.Group disabled={disabled} className="ds-form__checkbox-group">
             {CHOICE_OPTIONS.map((option) => (
@@ -170,19 +184,28 @@ export function DsVerticalInputVariants({
         </div>
       </Form.Item>
 
-      <Form.Item label="Switch" name="rememberSwitch" valuePropName="checked">
+      <Form.Item
+        className="ds-form__field"
+        label={fieldLabel('Switch')}
+        name="rememberSwitch"
+        valuePropName="checked"
+      >
         <DsSwitch size="base" disabled={disabled} />
       </Form.Item>
 
-      <Form.Item label="Button">
+      <Form.Item className="ds-form__field" label={fieldLabel('Button')}>
         <DsButton variant="secondary" size="base" label="Button" disabled={disabled} />
       </Form.Item>
 
-      <Form.Item label="Upload" className="ds-form__field--upload">
+      <Form.Item className="ds-form__field ds-form__field--upload" label={fieldLabel('Upload')}>
         <DsUpload variant="dragger" disabled={disabled} showUploadList={false} />
       </Form.Item>
 
-      <Form.Item label="Slider" name="slider" className="ds-form__field--slider">
+      <Form.Item
+        className="ds-form__field ds-form__field--slider"
+        label={fieldLabel('Slider')}
+        name="slider"
+      >
         <DsSlider
           min={0}
           max={600}
@@ -192,7 +215,10 @@ export function DsVerticalInputVariants({
         />
       </Form.Item>
 
-      <Form.Item label="Read only" className="ds-form__field--readonly">
+      <Form.Item
+        className="ds-form__field ds-form__field--readonly"
+        label={fieldLabel('Read only')}
+      >
         <span className="ds-form__readonly text-base-normal">Read-only text</span>
       </Form.Item>
     </DsForm>

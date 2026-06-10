@@ -15,11 +15,15 @@ import './component.stories.css';
 
 const FIGMA = {
   textInput:
-    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22737-7148',
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=515-43853',
+  inputLabelVertical:
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=5004-6741',
+  inputCaption:
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=388-11597',
   labelModes:
-    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22737-7451',
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=5004-6741',
   login:
-    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22726-4626',
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=516-42634',
   verticalVariants:
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22737-6239',
 } as const;
@@ -42,7 +46,7 @@ const meta: Meta = {
     docs: {
       description: {
         component:
-          'MCP DS Sandbox **Form** — vertical labeled fields, login preset, and input variant showcases.',
+          'MCP DS Sandbox **Form** — uses Figma **Input Label Vertical** (5004:6741) and **Input Caption** (388:11597) for labeled fields, plus login and variant showcases.',
       },
     },
   },
@@ -59,6 +63,10 @@ export const TextInputVariant: StoryObj<DsFormTextFieldProps> = {
     label: 'Input Label',
     labelMode: 'default',
     placeholder: 'Type here',
+    caption: 'This is a caption under a text input.',
+    captionStatus: 'default',
+    showTooltip: false,
+    showHelpIcon: false,
     disabled: false,
   },
   argTypes: {
@@ -66,18 +74,25 @@ export const TextInputVariant: StoryObj<DsFormTextFieldProps> = {
     labelMode: {
       control: 'select',
       options: DS_FORM_LABEL_MODES,
-      description: 'Default · Required (*) · Optional',
+      description: 'Default · Required (*) · Optional — Input Label Vertical Mark',
     },
     placeholder: { control: 'text' },
+    caption: { control: 'text' },
+    captionStatus: {
+      control: 'select',
+      options: ['default', 'error', 'warning'],
+    },
+    showTooltip: { control: 'boolean' },
+    showHelpIcon: { control: 'boolean' },
     disabled: { control: 'boolean' },
     className: { table: { disable: true } },
   },
   parameters: {
-    design: { type: 'figma', url: FIGMA.textInput },
+    design: { type: 'figma', url: FIGMA.inputLabelVertical },
     docs: {
       description: {
         story:
-          'Vertical **Input / Basic** with labeled field. Use **labelMode** to switch default, required (red asterisk), or optional suffix (Figma 22737:7451).',
+          'Vertical **Input / Basic** with **Input Label Vertical** and optional **Input Caption**. Use **labelMode** for Mark variants (None / Required / Optional).',
       },
     },
   },

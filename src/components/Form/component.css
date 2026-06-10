@@ -168,10 +168,13 @@
   box-sizing: border-box;
 }
 
-.ds-form__label-inner {
+/* ── Input Label Vertical — Figma 5004:6741 / 388:11598 ─────────────────── */
+
+.ds-input-label-vertical {
   display: inline-flex;
   align-items: center;
   gap: var(--primitive-space-xxs, 4px);
+  padding-bottom: var(--primitive-space-xs, 8px);
   font-family: var(--text-sm-normal-font-family, Inter, system-ui, sans-serif);
   font-size: var(--text-sm-normal-font-size, 14px);
   line-height: var(--text-sm-normal-line-height, 22px);
@@ -179,14 +182,61 @@
   color: var(--color-text-default, rgba(0, 0, 0, 0.88));
 }
 
-.ds-form__label-required {
+.ds-input-label-vertical__text {
+  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
+}
+
+.ds-input-label-vertical__required {
   color: var(--color-system-error-default, #a8071a);
   line-height: var(--text-sm-normal-line-height, 22px);
 }
 
-.ds-form__label-optional {
+.ds-input-label-vertical__optional {
   color: var(--component-input-text-description, rgba(0, 0, 0, 0.55));
   font-weight: var(--text-sm-normal-font-weight, 400);
+  white-space: nowrap;
+}
+
+.ds-input-label-vertical__info,
+.ds-input-label-vertical__help-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-icon-default, rgba(0, 0, 0, 0.55));
+}
+
+.ds-input-label-vertical__help-btn {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.ds-input-label-vertical__help-btn:hover {
+  color: var(--color-icon-hover, rgba(0, 0, 0, 0.88));
+}
+
+/* ── Input Caption — Figma 388:11597 ────────────────────────────────────── */
+
+.ds-input-caption {
+  display: block;
+  padding-top: 2px;
+}
+
+.ds-input-caption--default {
+  color: var(--component-input-text-description, rgba(0, 0, 0, 0.55));
+}
+
+.ds-input-caption--error {
+  color: var(--color-system-error-default, #a8071a);
+}
+
+.ds-input-caption--warning {
+  color: var(--color-system-warning-default, #d46b08);
 }
 
 /* —— Vertical input variants (22737:6239) —— */
@@ -206,10 +256,16 @@
 .ds-form--labeled.ant-form .ant-form-item .ant-form-item-label {
   display: block;
   padding: 0;
-  margin: 0 0 var(--primitive-space-xs, 8px);
+  margin: 0;
   min-height: 0;
   height: auto;
   line-height: 1;
+}
+
+.ds-form--labeled.ant-form .ant-form-item .ant-form-item-extra {
+  margin-top: 0;
+  min-height: 0;
+  padding-top: 0;
 }
 
 .ds-form--labeled.ant-form .ant-form-item .ant-form-item-label > label {

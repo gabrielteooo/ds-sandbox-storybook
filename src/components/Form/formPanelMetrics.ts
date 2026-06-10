@@ -22,6 +22,11 @@ export const DS_FORM_PANEL = {
   variantsWidthPx: 360,
   variantsPaddingPx: 24,
   labelToControlGapPx: 8,
+  /** Figma Input Label Vertical — info / help icon (16px) */
+  labelInfoIconSizePx: 16,
+  labelHelpIconSizePx: 16,
+  /** Figma Input Caption — 2px top padding */
+  captionPaddingTopPx: 2,
   textareaHeightPx: 64,
 } as const;
 

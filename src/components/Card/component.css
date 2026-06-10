@@ -35,8 +35,8 @@
 .ds-card-header__dot {
   display: flex;
   flex-shrink: 0;
-  align-items: flex-start;
-  padding-top: 7px;
+  align-items: center;
+  align-self: center;
   width: 8px;
 }
 
