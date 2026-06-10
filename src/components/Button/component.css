@@ -133,77 +133,188 @@
   box-shadow: 0 2px 0 rgba(217, 217, 217, 0.1);
 }
 
-/* —— Button group (Space.Compact) —— */
-.ds-button-group.ant-space-compact {
+/* —— Button group — Figma 3126:27820 + Button Compact Item 3126:25864 —— */
+.ds-button-group {
   display: inline-flex;
   border-radius: var(--primitive-radius-sm, 6px);
   overflow: hidden;
 }
 
-.ds-button-group--small.ant-space-compact {
+.ds-button-group--small {
   border-radius: var(--primitive-radius-xs, 4px);
 }
 
-.ds-button-group .ds-button {
-  display: contents;
+.ds-button-group--vertical {
+  flex-direction: column;
+  align-items: stretch;
 }
 
-.ds-button-group .ds-button .ant-btn {
+/* Button Compact Item */
+.ds-button-compact-item {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ds-button-compact-item .ds-button .ant-btn {
   border-radius: 0;
 }
 
-.ds-button-group--horizontal.ant-space-compact > .ant-btn:first-child,
-.ds-button-group--horizontal.ant-space-compact > .ds-button:first-child .ant-btn {
+/* Horizontal — drop inner left/right borders; separator handles dividers */
+.ds-button-group--horizontal .ds-button-compact-item .ds-button .ant-btn {
+  border-inline-start: none;
+  border-inline-end: none;
+}
+
+.ds-button-group--horizontal
+  > .ds-button-compact-item:first-child
+  .ds-button
+  .ant-btn-primary:not(:disabled) {
+  border-inline-start: 1px solid var(--color-primary-default, #00636a);
+}
+
+.ds-button-group--horizontal
+  > .ds-button-compact-item:first-child
+  .ds-button
+  .ant-btn-default:not(:disabled) {
+  border-inline-start: 1px solid var(--component-button-secondary-border-default, #d9d9d9);
+}
+
+.ds-button-group--horizontal
+  > .ds-button-compact-item:last-child
+  .ds-button
+  .ant-btn-primary:not(:disabled) {
+  border-inline-end: 1px solid var(--color-primary-default, #00636a);
+}
+
+.ds-button-group--horizontal
+  > .ds-button-compact-item:last-child
+  .ds-button
+  .ant-btn-default:not(:disabled) {
+  border-inline-end: 1px solid var(--component-button-secondary-border-default, #d9d9d9);
+}
+
+/* Vertical — drop inner top/bottom borders */
+.ds-button-group--vertical .ds-button-compact-item .ds-button .ant-btn {
+  border-top: none;
+  border-bottom: none;
+}
+
+.ds-button-group--vertical
+  > .ds-button-compact-item:first-child
+  .ds-button
+  .ant-btn-primary:not(:disabled) {
+  border-top: 1px solid var(--color-primary-default, #00636a);
+}
+
+.ds-button-group--vertical
+  > .ds-button-compact-item:first-child
+  .ds-button
+  .ant-btn-default:not(:disabled) {
+  border-top: 1px solid var(--component-button-secondary-border-default, #d9d9d9);
+}
+
+.ds-button-group--vertical
+  > .ds-button-compact-item:last-child
+  .ds-button
+  .ant-btn-primary:not(:disabled) {
+  border-bottom: 1px solid var(--color-primary-default, #00636a);
+}
+
+.ds-button-group--vertical
+  > .ds-button-compact-item:last-child
+  .ds-button
+  .ant-btn-default:not(:disabled) {
+  border-bottom: 1px solid var(--component-button-secondary-border-default, #d9d9d9);
+}
+
+.ds-button-group--horizontal > .ds-button-compact-item:first-child .ant-btn {
   border-start-start-radius: var(--primitive-radius-sm, 6px);
   border-end-start-radius: var(--primitive-radius-sm, 6px);
 }
 
-.ds-button-group--horizontal.ant-space-compact > .ant-btn:last-child,
-.ds-button-group--horizontal.ant-space-compact > .ds-button:last-child .ant-btn {
+.ds-button-group--horizontal > .ds-button-compact-item:last-child .ant-btn {
   border-start-end-radius: var(--primitive-radius-sm, 6px);
   border-end-end-radius: var(--primitive-radius-sm, 6px);
 }
 
-.ds-button-group--small.ds-button-group--horizontal.ant-space-compact > .ant-btn:first-child,
-.ds-button-group--small.ds-button-group--horizontal.ant-space-compact > .ds-button:first-child .ant-btn {
+.ds-button-group--small.ds-button-group--horizontal > .ds-button-compact-item:first-child .ant-btn {
   border-start-start-radius: var(--primitive-radius-xs, 4px);
   border-end-start-radius: var(--primitive-radius-xs, 4px);
 }
 
-.ds-button-group--small.ds-button-group--horizontal.ant-space-compact > .ant-btn:last-child,
-.ds-button-group--small.ds-button-group--horizontal.ant-space-compact > .ds-button:last-child .ant-btn {
+.ds-button-group--small.ds-button-group--horizontal > .ds-button-compact-item:last-child .ant-btn {
   border-start-end-radius: var(--primitive-radius-xs, 4px);
   border-end-end-radius: var(--primitive-radius-xs, 4px);
 }
 
-.ds-button-group--vertical.ant-space-compact > .ant-btn:first-child,
-.ds-button-group--vertical.ant-space-compact > .ds-button:first-child .ant-btn {
+.ds-button-group--vertical > .ds-button-compact-item:first-child .ant-btn {
   border-start-start-radius: var(--primitive-radius-sm, 6px);
   border-start-end-radius: var(--primitive-radius-sm, 6px);
 }
 
-.ds-button-group--vertical.ant-space-compact > .ant-btn:last-child,
-.ds-button-group--vertical.ant-space-compact > .ds-button:last-child .ant-btn {
+.ds-button-group--vertical > .ds-button-compact-item:last-child .ant-btn {
   border-end-start-radius: var(--primitive-radius-sm, 6px);
   border-end-end-radius: var(--primitive-radius-sm, 6px);
 }
 
-.ds-button-group--primary.ant-space-compact > .ant-btn + .ant-btn {
-  border-inline-start: 1px solid var(--color-primary-hover, #008585) !important;
+.ds-button-group--primary .ds-button-compact-item .ant-btn-primary:not(:disabled) {
+  box-shadow: 0 2px 0 rgba(217, 217, 217, 0.1);
 }
 
-.ds-button-group--secondary.ant-space-compact > .ant-btn + .ant-btn {
-  border-inline-start: 1px solid var(--color-border-default, #d9d9d9) !important;
+.ds-button-group--secondary .ds-button-compact-item .ant-btn-default:not(:disabled) {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
 }
 
-.ds-button-group--vertical.ds-button-group--primary.ant-space-compact > .ant-btn + .ant-btn {
-  border-inline-start: none !important;
-  border-top: 1px solid var(--color-primary-hover, #008585) !important;
+/* Button Compact Separator — Figma 3126:27635 */
+.ds-button-compact-separator {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
 }
 
-.ds-button-group--vertical.ds-button-group--secondary.ant-space-compact > .ant-btn + .ant-btn {
-  border-inline-start: none !important;
-  border-top: 1px solid var(--color-border-default, #d9d9d9) !important;
+.ds-button-compact-separator__line {
+  display: block;
+  background: var(--component-button-primary-border-hover, #008585);
+}
+
+.ds-button-compact-separator--secondary .ds-button-compact-separator__line {
+  background: var(--component-button-secondary-border-default, #d9d9d9);
+}
+
+.ds-button-compact-separator--vertical {
+  align-self: stretch;
+  width: 1px;
+}
+
+.ds-button-compact-separator--vertical.ds-button-compact-separator--small
+  .ds-button-compact-separator__line {
+  width: 1px;
+  height: 24px;
+}
+
+.ds-button-compact-separator--vertical.ds-button-compact-separator--default
+  .ds-button-compact-separator__line {
+  width: 1px;
+  height: 32px;
+}
+
+.ds-button-compact-separator--vertical.ds-button-compact-separator--large
+  .ds-button-compact-separator__line {
+  width: 1px;
+  height: 40px;
+}
+
+.ds-button-compact-separator--horizontal {
+  align-self: stretch;
+  width: 100%;
+  height: 1px;
+}
+
+.ds-button-compact-separator--horizontal .ds-button-compact-separator__line {
+  width: 100%;
+  height: 1px;
 }
 
 .ds-button-story-row {

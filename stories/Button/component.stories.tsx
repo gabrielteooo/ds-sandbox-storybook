@@ -136,6 +136,12 @@ export const ButtonGroups: GroupStory = {
     },
   },
   parameters: {
+    docs: {
+      description: {
+        story:
+          'Composed from **Button Compact Item** and **Button Compact Separator** subcomponents (Figma 3129:14060).',
+      },
+    },
     design: {
       type: 'figma',
       url: 'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=3126-27820',

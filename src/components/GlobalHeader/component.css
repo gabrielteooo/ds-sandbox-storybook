@@ -230,10 +230,6 @@
 /* ── Dashboard filter — Figma 22503:28865 ────────────────────────── */
 
 .ds-dashboard-filter {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--primitive-space-base, 16px);
   width: 100%;
   padding-block: var(--primitive-space-lg, 24px);
   padding-inline: var(--primitive-space-2xl, 40px);
@@ -244,6 +240,41 @@
     0 0 1px rgba(0, 0, 0, 0.04),
     0 2px 2px rgba(0, 0, 0, 0.04);
   box-sizing: border-box;
+}
+
+.ds-dashboard-filter__set {
+  width: 100%;
+}
+
+.ds-dashboard-filter__set--grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(160px, 1fr)) max-content;
+  gap: var(--primitive-space-base, 16px);
+  align-items: end;
+}
+
+.ds-dashboard-filter__set--grid .ds-dashboard-filter__ctas {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+.ds-dashboard-filter__set--grid .ds-dashboard-filter__cta-spacer {
+  grid-column: 5;
+  grid-row: 2;
+}
+
+.ds-dashboard-filter__set--grid .ds-dashboard-filter__field {
+  flex: none;
+  min-width: 0;
+  width: 100%;
+}
+
+.ds-dashboard-filter__row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--primitive-space-base, 16px);
+  width: 100%;
 }
 
 .ds-dashboard-filter__fields {
@@ -278,6 +309,10 @@
   flex-shrink: 0;
   align-items: center;
   gap: var(--primitive-space-xs, 8px);
+}
+
+.ds-dashboard-filter__cta-spacer {
+  height: 40px;
 }
 
 /* ── Qlik filter bar — Figma 4276:31326 ──────────────────────────── */

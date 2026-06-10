@@ -97,3 +97,267 @@
 .ds-card__content p {
   margin: 0;
 }
+
+/* ── Statistic card — Figma 22458:10002 ─────────────────────────────────── */
+
+.ds-statistic-card {
+  display: flex;
+  flex-direction: column;
+  width: 309px;
+  background: var(--component-card-bg-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--primitive-radius-base);
+  overflow: hidden;
+}
+
+.ds-statistic-card__body {
+  border-top: 1px solid var(--component-card-border-default);
+}
+
+.ds-statistic-card--default .ds-statistic-card__body {
+  background: var(--component-card-bg-default);
+}
+
+.ds-statistic-card--success .ds-statistic-card__body {
+  background: var(--color-system-success-bg);
+}
+
+.ds-statistic-card--error .ds-statistic-card__body {
+  background: var(--color-system-error-bg);
+}
+
+.ds-statistic-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-sm);
+  padding: var(--primitive-space-base) var(--primitive-space-lg);
+}
+
+.ds-statistic-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--primitive-space-xs);
+}
+
+.ds-statistic-card__title {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  color: var(--component-card-text-default);
+}
+
+.ds-statistic-card__info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-icon-default);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.ds-statistic-card__info-btn:hover {
+  color: var(--color-icon-hover);
+}
+
+.ds-statistic-card__value-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--primitive-space-xxs);
+}
+
+.ds-statistic-card__value {
+  color: var(--color-text-default);
+}
+
+.ds-statistic-card__unit {
+  color: var(--color-text-default);
+}
+
+.ds-statistic-card__trend-row {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+}
+
+.ds-statistic-card__period {
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--color-text-description);
+}
+
+.ds-statistic-card__benchmark {
+  margin: 0;
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--color-text-description);
+}
+
+/* Statistics tag — Figma 1053:77186 */
+.ds-card-statistic-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--primitive-space-xxs);
+}
+
+.ds-card-statistic-tag__label {
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+}
+
+.ds-card-statistic-tag--green .ds-card-statistic-tag__label,
+.ds-card-statistic-tag--green .ds-card-statistic-tag__icon {
+  color: var(--color-system-success-text-hover);
+}
+
+.ds-card-statistic-tag--red .ds-card-statistic-tag__label,
+.ds-card-statistic-tag--red .ds-card-statistic-tag__icon {
+  color: var(--color-system-error-default);
+}
+
+.ds-card-statistic-tag--grey .ds-card-statistic-tag__label {
+  color: var(--color-text-description);
+}
+
+/* Card footer button — Figma 4493:805 */
+.ds-card-footer-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+  padding: var(--primitive-space-base) var(--primitive-space-lg);
+  border: none;
+  border-top: 1px solid var(--component-card-border-default);
+  background: var(--component-card-bg-default);
+  cursor: pointer;
+  text-align: left;
+}
+
+.ds-card-footer-button:hover:not(:disabled) {
+  background: var(--color-bg-text-hover);
+}
+
+.ds-card-footer-button:disabled {
+  background: var(--color-bg-container-disabled);
+  cursor: not-allowed;
+}
+
+.ds-card-footer-button__label {
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--color-text-default);
+}
+
+.ds-card-footer-button:disabled .ds-card-footer-button__label {
+  color: var(--color-text-disabled);
+}
+
+.ds-card-footer-button__icon {
+  flex-shrink: 0;
+  color: var(--color-icon-default);
+}
+
+.ds-card-footer-button:disabled .ds-card-footer-button__icon {
+  color: var(--color-text-disabled);
+}
+
+/* ── Notification card — Figma 22460:1701 ───────────────────────────────── */
+
+.ds-notification-card {
+  display: flex;
+  flex-direction: column;
+  width: 352px;
+  background: var(--component-card-bg-default);
+  border: 1px solid var(--component-card-border-default);
+  border-radius: var(--primitive-radius-base);
+  overflow: hidden;
+}
+
+.ds-notification-card[role='button'] {
+  cursor: pointer;
+}
+
+.ds-notification-card:hover,
+.ds-notification-card:focus-visible {
+  background: var(--component-card-bg-hover);
+  outline: none;
+}
+
+.ds-notification-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+  min-height: 38px;
+  padding: 0 var(--primitive-space-sm);
+}
+
+.ds-notification-card__title {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.ds-notification-card--new .ds-notification-card__title {
+  color: var(--component-card-text-active);
+}
+
+.ds-notification-card--read .ds-notification-card__title {
+  color: var(--component-card-text-default);
+}
+
+.ds-notification-card__extra {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.ds-card-notification-dot {
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--component-card-text-active);
+}
+
+.ds-notification-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-base);
+  padding: var(--primitive-space-sm);
+  border-top: 1px solid var(--component-card-border-default);
+}
+
+.ds-notification-card__message {
+  margin: 0;
+  font-family: var(--text-sm-normal-font-family);
+  font-size: var(--text-sm-normal-font-size);
+  line-height: var(--text-sm-normal-line-height);
+  font-weight: var(--text-sm-normal-font-weight);
+  color: var(--color-text-default);
+  word-break: break-word;
+}
+
+.ds-notification-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs);
+  color: var(--color-text-description);
+  white-space: nowrap;
+}
+
+.ds-notification-card__meta-separator {
+  color: var(--color-text-description);
+}

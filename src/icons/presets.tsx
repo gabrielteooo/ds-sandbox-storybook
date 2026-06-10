@@ -24,6 +24,9 @@ export const DsIconClock = (props?: Partial<DsIconProps>) =>
 export const DsIconChevronDown = (props?: Partial<DsIconProps>) =>
   preset(props, { name: 'chevron-down' });
 
+export const DsIconChevronUp = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'chevron-up' });
+
 export const DsIconChevronLeft = (props?: Partial<DsIconProps>) =>
   preset(props, { name: 'chevron-left' });
 
@@ -122,3 +125,18 @@ export const DsIconArrowRotateRight = (props?: Partial<DsIconProps>) =>
 
 export const DsIconBan = (props?: Partial<DsIconProps>) =>
   preset(props, { name: 'ban' });
+
+export const DsIconAnglesLeft = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'angles-left' });
+
+export const DsIconAnglesRight = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'angles-right' });
+
+export const DsIconEnvelope = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'envelope' });
+
+export const DsIconWarehouse = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'warehouse' });
+
+export const DsIconRightFromBracket = (props?: Partial<DsIconProps>) =>
+  preset(props, { name: 'right-from-bracket' });

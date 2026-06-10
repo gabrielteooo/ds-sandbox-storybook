@@ -9,3 +9,7 @@
 .ds-card-story-basic .ds-card {
   width: 400px;
 }
+
+.ds-card-story-statistic {
+  padding: 24px;
+}

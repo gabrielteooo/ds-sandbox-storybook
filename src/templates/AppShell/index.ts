@@ -1,6 +1,10 @@
 export {
   DsAppShell,
-  DS_APP_SHELL_DEFAULT_NAV,
-  type DsAppShellNavItem,
   type DsAppShellProps,
+  type DsAppShellVariant,
 } from './component';
+export { DS_APP_SHELL_NAV_ITEMS } from '../appShellNavItems';
+export {
+  DS_APP_SHELL_APPLICATION_HEADER,
+  DS_APP_SHELL_DASHBOARD_HEADER,
+} from '../appShellPresets';

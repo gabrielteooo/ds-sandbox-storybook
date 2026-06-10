@@ -8,6 +8,8 @@ export {
   DsDashboardFilter,
   DS_DASHBOARD_FILTER_FIELDS,
   DS_DASHBOARD_FILTER_OPTIONS,
+  DS_DASHBOARD_FILTER_PRIMARY_COUNT,
+  DS_DASHBOARD_FILTER_ADDITIONAL_COUNT,
   type DsDashboardFilterProps,
   type DsDashboardFilterField,
 } from './DsDashboardFilter';

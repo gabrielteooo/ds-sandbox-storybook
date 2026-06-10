@@ -1,4 +1,11 @@
 export * from './component';
+export * from './DsStatisticCard';
+export * from './DsNotificationCard';
+export { DsCardNotificationDot } from './DsCardNotificationDot';
+export { DsCardStatisticTag } from './DsCardStatisticTag';
+export type { DsCardStatisticTagProps } from './DsCardStatisticTag';
+export { DsCardFooterButton } from './DsCardFooterButton';
+export type { DsCardFooterButtonProps } from './DsCardFooterButton';
 export { DS_CARD_PANEL } from './cardPanelMetrics';
 export { DS_CARD_SIZES, mapDsCardSizeToAnt } from './cardPresets';
 export { CardThemeProvider } from './CardThemeProvider';

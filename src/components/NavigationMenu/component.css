@@ -1,0 +1,311 @@
+/**
+ * MCP DS Sandbox Navigation Menu — Figma 218:15636.
+ */
+
+.ds-navigation-menu {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--component-menu-bg-default);
+  box-sizing: border-box;
+}
+
+.ds-navigation-menu--collapsed {
+  /* TOKEN GAP: Figma Component/shadow-default — no shadow token in tokens.css */
+  box-shadow:
+    0 0 1px rgba(0, 0, 0, 0.04),
+    0 2px 2px rgba(0, 0, 0, 0.04);
+}
+
+.ds-navigation-menu__top {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--primitive-space-xs, 8px);
+  padding-block: var(--primitive-space-lg, 24px);
+  min-height: 0;
+}
+
+.ds-navigation-menu__logo {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding-inline: var(--primitive-space-lg, 20px);
+}
+
+.ds-navigation-menu--collapsed .ds-navigation-menu__logo {
+  justify-content: center;
+  padding-inline: var(--primitive-space-base, 16px);
+}
+
+/* ── Logo — Figma 22506:8661 ────────────────────────────────────── */
+
+.ds-menu-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+  min-height: 48px;
+}
+
+.ds-navigation-menu--collapsed .ds-menu-logo {
+  min-height: 40px;
+}
+
+.ds-menu-logo__mark {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.ds-menu-logo__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ds-menu-logo__label {
+  font-family: var(--text-lg-medium-font-family);
+  font-size: var(--text-lg-medium-font-size);
+  font-weight: var(--text-lg-medium-font-weight);
+  /* Figma LG/Medium uses line-h/space-lg (24px), not text-lg-medium line-height */
+  line-height: var(--primitive-space-lg, 24px);
+  color: var(--color-text-white);
+}
+
+/* ── Search — Figma Input/Search 218:18466 ──────────────────────── */
+
+.ds-navigation-menu__search {
+  padding-block: var(--primitive-space-base, 16px) 12px;
+  padding-inline: var(--primitive-space-lg, 20px);
+}
+
+.ds-navigation-menu--collapsed .ds-navigation-menu__search {
+  display: flex;
+  justify-content: center;
+  padding-inline: 0;
+}
+
+.ds-navigation-menu__search-input.ds-input {
+  width: 100%;
+}
+
+.ds-navigation-menu__search-input .ant-input,
+.ds-navigation-menu__search-input .ant-input-affix-wrapper {
+  background: transparent;
+  color: var(--component-menu-text-default);
+}
+
+.ds-navigation-menu__search-input .ant-input::placeholder,
+.ds-navigation-menu__search-input .ant-input-affix-wrapper input::placeholder {
+  color: var(--component-menu-text-default);
+}
+
+.ds-navigation-menu__search-input .ds-input-search-enter .ant-btn {
+  background: transparent;
+}
+
+.ds-navigation-menu__search-input
+  .ds-input-search-enter
+  .ant-btn:not(:disabled)
+  .ant-btn-icon
+  .ds-icon {
+  color: var(--component-menu-text-default);
+}
+
+.ds-navigation-menu__search-input
+  .ds-input-search-enter
+  .ant-btn:not(:disabled):hover
+  .ant-btn-icon
+  .ds-icon {
+  color: var(--component-menu-text-hover);
+}
+
+.ds-navigation-menu__search-icon-btn .ds-icon {
+  color: var(--component-menu-text-default);
+}
+
+.ds-navigation-menu__search-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--component-input-border-default);
+  border-radius: var(--primitive-radius-sm, 6px);
+  background: transparent;
+  cursor: pointer;
+  color: var(--component-menu-text-default);
+}
+
+.ds-navigation-menu__search-icon-btn:hover {
+  color: var(--component-menu-text-hover);
+  border-color: var(--component-input-border-hover);
+}
+
+/* ── Ant Menu overrides — Figma 376:28894 / 1213:27091 ─────────── */
+
+.ds-navigation-menu__menu.ant-menu {
+  flex: 1 1 auto;
+  width: 100%;
+  background: transparent;
+  border-inline-end: none;
+}
+
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-item,
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-submenu-title {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+  height: 48px;
+  margin: 0;
+  width: 100%;
+  padding-inline: var(--primitive-space-lg, 20px) !important;
+  border-radius: 0;
+  color: var(--component-menu-text-default);
+}
+
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-item .ant-menu-item-icon,
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-submenu-title .ant-menu-item-icon {
+  color: inherit;
+}
+
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-item .ds-icon,
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-submenu-title .ds-icon {
+  color: inherit;
+}
+
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-item-selected {
+  background: var(--component-menu-bg-active) !important;
+  color: var(--component-menu-text-active) !important;
+}
+
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-item:hover,
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-submenu-title:hover {
+  background: var(--component-menu-bg-hover) !important;
+  color: var(--component-menu-text-hover) !important;
+}
+
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-item-disabled,
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-submenu-disabled > .ant-menu-submenu-title {
+  color: var(--component-menu-text-disabled) !important;
+  opacity: 1;
+}
+
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-sub.ant-menu-inline {
+  background: var(--component-menu-bg-secondary) !important;
+  padding-block: var(--primitive-space-xxs, 4px);
+}
+
+.ds-navigation-menu__menu.ant-menu-dark .ant-menu-sub .ant-menu-item {
+  padding-left: 52px !important;
+}
+
+.ds-navigation-menu__item-label {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ds-navigation-menu__item-label-primary,
+.ds-navigation-menu__item-label-secondary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-navigation-menu__item-label-secondary {
+  color: inherit;
+}
+
+.ds-navigation-menu--collapsed .ds-navigation-menu__menu.ant-menu-inline-collapsed
+  > .ant-menu-item,
+.ds-navigation-menu--collapsed .ds-navigation-menu__menu.ant-menu-inline-collapsed
+  > .ant-menu-submenu > .ant-menu-submenu-title {
+  gap: 0;
+  padding-inline: 0 !important;
+  justify-content: center;
+}
+
+.ds-navigation-menu--collapsed
+  .ds-navigation-menu__menu.ant-menu-inline-collapsed
+  .ant-menu-title-content {
+  display: none !important;
+}
+
+.ds-navigation-menu--collapsed
+  .ds-navigation-menu__menu.ant-menu-inline-collapsed
+  .ant-menu-submenu-expand-icon,
+.ds-navigation-menu--collapsed
+  .ds-navigation-menu__menu.ant-menu-inline-collapsed
+  .ant-menu-submenu-arrow {
+  display: none !important;
+}
+
+.ds-navigation-menu--collapsed
+  .ds-navigation-menu__menu.ant-menu-inline-collapsed
+  .ant-menu-item-icon,
+.ds-navigation-menu--collapsed
+  .ds-navigation-menu__menu.ant-menu-inline-collapsed
+  .ant-menu-item-icon
+  .ds-icon {
+  margin: 0;
+}
+
+/* ── Divider — Figma 376:11262 ───────────────────────────────────── */
+
+.ds-navigation-menu__divider.ant-divider {
+  margin: 0;
+  /* TOKEN GAP: Figma menu divider stroke — no menu divider token in tokens.css */
+  border-block-start-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ── Footer — Log Out / Collapse Menu ───────────────────────────── */
+
+.ds-navigation-menu__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--primitive-space-xs, 8px);
+  padding-block: var(--primitive-space-sm, 12px);
+}
+
+.ds-navigation-menu__footer-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+  width: 100%;
+  height: 48px;
+  padding-inline: var(--primitive-space-lg, 20px);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--component-menu-text-default);
+  text-align: left;
+}
+
+.ds-navigation-menu__footer-btn:hover {
+  background: var(--component-menu-bg-hover);
+  color: var(--component-menu-text-hover);
+}
+
+.ds-navigation-menu__footer-btn:hover .ds-icon {
+  color: var(--component-menu-text-hover);
+}
+
+.ds-navigation-menu--collapsed .ds-navigation-menu__footer-btn {
+  justify-content: center;
+  padding-inline: 0;
+  width: 80px;
+}
+
+.ds-navigation-menu__footer-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: inherit;
+}
+
+.ds-navigation-menu__footer-btn .ds-icon {
+  flex-shrink: 0;
+  color: inherit;
+}

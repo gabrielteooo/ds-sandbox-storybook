@@ -1,7 +1,9 @@
-import { Button, Space } from 'antd';
+import { Button } from 'antd';
 import { DsIconSearch } from '../../icons';
 import type { ButtonProps } from 'antd';
-import type { ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
+import { DsButtonCompactItem } from './DsButtonCompactItem';
+import { DsButtonCompactSeparator } from './DsButtonCompactSeparator';
 import './component.css';
 
 export type DsButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'link' | 'danger';
@@ -140,10 +142,12 @@ export function DsButtonGroup({
 }: DsButtonGroupProps) {
   const buttonSize = mapGroupSizeToButtonSize(size);
   const buttonVariant: DsButtonVariant = variant === 'primary' ? 'primary' : 'secondary';
+  const separatorOrientation =
+    direction === 'horizontal' ? 'vertical' : 'horizontal';
 
   return (
-    <Space.Compact
-      direction={direction}
+    <div
+      role="group"
       className={[
         'ds-button-group',
         `ds-button-group--${variant}`,
@@ -154,15 +158,25 @@ export function DsButtonGroup({
         .filter(Boolean)
         .join(' ')}
     >
-      {labels.map((label) => (
-        <DsButton
-          key={label}
-          variant={buttonVariant}
-          size={buttonSize}
-          label={label}
-        />
+      {labels.map((label, index) => (
+        <Fragment key={`${label}-${index}`}>
+          {index > 0 ? (
+            <DsButtonCompactSeparator
+              variant={variant}
+              orientation={separatorOrientation}
+              size={size}
+            />
+          ) : null}
+          <DsButtonCompactItem>
+            <DsButton
+              variant={buttonVariant}
+              size={buttonSize}
+              label={label}
+            />
+          </DsButtonCompactItem>
+        </Fragment>
       ))}
-    </Space.Compact>
+    </div>
   );
 }
 

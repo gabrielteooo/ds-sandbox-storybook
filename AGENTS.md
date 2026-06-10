@@ -27,11 +27,11 @@ npm install
 npm run storybook
 ```
 
-**Sidebar structure:** `Foundation/` (tokens, icons) · `Components/` (primitives) · `Forms/` (Figma screen compositions) · `Templates/` (app shell & page templates for full-screen implementation).
+**Sidebar structure:** `Foundation/` (tokens, icons) · `Components/` (primitives) · `Forms/` (Figma screen compositions) · `Templates/` (app shell for full-screen implementation).
 
 **Product mockups** (not in Storybook): standalone HTML via Vite — e.g. `npm run mockup:service-config` opens `mockups/service-asset-config.html` (source in `src/mockups/ServiceAssetConfigForm/`).
 
-Templates live in `src/templates/` — compose `DsAppShell` + `DsPageTemplate` when building product pages from Figma.
+Templates live in `src/templates/` — use `DsAppShell` when building product pages from Figma.
 
 ## Figma Code Connect
 

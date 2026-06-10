@@ -1,13 +1,9 @@
 export {
   DsAppShell,
-  DS_APP_SHELL_DEFAULT_NAV,
-  type DsAppShellNavItem,
+  DS_APP_SHELL_APPLICATION_HEADER,
+  DS_APP_SHELL_DASHBOARD_HEADER,
+  DS_APP_SHELL_NAV_ITEMS,
   type DsAppShellProps,
+  type DsAppShellVariant,
 } from './AppShell';
-export {
-  DsPageTemplate,
-  DS_PAGE_TEMPLATE_VARIANTS,
-  type DsPageTemplateProps,
-  type DsPageTemplateVariant,
-} from './PageTemplate';
 export { DS_APP_SHELL } from './appShellMetrics';

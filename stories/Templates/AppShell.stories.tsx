@@ -1,7 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { DsButton } from '../../src/components/Button';
-import '../../src/components/Button/component.css';
-import { DsAppShell, type DsAppShellProps } from '../../src/templates/AppShell';
+import {
+  DsAppShell,
+  type DsAppShellProps,
+} from '../../src/templates/AppShell';
+import '../../src/templates/AppShell/component.css';
+
+const FIGMA = {
+  application:
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22552-74306',
+  dashboard:
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22552-74949',
+} as const;
 
 const meta: Meta<DsAppShellProps> = {
   title: 'Templates/App Shell',
@@ -12,22 +21,28 @@ const meta: Meta<DsAppShellProps> = {
     docs: {
       description: {
         component:
-          'Application shell for product screens — global header, optional sidebar navigation, and a content slot. Use as the outer frame when implementing pages from Figma.',
+          'Application shell composed from **Navigation Menu**, **Global Header** (or **Dashboard Header**), and a topology-pattern content area. Use as the outer frame when implementing product pages from Figma.',
       },
     },
   },
   args: {
-    productName: 'MCP DS Sandbox',
+    variant: 'application',
     showSidebar: true,
-    selectedNavKey: 'home',
+    defaultNavCollapsed: false,
   },
   argTypes: {
-    productName: { control: 'text' },
+    variant: {
+      control: 'select',
+      options: ['application', 'dashboard'],
+      description: 'Application page (default header) or Dashboard page (filters + Qlik bar).',
+    },
     showSidebar: { control: 'boolean' },
-    selectedNavKey: { control: 'text' },
-    navItems: { table: { disable: true } },
-    headerExtra: { table: { disable: true } },
+    defaultNavCollapsed: { control: 'boolean' },
     children: { table: { disable: true } },
+    applicationHeaderProps: { table: { disable: true } },
+    dashboardHeaderProps: { table: { disable: true } },
+    navCollapsed: { table: { disable: true } },
+    onNavCollapseChange: { table: { disable: true } },
     className: { table: { disable: true } },
   },
 };
@@ -35,45 +50,36 @@ const meta: Meta<DsAppShellProps> = {
 export default meta;
 type Story = StoryObj<DsAppShellProps>;
 
-const sampleContent = (
-  <div
-    style={{
-      padding: 24,
-      background: '#fff',
-      borderRadius: 8,
-      border: '1px dashed #d9d9d9',
-      color: 'rgba(0,0,0,0.55)',
-      minHeight: 320,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    Main content area
-  </div>
-);
-
-/** Header + sidebar + content — default product chrome. */
-export const Default: Story = {
-  render: (args) => <DsAppShell {...args}>{sampleContent}</DsAppShell>,
-};
-
-/** Global header only — no sidebar (e.g. auth or marketing flows). */
-export const HeaderOnly: Story = {
+/** Figma App shell/Application page — global header + empty topology content area. */
+export const ApplicationPage: Story = {
   args: {
-    showSidebar: false,
+    variant: 'application',
   },
-  render: (args) => <DsAppShell {...args}>{sampleContent}</DsAppShell>,
+  render: (args) => <DsAppShell {...args} />,
+  parameters: {
+    design: { type: 'figma', url: FIGMA.application },
+    docs: {
+      description: {
+        story:
+          'Default application page shell with breadcrumbs, data sync metadata, and utility actions. Content area uses the FMS topographic background pattern.',
+      },
+    },
+  },
 };
 
-/** Example header actions in the global header slot. */
-export const WithHeaderActions: Story = {
-  render: (args) => (
-    <DsAppShell
-      {...args}
-      headerExtra={<DsButton variant="primary" size="small" label="Action" />}
-    >
-      {sampleContent}
-    </DsAppShell>
-  ),
+/** Figma App shell/Dashboard page — dashboard header with filters and Qlik bar. */
+export const DashboardPage: Story = {
+  args: {
+    variant: 'dashboard',
+  },
+  render: (args) => <DsAppShell {...args} />,
+  parameters: {
+    design: { type: 'figma', url: FIGMA.dashboard },
+    docs: {
+      description: {
+        story:
+          'Dashboard page shell with filter row, Qlik chip bar, and empty topology content area for widgets.',
+      },
+    },
+  },
 };

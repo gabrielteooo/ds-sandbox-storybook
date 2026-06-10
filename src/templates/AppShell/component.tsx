@@ -1,92 +1,103 @@
-import { DsIconAppstore, DsIconFileText, DsIconGear, DsIconHome } from '../../icons';
-import { Layout, Menu } from 'antd';
-import type { MenuProps } from 'antd';
-import type { ReactNode } from 'react';
-import { DS_APP_SHELL } from '../appShellMetrics';
+import { useState, type ReactNode } from 'react';
+import '../../components/Avatar/component.css';
+import '../../components/Breadcrumb/component.css';
+import '../../components/Button/component.css';
+import '../../components/GlobalHeader/component.css';
+import '../../components/Input/component.css';
+import '../../components/NavigationMenu/component.css';
+import '../../components/Select/component.css';
+import '../../components/Tab/component.css';
+import {
+  DsDashboardHeader,
+  type DsDashboardHeaderProps,
+} from '../../components/GlobalHeader/DsDashboardHeader';
+import {
+  DsGlobalHeader,
+  type DsGlobalHeaderProps,
+} from '../../components/GlobalHeader';
+import { DsNavigationMenu } from '../../components/NavigationMenu';
+import {
+  DS_APP_SHELL_APPLICATION_HEADER,
+  DS_APP_SHELL_DASHBOARD_HEADER,
+} from '../appShellPresets';
+import { DS_APP_SHELL_NAV_ITEMS } from '../appShellNavItems';
 import './component.css';
 
-const { Header, Sider, Content } = Layout;
-
-export interface DsAppShellNavItem {
-  key: string;
-  label: string;
-  icon?: ReactNode;
-}
-
-export const DS_APP_SHELL_DEFAULT_NAV: DsAppShellNavItem[] = [
-  { key: 'home', label: 'Home', icon: <DsIconHome /> },
-  { key: 'documents', label: 'Documents', icon: <DsIconFileText /> },
-  { key: 'apps', label: 'Applications', icon: <DsIconAppstore /> },
-  { key: 'settings', label: 'Settings', icon: <DsIconGear /> },
-];
+export type DsAppShellVariant = 'application' | 'dashboard';
 
 export interface DsAppShellProps {
-  children: ReactNode;
-  productName?: string;
+  /** Application (default global header) or Dashboard (filters + Qlik bar). */
+  variant?: DsAppShellVariant;
+  children?: ReactNode;
   showSidebar?: boolean;
-  navItems?: DsAppShellNavItem[];
-  selectedNavKey?: string;
-  headerExtra?: ReactNode;
+  navCollapsed?: boolean;
+  defaultNavCollapsed?: boolean;
+  onNavCollapseChange?: (collapsed: boolean) => void;
+  applicationHeaderProps?: Partial<DsGlobalHeaderProps>;
+  dashboardHeaderProps?: Partial<DsDashboardHeaderProps>;
   className?: string;
 }
 
-function rootClass(showSidebar: boolean, className?: string) {
-  return [
-    'ds-app-shell',
-    showSidebar ? 'ds-app-shell--with-sidebar' : 'ds-app-shell--header-only',
-    className,
-  ]
+function rootClass(variant: DsAppShellVariant, className?: string) {
+  return ['ds-app-shell', `ds-app-shell--${variant}`, className]
     .filter(Boolean)
     .join(' ');
 }
 
 export function DsAppShell({
+  variant = 'application',
   children,
-  productName = 'MCP DS Sandbox',
   showSidebar = true,
-  navItems = DS_APP_SHELL_DEFAULT_NAV,
-  selectedNavKey = 'home',
-  headerExtra,
+  navCollapsed,
+  defaultNavCollapsed = false,
+  onNavCollapseChange,
+  applicationHeaderProps,
+  dashboardHeaderProps,
   className,
 }: DsAppShellProps) {
-  const menuItems: MenuProps['items'] = navItems.map((item) => ({
-    key: item.key,
-    icon: item.icon,
-    label: item.label,
-  }));
+  const [internalCollapsed, setInternalCollapsed] = useState(defaultNavCollapsed);
+  const collapsed = navCollapsed ?? internalCollapsed;
+
+  const handleCollapseChange = (next: boolean) => {
+    if (navCollapsed === undefined) {
+      setInternalCollapsed(next);
+    }
+    onNavCollapseChange?.(next);
+  };
 
   return (
-    <div className={rootClass(showSidebar, className)}>
-      <Layout className="ds-app-shell__layout">
-        <Header className="ds-app-shell__header">
-          <div className="ds-app-shell__brand">
-            <span className="ds-app-shell__logo" aria-hidden />
-            <h1 className="ds-app-shell__title text-base-normal">{productName}</h1>
-          </div>
-          {headerExtra ? (
-            <div className="ds-app-shell__header-extra">{headerExtra}</div>
-          ) : null}
-        </Header>
-        <Layout>
-          {showSidebar ? (
-            <Sider
-              className="ds-app-shell__sider"
-              width={DS_APP_SHELL.sidebarWidthPx}
-              theme="light"
-            >
-              <Menu
-                mode="inline"
-                selectedKeys={[selectedNavKey]}
-                items={menuItems}
-                className="ds-app-shell__menu"
-              />
-            </Sider>
-          ) : null}
-          <Content className="ds-app-shell__content">
+    <div className={rootClass(variant, className)}>
+      {showSidebar ? (
+        <DsNavigationMenu
+          items={DS_APP_SHELL_NAV_ITEMS}
+          collapsed={collapsed}
+          onCollapseChange={handleCollapseChange}
+          defaultSelectedKeys={['home']}
+          defaultOpenKeys={['module1']}
+          logoLabel="Fleet Management System"
+        />
+      ) : null}
+
+      <div className="ds-app-shell__main">
+        {variant === 'dashboard' ? (
+          <DsDashboardHeader
+            {...DS_APP_SHELL_DASHBOARD_HEADER}
+            {...dashboardHeaderProps}
+          />
+        ) : (
+          <DsGlobalHeader
+            type="default"
+            {...DS_APP_SHELL_APPLICATION_HEADER}
+            {...applicationHeaderProps}
+          />
+        )}
+
+        <main className="ds-app-shell__content">
+          {children ? (
             <div className="ds-app-shell__content-inner">{children}</div>
-          </Content>
-        </Layout>
-      </Layout>
+          ) : null}
+        </main>
+      </div>
     </div>
   );
 }

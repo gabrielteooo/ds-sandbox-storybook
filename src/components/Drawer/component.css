@@ -1,0 +1,127 @@
+/**
+ * MCP DS Sandbox Drawer — Figma 421:14508 / Drawer_Header 7031:61723 / Drawer_Actions 7031:61749.
+ *
+ * TOKEN GAPS:
+ *   No --component-drawer-* tokens beyond bg-default and bg-overlay.
+ *   Secondary shadow (0 0 4px / 0 4px 8px) has no shadow token.
+ */
+
+.ds-drawer.ant-drawer {
+  --ds-drawer-header-height: 56px;
+}
+
+.ds-drawer.ant-drawer .ant-drawer-mask {
+  background: var(--component-drawer-bg-overlay);
+}
+
+.ds-drawer.ant-drawer .ant-drawer-content-wrapper {
+  box-shadow: none;
+}
+
+.ds-drawer.ant-drawer .ant-drawer-content {
+  display: flex;
+  flex-direction: column;
+  background: var(--component-drawer-bg-default);
+}
+
+/* ── Header — Figma 7031:61723 ──────────────────────────────────── */
+
+.ds-drawer.ant-drawer .ant-drawer-header {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: var(--ds-drawer-header-height, 56px);
+  min-height: var(--ds-drawer-header-height, 56px);
+  margin: 0;
+  padding: 0 var(--primitive-space-lg, 24px);
+  border-bottom: 1px solid var(--color-border-split);
+  background: var(--color-bg-container);
+}
+
+.ds-drawer.ant-drawer .ant-drawer-header-title {
+  flex: 1 1 auto;
+  order: 1;
+  min-width: 0;
+}
+
+.ds-drawer.ant-drawer .ant-drawer-close {
+  order: 2;
+  margin: 0;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  color: var(--color-icon-default);
+}
+
+.ds-drawer.ant-drawer .ant-drawer-close:hover {
+  color: var(--color-icon-hover);
+  background: var(--color-bg-text-hover);
+  border-radius: var(--primitive-radius-xs, 4px);
+}
+
+.ds-drawer-header__title {
+  margin: 0;
+  color: var(--color-text-heading);
+}
+
+.ds-drawer__close-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: inherit;
+}
+
+/* ── Body ───────────────────────────────────────────────────────── */
+
+.ds-drawer.ant-drawer .ant-drawer-body {
+  flex: 1 1 auto;
+  padding: var(--primitive-space-lg, 24px);
+  background: var(--component-drawer-bg-default);
+  overflow: auto;
+}
+
+.ds-drawer__body-content {
+  margin: 0;
+  color: var(--color-text-default);
+}
+
+/* ── Footer slot ────────────────────────────────────────────────── */
+
+.ds-drawer.ant-drawer .ant-drawer-footer {
+  flex-shrink: 0;
+  padding: 0;
+  border-top: none;
+  background: var(--color-bg-container);
+}
+
+/* ── Actions — Figma 7031:61749 ─────────────────────────────────── */
+
+.ds-drawer-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xl, 32px);
+  padding: var(--primitive-space-lg, 24px);
+  border-top: 1px solid var(--color-border-split);
+  background: var(--color-bg-container);
+  /* TOKEN GAP: Figma Component/shadow-secondary — no shadow token in tokens.css */
+  box-shadow:
+    0 0 4px rgba(0, 0, 0, 0.04),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ds-drawer-actions__lhs {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.ds-drawer-actions__rhs {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--primitive-space-base, 16px);
+  min-width: 0;
+  min-height: 40px;
+}

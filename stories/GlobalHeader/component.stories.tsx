@@ -24,6 +24,8 @@ const FIGMA = {
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=4212-91089',
   dashboardFilter:
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22503-28865',
+  dashboardFilterExpanded:
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22778-3424',
   qlikFilterBar:
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=4276-31326',
 } as const;
@@ -181,12 +183,12 @@ export const DashboardHeader: StoryObj<DsDashboardHeaderProps> = {
   parameters: {
     design: {
       type: 'figma',
-      url: FIGMA.dashboardHeader,
+      url: FIGMA.dashboardFilterExpanded,
     },
     docs: {
       description: {
         story:
-          'Dashboard Header variant (4212:91089) — select a category in any filter dropdown to add a Qlik chip. Remove a chip with its clear icon, **Reset**, or the Qlik bar clear action.',
+          'Dashboard Header variant (4212:91089) — click **More filters** to reveal four additional filters in a second row (22778:3424). Select a category in any filter dropdown to add a Qlik chip. Remove a chip with its clear icon, **Reset**, or the Qlik bar clear action.',
       },
     },
   },

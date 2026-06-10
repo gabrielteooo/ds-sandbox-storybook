@@ -17,4 +17,18 @@ export const DS_CARD_PANEL = {
   extraButtonSizePx: 24,
   basicStoryGapPx: 30,
   basicStoryPaddingPx: 24,
+  /** Figma Statistic card 22458:10002 */
+  statisticBodyPaddingVerticalPx: 16,
+  statisticBodyPaddingHorizontalPx: 24,
+  statisticContentGapPx: 12,
+  statisticValueGapPx: 4,
+  statisticTrendGapPx: 8,
+  statisticFooterHeightPx: 48,
+  statisticTagIconSizePx: 12,
+  footerButtonIconSizePx: 16,
+  /** Figma Notification card 22460:1701 */
+  notificationWidthPx: 352,
+  notificationDotSizePx: 8,
+  notificationBodyContentWidthPx: 328,
+  notificationBodyGapPx: 16,
 } as const;

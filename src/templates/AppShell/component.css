@@ -1,79 +1,34 @@
 /**
- * App shell — Figma Header/Global header + sidebar nav pattern.
+ * App shell — Figma 22552:74306 (Application) · 22552:74949 (Dashboard).
+ * Composes Navigation Menu + Global Header + topology content background.
  */
 
 .ds-app-shell {
+  display: flex;
+  align-items: stretch;
   min-height: 100vh;
-  background: var(--color-bg-layout, #f5f5f5);
+  background: var(--color-bg-base);
   font-family: var(--type-font-inter, Inter, system-ui, sans-serif);
 }
 
-.ds-app-shell__layout {
+.ds-app-shell__main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
   min-height: 100vh;
 }
 
-.ds-app-shell__header.ant-layout-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  padding: 0 var(--primitive-space-base, 16px);
-  background: var(--color-bg-container, #fff);
-  border-bottom: 1px solid var(--color-border-secondary, #f0f0f0);
-  line-height: 1;
-}
-
-.ds-app-shell__brand {
-  display: flex;
-  align-items: center;
-  gap: var(--primitive-space-sm, 12px);
-  min-width: 0;
-}
-
-.ds-app-shell__logo {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--primitive-radius-sm, 6px);
-  background: var(--color-primary-default, #00636a);
-  flex-shrink: 0;
-}
-
-.ds-app-shell__title {
-  margin: 0;
-  color: var(--color-text-default, rgba(0, 0, 0, 0.88));
-}
-
-.ds-app-shell__header-extra {
-  display: flex;
-  align-items: center;
-  gap: var(--primitive-space-sm, 12px);
-  flex-shrink: 0;
-}
-
-.ds-app-shell__sider.ant-layout-sider {
-  background: var(--color-bg-container, #fff);
-  border-inline-end: 1px solid var(--color-border-secondary, #f0f0f0);
-}
-
-.ds-app-shell__menu.ant-menu {
-  border-inline-end: none;
-  padding: var(--primitive-space-xs, 8px);
-  background: transparent;
-}
-
-.ds-app-shell__menu .ant-menu-item-selected {
-  background: var(--color-primary-bg, #e6f2f2) !important;
-  color: var(--color-primary-default, #00636a) !important;
-}
-
-.ds-app-shell__content.ant-layout-content {
-  padding: var(--primitive-space-lg, 24px);
-  background: var(--color-bg-layout, #f5f5f5);
-  min-height: calc(100vh - 64px);
+.ds-app-shell__content {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: var(--color-bg-base);
 }
 
 .ds-app-shell__content-inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  min-height: 100%;
 }
