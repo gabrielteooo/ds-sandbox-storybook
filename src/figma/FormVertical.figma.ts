@@ -24,21 +24,38 @@ const type = instance.getEnum('Type', {
   'Radio Group': 'Radio Group',
   'Checkbox Group': 'Checkbox Group',
 });
-const showLabel = instance.getBoolean('Label') ?? true;
-const showCaption = instance.getBoolean('Caption') ?? false;
+
+const showLabel =
+  instance.getEnum('Label', { True: true, False: false }) ??
+  instance.getBoolean('Label') ??
+  true;
+const showCaption =
+  instance.getEnum('Caption', { True: true, False: false }) ??
+  instance.getBoolean('Caption') ??
+  false;
 
 const labelBlock = instance.findInstance('Input Label Vertical');
-const label = labelBlock?.getString('Text') ?? 'Input Label';
-const mark = labelBlock?.getEnum('Mark', {
-  None: 'none',
-  Optional: 'optional',
-  Required: 'required',
-}) ?? 'none';
-const showTooltip = labelBlock?.getEnum('Tooltip', {
-  True: true,
-  False: false,
-}) ?? false;
-const showHelpIcon = labelBlock?.getBoolean('Show help icon') ?? false;
+
+let label = 'Input Label';
+let mark: string = 'none';
+let showTooltip = false;
+let showHelpIcon = false;
+
+if (labelBlock && labelBlock.type === 'INSTANCE') {
+  label = labelBlock.getString('Text') ?? label;
+  const labelMark = labelBlock.getEnum('Mark', {
+    None: 'none',
+    Optional: 'optional',
+    Required: 'required',
+  });
+  if (labelMark) mark = labelMark;
+  showTooltip =
+    labelBlock.getEnum('Tooltip', {
+      True: true,
+      False: false,
+    }) ?? false;
+  showHelpIcon = labelBlock.getBoolean('Show help icon') ?? false;
+}
 
 export default {
   example: figma.code`
