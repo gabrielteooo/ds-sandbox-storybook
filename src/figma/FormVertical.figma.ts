@@ -24,8 +24,8 @@ const type = instance.getEnum('Type', {
   'Radio Group': 'Radio Group',
   'Checkbox Group': 'Checkbox Group',
 });
-const showLabel = instance.getBoolean('label') ?? true;
-const showCaption = instance.getBoolean('caption') ?? false;
+const showLabel = instance.getBoolean('Label') ?? true;
+const showCaption = instance.getBoolean('Caption') ?? false;
 
 const labelBlock = instance.findInstance('Input Label Vertical');
 const label = labelBlock?.getString('Text') ?? 'Input Label';
