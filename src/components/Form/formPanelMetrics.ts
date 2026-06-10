@@ -18,7 +18,7 @@ export const DS_FORM_PANEL = {
   inputLineHeightPx: 24,
   /** Figma Basic text field canvas (22737:7148) */
   basicTextPaddingPx: 40,
-  /** Figma Form Vertical Input variants (22737:6239) */
+  /** Figma Form / Vertical gallery (515:43856) */
   variantsWidthPx: 360,
   variantsPaddingPx: 24,
   labelToControlGapPx: 8,

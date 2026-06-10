@@ -24,8 +24,10 @@ const FIGMA = {
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=5004-6741',
   login:
     'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=516-42634',
+  formVertical:
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=515-43856',
   verticalVariants:
-    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=22737-6239',
+    'https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=515-43856',
 } as const;
 
 const decorators = [
@@ -152,7 +154,7 @@ export const Login: StoryObj<DsLoginFormProps> = {
   },
 };
 
-/** Figma Form Vertical Input variants (22737:6239). */
+/** Figma Form / Vertical (515:43856) — full Type variant gallery. */
 export const VerticalInputVariants: StoryObj<DsVerticalInputVariantsProps> = {
   name: 'Vertical Input Variants',
   render: (args) => <DsVerticalInputVariants {...args} />,
@@ -164,11 +166,11 @@ export const VerticalInputVariants: StoryObj<DsVerticalInputVariantsProps> = {
     className: { table: { disable: true } },
   },
   parameters: {
-    design: { type: 'figma', url: FIGMA.verticalVariants },
+    design: { type: 'figma', url: FIGMA.formVertical },
     docs: {
       description: {
         story:
-          'Full vertical form field gallery: text, select, password, textarea, pickers, radio, checkbox, switch, button, upload, slider, read-only.',
+          'Full **Form / Vertical** gallery — each row is one `FormVertical` Type variant (Text, Select, Password, Phone, Currency, Slider, Drag and Drop, etc.).',
       },
     },
   },

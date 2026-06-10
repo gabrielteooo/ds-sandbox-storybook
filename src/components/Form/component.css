@@ -239,7 +239,25 @@
   color: var(--color-system-warning-default, #d46b08);
 }
 
-/* —— Vertical input variants (22737:6239) —— */
+/* ── Form / Vertical — Figma 515:43856 ─────────────────────────────────── */
+
+.ds-form-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: var(--ds-form-field-width, 360px);
+}
+
+.ds-form-vertical__control {
+  width: 100%;
+}
+
+.ds-form-vertical--slider {
+  padding-bottom: var(--primitive-space-2xl, 40px);
+}
+
+/* —— Vertical input variants gallery (515:43856) —— */
 .ds-form--variants.ant-form {
   width: 100%;
   max-width: 408px;

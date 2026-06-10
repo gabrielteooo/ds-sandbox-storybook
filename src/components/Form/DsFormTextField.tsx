@@ -1,8 +1,7 @@
-import { Form } from 'antd';
-import { DsInput } from '../Input/component';
 import { DsForm } from './component';
-import { InputCaption, type InputCaptionStatus } from './inputCaption';
+import { FormVertical } from './formVertical';
 import { InputLabelVertical, labelModeToMark } from './inputLabelVertical';
+import type { InputCaptionStatus } from './inputCaption';
 import { DS_FORM_PANEL, dsFormOuterWidthPx } from './formPanelMetrics';
 import '../Input/component.css';
 import './component.css';
@@ -73,26 +72,19 @@ export function DsFormTextField({
       requiredMark={false}
       disabled={disabled}
     >
-      <Form.Item
-        className="ds-form__field"
-        label={
-          <InputLabelVertical
-            label={label}
-            mark={labelModeToMark(labelMode)}
-            showTooltip={showTooltip}
-            showHelpIcon={showHelpIcon}
-          />
-        }
+      <FormVertical
+        type="Text"
         name="text"
         rules={rules}
-        extra={
-          caption ? (
-            <InputCaption text={caption} status={captionStatus} />
-          ) : undefined
-        }
-      >
-        <DsInput kind="basic" size="base" placeholder={placeholder} disabled={disabled} />
-      </Form.Item>
+        label={label}
+        mark={labelModeToMark(labelMode)}
+        showTooltip={showTooltip}
+        showHelpIcon={showHelpIcon}
+        caption={caption}
+        captionStatus={captionStatus}
+        placeholder={placeholder}
+        disabled={disabled}
+      />
     </DsForm>
   );
 }
