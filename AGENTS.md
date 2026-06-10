@@ -40,5 +40,5 @@ Maps published Figma library components to `Ds*` React implementations so Figma 
 - **Config:** `figma.config.json` · **Templates:** `src/figma/*.figma.ts`
 - **Publish:** `npm run figma:connect:publish` (requires Figma personal access token with Code Connect scope — set `FIGMA_ACCESS_TOKEN`)
 - **File key:** `9EWHgAT1kDwK3NmfT8hBFk` · **Library:** MCP DS Sandbox
-- **Mapped so far:** Alert (`508:37318`), Button (`376:26847`), Button Group (`3126:27821`), Button Compact Item (`3126:25865`), Button Compact Separator (`3126:27636`), Drawer (`421:14508`), Drawer Header (`7031:61723`), Drawer Actions (`7031:61749`), Form / Vertical (`515:43856`), Form Text Field (`515:43853`), Input Label Vertical (`388:11598`), Input Caption (`388:11597`), Login Form (`516:42634`), Icon (`472:11122`)
+- **Mapped so far:** Alert (`508:37318`), Button (`376:26847`), Button Group (`3126:27821`), Button Compact Item (`3126:25865`), Button Compact Separator (`3126:27636`), Drawer (`513:39439`), Drawer Header (`7031:61723`), Drawer Actions (`7031:61749`), Form / Vertical (`515:43856`), Input Label Vertical (`388:11598`), Input Caption (`388:11597`), Login Form (`516:42635`), Icon (`472:11122`)
 - Add more templates alongside existing ones; node IDs are in each story’s `parameters.design.url` and `design-system-audit.md`.

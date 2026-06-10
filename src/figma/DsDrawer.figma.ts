@@ -1,10 +1,16 @@
-// url=https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=421-14508
+// url=https://www.figma.com/design/9EWHgAT1kDwK3NmfT8hBFk/MCP-DS-Sandbox?node-id=513-39439
 // source=src/components/Drawer/component.tsx
 // component=DsDrawer
 import figma from 'figma';
 
 const instance = figma.selectedInstance;
 
+const placement = instance.getEnum('Placement', {
+  Right: 'right',
+  Left: 'left',
+  Top: 'top',
+  Bottom: 'bottom',
+}) ?? 'right';
 const title = instance.getString('Title');
 const closable = instance.getBoolean('Close Icon');
 const showSecondary = instance.getBoolean('Button Outline');
@@ -25,7 +31,7 @@ export default {
     <DsDrawer
       open={true}
       title="${title}"
-      placement="right"
+      placement="${placement}"
       closable={${closable}}
       showFooter={${showFooter}}
       cancelText="${cancelText}"
