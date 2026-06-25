@@ -8,7 +8,9 @@
     "build-storybook": "storybook build",
     "build-storybook:gh-pages": "STORYBOOK_BASE_PATH=/ds-sandbox-storybook/ storybook build",
     "mockup:service-config": "vite --open /mockups/service-asset-config.html",
+    "mockup:nimbus-production": "vite --open /mockups/nimbus-production.html",
     "build:mockup:service-config": "vite build",
+    "build:mockup:nimbus-production": "vite build",
     "figma:connect:publish": "figma connect publish",
     "figma:connect:publish:dry-run": "figma connect publish --dry-run"
   },

@@ -1,0 +1,202 @@
+/**
+ * MCP DS Sandbox Collapse — Figma collapse-group 1218:22617 / collapse-item 407:46 /
+ * collapse-drawer-header 10647:1971.
+ *
+ * TOKEN GAPS:
+ *   No --component-collapse-* padding or typography tokens — uses primitive spacing
+ *   and text utility classes aligned to Figma components/collapse/global/* aliases.
+ */
+
+/* ── Group container — Figma 1218:22616 ─────────────────────────── */
+
+.ds-collapse.ant-collapse {
+  border-color: var(--component-collapse-border);
+  border-radius: var(--primitive-radius-base, 8px);
+  overflow: hidden;
+  background: var(--component-collapse-bg-content);
+}
+
+.ds-collapse.ant-collapse > .ant-collapse-item {
+  border-bottom: 1px solid var(--component-collapse-border);
+}
+
+.ds-collapse.ant-collapse > .ant-collapse-item:last-child {
+  border-bottom: none;
+}
+
+/* ── Panel header — Figma collapse-item Collapse Head ─────────────── */
+
+.ds-collapse.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  align-items: center;
+  gap: var(--primitive-space-sm, 12px);
+  margin: 0;
+  padding: 0;
+  background: var(--component-collapse-bg-header);
+  color: var(--color-text-default);
+  line-height: inherit;
+}
+
+.ds-collapse.ant-collapse
+  > .ant-collapse-item.ant-collapse-item-active
+  > .ant-collapse-header {
+  border-bottom: 1px solid var(--component-collapse-border);
+}
+
+.ds-collapse.ant-collapse > .ant-collapse-item > .ant-collapse-header:hover {
+  background: var(--component-collapse-bg-header);
+}
+
+.ds-collapse.ant-collapse
+  > .ant-collapse-item.ant-collapse-item-disabled
+  > .ant-collapse-header {
+  cursor: not-allowed;
+  background: var(--component-collapse-bg-header);
+}
+
+/* Size-specific header padding — Figma components/collapse/global/* */
+
+.ds-collapse.ds-collapse--small
+  > .ant-collapse-item
+  > .ant-collapse-header {
+  padding: var(--primitive-space-xs, 8px) var(--primitive-space-sm, 12px)
+    var(--primitive-space-xs, 8px) var(--primitive-space-xs, 8px);
+}
+
+.ds-collapse.ds-collapse--default
+  > .ant-collapse-item
+  > .ant-collapse-header {
+  padding: var(--primitive-space-sm, 12px) var(--primitive-space-base, 16px)
+    var(--primitive-space-sm, 12px) var(--primitive-space-sm, 12px);
+}
+
+.ds-collapse.ds-collapse--large
+  > .ant-collapse-item
+  > .ant-collapse-header {
+  padding: var(--primitive-space-base, 16px) var(--primitive-space-lg, 24px)
+    var(--primitive-space-base, 16px) var(--primitive-space-base, 16px);
+}
+
+/* Right-aligned expand icon — symmetric horizontal padding */
+
+.ds-collapse.ds-collapse--icon-right.ds-collapse--small
+  > .ant-collapse-item
+  > .ant-collapse-header {
+  padding-inline: var(--primitive-space-sm, 12px);
+}
+
+.ds-collapse.ds-collapse--icon-right.ds-collapse--default
+  > .ant-collapse-item
+  > .ant-collapse-header {
+  padding-inline: var(--primitive-space-base, 16px);
+}
+
+.ds-collapse.ds-collapse--icon-right.ds-collapse--large
+  > .ant-collapse-item
+  > .ant-collapse-header {
+  padding-inline: var(--primitive-space-lg, 24px);
+}
+
+/* ── Expand icon — Figma chevron-right / chevron-down / chevron-up ─ */
+
+.ds-collapse .ant-collapse-expand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  color: var(--color-icon-default);
+  transform: none !important;
+}
+
+.ds-collapse .ds-collapse__expand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: inherit;
+}
+
+/* ── Panel header label row ───────────────────────────────────────── */
+
+.ds-collapse-panel-header {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: var(--primitive-space-sm, 12px);
+  min-width: 0;
+}
+
+.ds-collapse-panel-header__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--color-text-default);
+}
+
+.ds-collapse-panel-header--disabled .ds-collapse-panel-header__label {
+  color: var(--color-text-disabled);
+}
+
+.ds-collapse-panel-header__extra {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-icon-default);
+}
+
+/* Ant extra slot alignment */
+
+.ds-collapse.ant-collapse .ant-collapse-extra {
+  margin: 0;
+  color: var(--color-icon-default);
+}
+
+/* ── Panel body — Figma Collapse Body ─────────────────────────────── */
+
+.ds-collapse.ant-collapse .ant-collapse-content {
+  border-top: none;
+  background: var(--component-collapse-bg-content);
+  color: var(--color-text-default);
+}
+
+.ds-collapse.ant-collapse .ant-collapse-content > .ant-collapse-content-box {
+  padding: 0;
+}
+
+.ds-collapse-panel__body {
+  margin: 0;
+  color: var(--color-text-default);
+}
+
+.ds-collapse.ds-collapse--small .ds-collapse-panel__body {
+  padding: var(--primitive-space-sm, 12px);
+}
+
+.ds-collapse.ds-collapse--default .ds-collapse-panel__body {
+  padding: var(--primitive-space-base, 16px);
+}
+
+.ds-collapse.ds-collapse--large .ds-collapse-panel__body {
+  padding: var(--primitive-space-lg, 24px);
+}
+
+/* ── Drawer section header — Figma 10647:1971 ─────────────────────── */
+
+.ds-collapse-drawer-header {
+  display: flex;
+  align-items: center;
+  gap: var(--primitive-space-xs, 8px);
+  padding: var(--primitive-space-sm, 12px)
+    var(--primitive-space-base, 16px);
+  color: var(--color-text-default);
+}
+
+.ds-collapse-drawer-header--collapsed {
+  border-radius: var(--primitive-radius-base, 8px);
+}
+
+.ds-collapse-drawer-header--expanded {
+  border-radius: var(--primitive-radius-base, 8px) var(--primitive-radius-base, 8px)
+    0 0;
+  background: var(--color-fill-tertiary);
+}

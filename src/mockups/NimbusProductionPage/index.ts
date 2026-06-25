@@ -1,0 +1,1 @@
+export { DsNimbusProductionPage } from './component';

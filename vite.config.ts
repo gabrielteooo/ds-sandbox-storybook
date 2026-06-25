@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: './',
   build: {
     outDir: 'dist',
     emptyOutDir: false,
@@ -12,6 +13,10 @@ export default defineConfig({
         'service-asset-config': resolve(
           __dirname,
           'mockups/service-asset-config.html',
+        ),
+        'nimbus-production': resolve(
+          __dirname,
+          'mockups/nimbus-production.html',
         ),
       },
     },
