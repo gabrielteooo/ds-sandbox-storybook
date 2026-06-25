@@ -1,0 +1,134 @@
+/**
+ * MCP DS Sandbox Chip — Figma 16020:3829.
+ *
+ * TOKEN GAPS:
+ *   Pressed border width (1.5px) has no border-width token.
+ */
+
+.ds-chip {
+  --ds-chip-radius: var(--primitive-radius-base, 8px);
+
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── Ant Button reset — Figma round filter chip ───────────────────── */
+
+.ds-chip .ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  height: auto;
+  min-height: unset;
+  padding: 0;
+  line-height: inherit;
+  box-shadow: none;
+  border-radius: var(--ds-chip-radius) !important;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    border-width 0.2s;
+}
+
+.ds-chip--base .ant-btn {
+  min-height: var(--ds-chip-height, 40px);
+  height: var(--ds-chip-height, 40px);
+  padding-inline: var(--primitive-space-base, 16px);
+}
+
+.ds-chip--small .ant-btn {
+  --ds-chip-height: 30px;
+
+  min-height: var(--ds-chip-height);
+  height: var(--ds-chip-height);
+  padding-inline: var(--primitive-space-sm, 12px);
+}
+
+.ds-chip--with-badge .ant-btn {
+  gap: var(--primitive-space-xs, 8px);
+}
+
+/* ── Default ──────────────────────────────────────────────────────── */
+
+.ds-chip .ant-btn-default:not(:disabled) {
+  background: var(--component-chip-bg-default);
+  border: var(--ds-chip-border-width, 1px) solid var(--component-chip-border-default);
+  color: var(--component-chip-text-default);
+}
+
+.ds-chip__label {
+  color: inherit;
+}
+
+/* ── Hover ────────────────────────────────────────────────────────── */
+
+.ds-chip .ant-btn-default:not(:disabled):hover {
+  background: var(--component-chip-bg-hover);
+  border-color: var(--component-chip-border-hover);
+  color: var(--component-chip-text-hover);
+}
+
+/* ── Pressed / selected — Figma State=Pressed ─────────────────────── */
+
+.ds-chip .ant-btn-default:not(:disabled):active,
+.ds-chip.ds-chip--selected .ant-btn-default:not(:disabled) {
+  --ds-chip-border-width: 1.5px;
+
+  background: var(--component-chip-bg-default);
+  border-color: var(--component-chip-border-active);
+  color: var(--component-chip-text-active);
+}
+
+.ds-chip.ds-chip--selected.ds-chip--base .ant-btn-default:not(:disabled) .ds-chip__label {
+  font-family: var(--text-base-strong-font-family);
+  font-size: var(--text-base-strong-font-size);
+  line-height: var(--text-base-strong-line-height);
+  font-weight: var(--text-base-strong-font-weight);
+}
+
+/* ── Disabled ─────────────────────────────────────────────────────── */
+
+.ds-chip.ds-chip--disabled .ant-btn-default:disabled {
+  background: var(--component-chip-bg-disabled);
+  border-color: var(--component-chip-border-disabled);
+  color: var(--component-chip-text-disable);
+  opacity: 1;
+}
+
+/* ── Leading badge — Figma Badge / Basic in chip ──────────────────── */
+
+.ds-chip-badge {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: var(--color-primary-bg);
+  border: 1px solid var(--color-primary-bg);
+  color: var(--color-primary-default);
+}
+
+.ds-chip-badge--base {
+  min-width: 20px;
+  height: 20px;
+  padding-inline: var(--primitive-space-xxs, 4px);
+  border-radius: var(--ds-chip-radius);
+}
+
+.ds-chip-badge--small {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--ds-chip-radius);
+}
+
+.ds-chip-badge__count {
+  color: inherit;
+}
+
+.ds-chip-badge--disabled {
+  background: var(--color-bg-container-disabled);
+  border-color: var(--color-bg-container-disabled);
+  color: var(--color-text-disabled);
+}
